@@ -55,13 +55,13 @@ function patchrom () {
 function upload_rom() {
     if [ $SCRIPTROM = "1" ]; then
         echo "Uploading"
-        scp  out/target/product/lavender/lineage-*.zip daniml3@frs.sourceforge.net:/home/frs/project/lavenderbuilds/aex/
+        scp  out/target/product/lavender/lineage-*.zip daniml3@frs.sourceforge.net:/home/frs/project/lavenderbuilds/lineage/
         elif [ $SCRIPTROM = "2" ]; then
         echo "Uploading"
-        scp  out/target/product/lavender/lineage-*.zip daniml3@frs.sourceforge.net:/home/frs/project/lavenderbuilds/aex/
+        scp  out/target/product/lavender/lineage-*.zip daniml3@frs.sourceforge.net:/home/frs/project/lavenderbuilds/lineage/
         elif [ $SCRIPTROM = "3" ]; then
         echo "Uploading"
-        scp  out/target/product/lavender/PixelExperience*.zip daniml3@frs.sourceforge.net:/home/frs/project/lavenderbuilds/aex/
+        scp  out/target/product/lavender/PixelExperience*.zip daniml3@frs.sourceforge.net:/home/frs/project/lavenderbuild/pixel/
         ROMDIR="~/android/pixel"
         elif [ $SCRIPTROM = "4" ]; then
         echo "Uploading"
@@ -110,6 +110,7 @@ function buildrom() {
         exit 1
     fi
     patchrom
+    cd $ROMDIR
     rm -rf out/target/product/lavender/*.zip*
     if [ $SCRIPTROM = "4" ]; then
         cd $ROMDIR
