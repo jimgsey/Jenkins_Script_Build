@@ -19,7 +19,7 @@ function gen_ota_json() {
             FILENAME=$(find out/target/product/lavender/lineage-1*.zip | cut -d "/" -f 5)
             ID=$(md5sum out/target/product/lavender/lineage-1*.zip | cut -d " " -f 1)
             SIZE=$(wc -c out/target/product/lavender/lineage-1*.zip | awk '{print $1}')
-            URL1="https://sourceforge.net/projects/lavenderbuilds/files/lineage/${FILENAME}/download"
+            URL="https://sourceforge.net/projects/lavenderbuilds/files/lineage/${FILENAME}/download"
             VERSION="17.1"
             ROMTYPE="unofficial"
                 JSON_FMT='{\n"response": [\n{\n"filename": "%s",\n"datetime": %s,\n"size":%s, \n"url":"%s", \n"version": "%s",\n"romtype": "%s", \n"id": "%s"\n}\n]\n}'
@@ -32,7 +32,7 @@ function gen_ota_json() {
             ID=$(md5sum out/target/product/lavender/PixelExperience*.zip | cut -d " " -f 1)
             FILEHASH=$ID
             SIZE=$(wc -c out/target/product/lavender/PixelExperience*.zip | awk '{print $1}')
-            URL1="https://sourceforge.net/projects/lavenderbuilds/files/pixel/${FILENAME}/download"
+            URL="https://sourceforge.net/projects/lavenderbuilds/files/pixel/${FILENAME}/download"
             VERSION="10"
             DONATE_URL="http:\/\/bit.ly\/jhenrique09_paypal"
             WEBSITE_URL="https:\/\/download.pixelexperience.org"
@@ -59,6 +59,12 @@ function gen_ota_json() {
 	fi
 }
 
+function push_ota () {
+	cd ${HOME}/android/ota
+	git add .
+	git commit -m "update"
+	git push -u origin master
+}
 # ROM patcher
 # This is for using custom OTA services
 
@@ -178,6 +184,7 @@ function main() {
     buildrom
     upload_rom
     gen_ota_json
+    push_ota
 }
 
 #Execute the program
