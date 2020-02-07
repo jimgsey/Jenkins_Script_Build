@@ -56,6 +56,7 @@ function gen_ota_json() {
             ROMTYPE="alpha"
                 JSON_FMT='{\n"response": [\n{\n"filename": "%s",\n"datetime": %s,\n"size":%s, \n"url":"%s", \n"version": "%s",\n"romtype": "%s", \n"id": "%s"\n}\n]\n}'
                 printf "$JSON_FMT" "$FILENAME" "$DATETIME" "$SIZE" "$URL" "$VERSION" "$ROMTYPE" "$ID" > ~/android/ota/lavender-aex.json
+	fi
 }
 
 # ROM patcher
