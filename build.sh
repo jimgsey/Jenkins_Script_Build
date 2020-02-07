@@ -10,7 +10,52 @@ curl -s -X POST https://api.telegram.org/bot${BOT_TOKEN}/sendMessage -d chat_id=
 # Generate mirror json
 
 function gen_ota_json() {
-    echo "Work In Progress"
+     if [ $SCRIPTROM = "1" ]; then
+        echo "LineageOS 16.0 OTA is not supported by the script, skipping generation"
+        elif [ $SCRIPTROM = "2" ]; then
+        echo "Generating LineageOS 17.1 json"
+            cd $ROMDIR
+            DATETIME=$(grep "ro.build.date.utc=" out/target/product/lavender/system/build.prop | cut -d "=" -f 2)
+            FILENAME=$(find out/target/product/lavender/lineage-1*.zip | cut -d "/" -f 5)
+            ID=$(md5sum out/target/product/lavender/lineage-1*.zip | cut -d " " -f 1)
+            SIZE=$(wc -c out/target/product/lavender/lineage-1*.zip | awk '{print $1}')
+            URL1="https://sourceforge.net/projects/lavenderbuilds/files/lineage/${FILENAME}/download"
+            VERSION="17.1"
+            ROMTYPE="unofficial"
+                JSON_FMT='{\n"response": [\n{\n"filename": "%s",\n"datetime": %s,\n"size":%s, \n"url":"%s", \n"version": "%s",\n"romtype": "%s", \n"id": "%s"\n}\n]\n}'
+                printf "$JSON_FMT" "$FILENAME" "$DATETIME" "$SIZE" "$URL" "$VERSION" "$ROMTYPE" "$ID" >  ${HOME}/android/ota/lavender.json
+        elif [ $SCRIPTROM = "3" ]; then
+        echo "Generating PixelExperience json"
+            cd $ROMDIR
+            DATETIME=$(grep "org.pixelexperience.build_date_utc=" out/target/product/lavender/system/build.prop | cut -d "=" -f 2)
+            FILENAME=$(find out/target/product/lavender/PixelExperience*.zip | cut -d "/" -f 5)
+            ID=$(md5sum out/target/product/lavender/PixelExperience*.zip | cut -d " " -f 1)
+            FILEHASH=$ID
+            SIZE=$(wc -c out/target/product/lavender/PixelExperience*.zip | awk '{print $1}')
+            URL1="https://sourceforge.net/projects/lavenderbuilds/files/pixel/${FILENAME}/download"
+            VERSION="10"
+            DONATE_URL="http:\/\/bit.ly\/jhenrique09_paypal"
+            WEBSITE_URL="https:\/\/download.pixelexperience.org"
+            NEWS_URL="https:\/\/t.me\/PixelExperience"
+            MAINTAINER="daniml3"
+            MAINTAINER_URL="https:\/\/t.me/daniiml3"
+            FORUM_URL="N/A"
+                JSON_FMT='{\n"error":false,\n"filename": %s,\n"datetime": %s,\n"size":%s, \n"url":"%s", \n"filehash":"%s", \n"version": "%s", \n"id": "%s",\n"donate_url": "%s",\n"website_url":"%s",\n"news_url":"%s",\n"maintainer":"%s",\n"maintainer_url":"%s",\n"forum_url":"%s"\n}'
+                printf "$JSON_FMT" "$FILENAME" "$DATETIME" "$SIZE" "$URL" "$FILEHASH" "$VERSION" "$ID" "$DONATE_URL" "$WEBSITE_URL" "$NEWS_URL" "$MAINTAINER" "$MAINTAINER_URL" "$FORUM_URL" > ~/android/ota/lavender-pixel.json
+        elif [ $SCRIPTROM = "4" ]; then
+        echo "Generating AospExtended json"
+            cd $ROMDIR
+            DATETIME=$(grep "ro.extended.build_date_utc=" out/target/product/lavender/system/build.prop | cut -d "=" -f 2)
+            FILENAME=$(find out/target/product/lavender/AospExtended*.zip | cut -d "/" -f 5)
+            ID=$(md5sum out/target/product/lavender/AospExtended*.zip | cut -d " " -f 1)
+            SIZE=$(wc -c out/target/product/lavender/AospExtended*.zip | awk '{print $1}')
+            URL1="https://sourceforge.net/projects/lavenderbuilds/files/aex/$FILENAME"
+            URL2="/download"
+            URL=$URL1$URL2
+            VERSION="v7.0"
+            ROMTYPE="alpha"
+                JSON_FMT='{\n"response": [\n{\n"filename": "%s",\n"datetime": %s,\n"size":%s, \n"url":"%s", \n"version": "%s",\n"romtype": "%s", \n"id": "%s"\n}\n]\n}'
+                printf "$JSON_FMT" "$FILENAME" "$DATETIME" "$SIZE" "$URL" "$VERSION" "$ROMTYPE" "$ID" > ~/android/ota/lavender-aex.json
 }
 
 # ROM patcher
