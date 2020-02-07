@@ -102,7 +102,7 @@ function romselect() {
 
 function buildrom() {
     cd $ROMDIR
-#    repo sync --force-sync --no-clone-bundle --no-tags -j$(nproc --all) -qc
+    repo sync --force-sync --no-clone-bundle --no-tags -j$(nproc --all) -qc
     if [ $? -eq 0 ]; then
         echo "Sync done"
         else
