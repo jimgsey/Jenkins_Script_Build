@@ -19,7 +19,7 @@ function gen_ota_json() {
             FILENAME=$(find out/target/product/lavender/lineage-1*.zip | cut -d "/" -f 5)
             ID=$(md5sum out/target/product/lavender/lineage-1*.zip | cut -d " " -f 1)
             SIZE=$(wc -c out/target/product/lavender/lineage-1*.zip | awk '{print $1}')
-            URL="https://sourceforge.net/projects/lavenderbuilds/files/lineage/${FILENAME}/download"
+	    URL="https://github.com/daniml3/ota/releases/download/${FILENAME}/${FILENAME}"
             VERSION="17.1"
             ROMTYPE="unofficial"
                 JSON_FMT='{\n"response": [\n{\n"filename": "%s",\n"datetime": %s,\n"size":%s, \n"url":"%s", \n"version": "%s",\n"romtype": "%s", \n"id": "%s"\n}\n]\n}'
@@ -110,7 +110,10 @@ function upload_rom() {
         scp  out/target/product/lavender/lineage-*.zip daniml3@frs.sourceforge.net:/home/frs/project/lavenderbuilds/lineage/
         elif [ $SCRIPTROM = "2" ]; then
         echo "Uploading"
-        scp  out/target/product/lavender/lineage-*.zip daniml3@frs.sourceforge.net:/home/frs/project/lavenderbuilds/lineage/
+	cd $ROMDIR
+	FILENAME=$(find out/target/product/lavender/lineage-1*.zip | cut -d "/" -f 5)
+	cd ${HOME}/android/ota
+        hub release create -a ../lineage17.1/out/target/product/lavender/lineage-*.zip -m "Test" $FILENAME
         elif [ $SCRIPTROM = "3" ]; then
         echo "Uploading"
         scp  out/target/product/lavender/PixelExperience*.zip daniml3@frs.sourceforge.net:/home/frs/project/lavenderbuild/pixel/
