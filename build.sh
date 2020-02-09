@@ -113,7 +113,7 @@ function upload_rom() {
 	cd $ROMDIR
 	FILENAME=$(find out/target/product/lavender/lineage-1*.zip | cut -d "/" -f 5)
 	cd ${HOME}/android/ota
-        hub release create -a ../lineage17.1/out/target/product/lavender/lineage-*.zip -m "Test" $FILENAME
+        hub release create -a ../lineage17.1/out/target/product/lavender/lineage-*.zip -m "$FILENAME" $FILENAME
         elif [ $SCRIPTROM = "3" ]; then
         echo "Uploading"
         scp  out/target/product/lavender/PixelExperience*.zip daniml3@frs.sourceforge.net:/home/frs/project/lavenderbuild/pixel/
