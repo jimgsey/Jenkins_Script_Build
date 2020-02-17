@@ -53,13 +53,24 @@ Jenkins Script Build
 [aex] Aex
 [aokp] AOKP
 [aosip] Aosip
+[candy] Candy
 [carbon] Carbon
+[colt] Colt
+[cosmic] Cosmic
+[cosp] COSP
 [crdroid] CrDroid
 [derpfest] Derpfest
+[dot] Dot
 [floko] Floko
+[havoc] Havoc
+[ion] Ion
 [lineage] Lineage
+[lotus] Lotus
+[nitrogen] Nitrogen
 [rr] RR
 [xenon] Xenon HD
+[xtended] Xtended
+
 ```
 **SCRIPTSYNC**
 ```
