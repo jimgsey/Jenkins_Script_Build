@@ -198,7 +198,7 @@ function uploadrom() {
 	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################				  
-              scp  ~/ae/aicp_lavender_p*.zip jim15@frs.sourceforge.net:/home/frs/project/lavender7/Aicp/ 
+              scp  ~/ae/aicp_lavender_p*.zip youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Aicp/ 
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/aicp_lavender_p*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Aicp/$FILENAME"
@@ -223,7 +223,7 @@ function uploadrom() {
 	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################	
-              scp  ~/ae/AospExtended-v6*.zip jim15@frs.sourceforge.net:/home/frs/project/lavender7/Aex/
+              scp  ~/ae/AospExtended-v6*.zip youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Aex/
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/AospExtended-v6*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Aex/$FILENAME"
@@ -243,7 +243,7 @@ function uploadrom() {
 	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################	
-              scp  ~/ae/aokp_lavender_pie*.zip jim15@frs.sourceforge.net:/home/frs/project/lavender7/Aokp/ 
+              scp  ~/ae/aokp_lavender_pie*.zip youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Aokp/ 
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/aokp_lavender_pie*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Aokp/$FILENAME"
@@ -263,7 +263,7 @@ function uploadrom() {
 	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################				  
-              scp  ~/ae/AOSiP-9.0-Pizza*.zip  jim15@frs.sourceforge.net:/home/frs/project/lavender7/Aosip/ 
+              scp  ~/ae/AOSiP-9.0-Pizza*.zip  youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Aosip/ 
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/AOSiP-9.0-Pizza*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Aosip/$FILENAME"
@@ -283,7 +283,7 @@ function uploadrom() {
 	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################	
-              scp  ~/ae/candy*.zip jim15@frs.sourceforge.net:/home/frs/project/lavender7/Candy/
+              scp  ~/ae/candy*.zip youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Candy/
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/Candy*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Candy/$FILENAME"
@@ -304,7 +304,7 @@ function uploadrom() {
 	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################	
-              scp  ~/ae/CARBON*.zip jim15@frs.sourceforge.net:/home/frs/project/lavender7/Carbon/ 
+              scp  ~/ae/CARBON*.zip youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Carbon/ 
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/CARBON*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Carbon/$FILENAME"
@@ -323,7 +323,7 @@ function uploadrom() {
 	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################				  
-              scp  ~/ae/ColtOS*.zip  jim15@frs.sourceforge.net:/home/frs/project/lavender7/Colt/ 
+              scp  ~/ae/ColtOS*.zip  youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Colt/ 
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/ColtOS*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Colt/$FILENAME"
@@ -343,7 +343,7 @@ function uploadrom() {
 	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################	
-              scp  ~/ae/cosmic*.zip jim15@frs.sourceforge.net:/home/frs/project/lavender7/Cosmic/ 
+              scp  ~/ae/cosmic*.zip youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Cosmic/ 
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/Cosmic-OS-v4.0-Corona*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Cosmic/$FILENAME"
@@ -363,7 +363,7 @@ function uploadrom() {
 	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################	
-              scp  ~/ae/COSP*.zip jim15@frs.sourceforge.net:/home/frs/project/lavender7/Cosp/ 
+              scp  ~/ae/COSP*.zip youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Cosp/ 
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/COSP*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Cosp/$FILENAME"
@@ -383,7 +383,7 @@ function uploadrom() {
 	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################	
-              scp  ~/ae/crDroidAndroid-9*.zip jim15@frs.sourceforge.net:/home/frs/project/lavender7/CrDroid/
+              scp  ~/ae/crDroidAndroid-9*.zip youraccount@frs.sourceforge.net:/home/frs/project/lavender7/CrDroid/
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/crDroidAndroid-9*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/CrDroid/$FILENAME"
@@ -403,7 +403,7 @@ function uploadrom() {
 	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################	
-              scp  ~/ae/AOSiP-9.0-DerpFest*.zip  jim15@frs.sourceforge.net:/home/frs/project/lavender7/DerpFest/ 
+              scp  ~/ae/AOSiP-9.0-DerpFest*.zip  youraccount@frs.sourceforge.net:/home/frs/project/lavender7/DerpFest/ 
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/AOSiP-9.0-DerpFest*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/DerpFest/$FILENAME"
@@ -423,7 +423,7 @@ function uploadrom() {
 	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################				  
-              scp  ~/ae/dotOS-P*.zip  jim15@frs.sourceforge.net:/home/frs/project/lavender7/Dot/ 
+              scp  ~/ae/dotOS-P*.zip  youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Dot/ 
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/dotOS-P*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Dot/$FILENAME"
@@ -444,7 +444,7 @@ function uploadrom() {
 	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################				  
-              scp  ~/ae/Floko*.zip  jim15@frs.sourceforge.net:/home/frs/project/lavender7/Floko/ 
+              scp  ~/ae/Floko*.zip  youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Floko/ 
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/Floko*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Floko/$FILENAME"
@@ -464,7 +464,7 @@ function uploadrom() {
 	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################	
-              scp  ~/ae/Havoc*.zip jim15@frs.sourceforge.net:/home/frs/project/lavender7/Havoc/ 
+              scp  ~/ae/Havoc*.zip youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Havoc/ 
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/Havoc*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Havoc/$FILENAME"
@@ -485,7 +485,7 @@ function uploadrom() {
 	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################	
-              scp  ~/ae/ion*.zip jim15@frs.sourceforge.net:/home/frs/project/lavender7/Ion/ 
+              scp  ~/ae/ion*.zip youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Ion/ 
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/ion*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Ion/$FILENAME"
@@ -506,7 +506,7 @@ function uploadrom() {
 	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################	
-              scp  ~/ae/lineage-16*.zip jim15@frs.sourceforge.net:/home/frs/project/lavender7/Lineage/ 
+              scp  ~/ae/lineage-16*.zip youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Lineage/ 
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/lineage-16*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Lineage/$FILENAME"
@@ -526,7 +526,7 @@ function uploadrom() {
 	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################	
-              scp  ~/ae/Lo*.zip jim15@frs.sourceforge.net:/home/frs/project/lavender7/Lotus/
+              scp  ~/ae/Lo*.zip youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Lotus/
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/Lo*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Lotus/$FILENAME"
@@ -546,7 +546,7 @@ function uploadrom() {
 	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################	
-              scp ~/ae/Nitrogen*.zip  jim15@frs.sourceforge.net:/home/frs/project/lavender7/Nitrogen/ 
+              scp ~/ae/Nitrogen*.zip  youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Nitrogen/ 
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/Nitrogen*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Nitrogen/$FILENAME"
@@ -565,7 +565,7 @@ function uploadrom() {
 	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################	
-              scp  ~/ae/RR-P-v7*.zipjim15@frs.sourceforge.net:/home/frs/project/lavender7/ResurrectionRemix/ 
+              scp  ~/ae/RR-P-v7*.zipyouraccount@frs.sourceforge.net:/home/frs/project/lavender7/ResurrectionRemix/ 
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/RR-P-v7*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/ResurrectionRemix/$FILENAME"
@@ -585,7 +585,7 @@ function uploadrom() {
 	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################	
-              scp  ~/ae/XenonHD*.zip jim15@frs.sourceforge.net:/home/frs/project/lavender7/Xenon/  
+              scp  ~/ae/XenonHD*.zip youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Xenon/  
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/XenonHD*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Xenon/$FILENAME"
@@ -605,7 +605,7 @@ function uploadrom() {
 	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################	
-              scp  ~/ae/Xtended*.zip jim15@frs.sourceforge.net:/home/frs/project/lavender7/Xtended/
+              scp  ~/ae/Xtended*.zip youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Xtended/
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/Xtended*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Xtended/$FILENAME"
