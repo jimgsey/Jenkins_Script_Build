@@ -5,7 +5,7 @@
 # Telegram Messages
 function telegrammsg() {
 TOKEN="Use your token"
-LINK=" Your jenkins link"
+LINK="Your jenkins link"
 ID="Your id bot"
 curl -s -X POST https://api.telegram.org/bot$TOKEN/sendMessage -d chat_id=$ID -d text="$MESSAGE"
 }
@@ -34,7 +34,7 @@ function romclean() {
 ##############################################Push telegram message############################################################
 	DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Make Clean $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Make Clean $ROM. Fecha: $DATE a las $HORAS enlace al Fjenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################	
 				
@@ -45,7 +45,7 @@ function romclean() {
 
 	DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Delete folder $ROM.  Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Delete folder $ROM.  Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################	
     elif [ $ROMCLEAN = "no" ]; then
@@ -79,19 +79,39 @@ function gen_ota_json() {
         echo "$ROM OTA is not supported by the script, skipping generation"
         elif [ $SCRIPTROM = "aosip" ]; then
         echo "$ROM OTA is not supported by the script, skipping generation"
+        elif [ $SCRIPTROM = "candy" ]; then
+        echo "$ROM OTA is not supported by the script, skipping generation"
         elif [ $SCRIPTROM = "carbon" ]; then
+        echo "$ROM OTA is not supported by the script, skipping generation"
+        elif [ $SCRIPTROM = "colt" ]; then
+        echo "$ROM OTA is not supported by the script, skipping generation"
+        elif [ $SCRIPTROM = "cosmic" ]; then
+        echo "$ROM OTA is not supported by the script, skipping generation"
+        elif [ $SCRIPTROM = "cosp" ]; then
         echo "$ROM OTA is not supported by the script, skipping generation"
 		elif [ $SCRIPTROM = "crdroid" ]; then
         echo "$ROM OTA is not supported by the script, skipping generation"
         elif [ $SCRIPTROM = "derpfest" ]; then
         echo "$ROM OTA is not supported by the script, skipping generation"
+        elif [ $SCRIPTROM = "dot" ]; then
+        echo "$ROM OTA is not supported by the script, skipping generation"
 		elif [ $SCRIPTROM = "floko" ]; then
         echo "$ROM OTA is not supported by the script, skipping generation"
+        elif [ $SCRIPTROM = "havoc" ]; then
+        echo "$ROM OTA is not supported by the script, skipping generation"
+        elif [ $SCRIPTROM = "ion" ]; then
+        echo "$ROM OTA is not supported by the script, skipping generation"
         elif [ $SCRIPTROM = "lineage" ]; then
+        echo "$ROM OTA is not supported by the script, skipping generation"
+        elif [ $SCRIPTROM = "lotus" ]; then
+        echo "$ROM OTA is not supported by the script, skipping generation"
+        elif [ $SCRIPTROM = "nitrogen" ]; then
         echo "$ROM OTA is not supported by the script, skipping generation"
 		elif [ $SCRIPTROM = "rr" ]; then
         echo "$ROM OTA is not supported by the script, skipping generation"
 		elif [ $SCRIPTROM = "xenon" ]; then
+        echo "$ROM OTA is not supported by the script, skipping generation"
+        elif [ $SCRIPTROM = "xtended" ]; then
         echo "$ROM OTA is not supported by the script, skipping generation"		
         fi
 }
@@ -115,19 +135,39 @@ function patchrom () {
             echo "OTA for $ROM not supported by the script, skipping patch"
         elif [ $SCRIPTROM = "aosip" ]; then
             echo "OTA for $ROM not supported by the script, skipping patch"
+        elif [ $SCRIPTROM = "candy" ]; then
+            echo "OTA for $ROM not supported by the script, skipping patch"
         elif [ $SCRIPTROM = "carbon" ]; then
+            echo "OTA for $ROM not supported by the script, skipping patch"
+        elif [ $SCRIPTROM = "colt" ]; then
+            echo "OTA for $ROM not supported by the script, skipping patch"
+        elif [ $SCRIPTROM = "cosmic" ]; then
+            echo "OTA for $ROM not supported by the script, skipping patch"
+        elif [ $SCRIPTROM = "cosp" ]; then
             echo "OTA for $ROM not supported by the script, skipping patch"
         elif [ $SCRIPTROM = "crdroid" ]; then
             echo "OTA for $ROM not supported by the script, skipping patch"
         elif [ $SCRIPTROM = "derpfest" ]; then
+            echo "OTA for $ROM not supported by the script, skipping patch"
+        elif [ $SCRIPTROM = "dot" ]; then
             echo "OTA for $ROM not supported by the script, skipping patch"	
         elif [ $SCRIPTROM = "floko" ]; then
             echo "OTA for $ROM not supported by the script, skipping patch"
+        elif [ $SCRIPTROM = "havoc" ]; then
+            echo "OTA for $ROM not supported by the script, skipping patch"
+        elif [ $SCRIPTROM = "ion" ]; then
+            echo "OTA for $ROM not supported by the script, skipping patch"
         elif [ $SCRIPTROM = "lineage" ]; then
+            echo "OTA for $ROM not supported by the script, skipping patch"
+        elif [ $SCRIPTROM = "lotus" ]; then
+            echo "OTA for $ROM not supported by the script, skipping patch"
+        elif [ $SCRIPTROM = "nitrogen" ]; then
             echo "OTA for $ROM not supported by the script, skipping patch"
         elif [ $SCRIPTROM = "rr" ]; then
             echo "OTA for $ROM not supported by the script, skipping patch"
 		elif [ $SCRIPTROM = "xenon" ]; then
+            echo "OTA for $ROM not supported by the script, skipping patch"
+        elif [ $SCRIPTROM = "xtended" ]; then
             echo "OTA for $ROM not supported by the script, skipping patch"
 			
     fi
@@ -155,16 +195,16 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Aicp/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################				  
-              scp  ~/ae/aicp_lavender_p*.zip youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Aicp/ 
+              scp  ~/ae/aicp_lavender_p*.zip jim15@frs.sourceforge.net:/home/frs/project/lavender7/Aicp/ 
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/aicp_lavender_p*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Aicp/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Subida $ROM. Enlace:$UPDATE_URL1 Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Subida $ROM. Enlace:$UPDATE_URL1 Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################	
 
@@ -180,16 +220,16 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Aex/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################	
-              scp  ~/ae/AospExtended-v6*.zip youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Aex/
+              scp  ~/ae/AospExtended-v6*.zip jim15@frs.sourceforge.net:/home/frs/project/lavender7/Aex/
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/AospExtended-v6*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Aex/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Subida. Enlace:$UPDATE_URL1 Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Subida. Enlace:$UPDATE_URL1 Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################	
 			  
@@ -200,16 +240,16 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Aokp/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################	
-              scp  ~/ae/aokp_lavender_pie*.zip youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Aokp/ 
+              scp  ~/ae/aokp_lavender_pie*.zip jim15@frs.sourceforge.net:/home/frs/project/lavender7/Aokp/ 
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/aokp_lavender_pie*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Aokp/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Subida $ROM. Enlace:$UPDATE_URL1 Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Subida $ROM. Enlace:$UPDATE_URL1 Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################
 			  
@@ -220,18 +260,39 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Aosip/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################				  
-              scp  ~/ae/AOSiP-9.0-Pizza*.zip  youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Aosip/ 
+              scp  ~/ae/AOSiP-9.0-Pizza*.zip  jim15@frs.sourceforge.net:/home/frs/project/lavender7/Aosip/ 
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/AOSiP-9.0-Pizza*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Aosip/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Subida $ROM. Enlace:$UPDATE_URL1 Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Subida $ROM. Enlace:$UPDATE_URL1 Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################				  
+
+         elif [ $SCRIPTROM = "candy" ]; then
+              echo "Uploading"
+##############################################Push telegram message############################################################
+    FILENAME=$(find ~/ae/Candy*.zip | cut -d "/" -f 5)
+	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Candy/$FILENAME"
+	DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+###############################################################################################################################	
+              scp  ~/ae/candy*.zip jim15@frs.sourceforge.net:/home/frs/project/lavender7/Candy/
+##############################################Push telegram message############################################################
+    FILENAME=$(find ~/ae/Candy*.zip | cut -d "/" -f 5)
+	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Candy/$FILENAME"
+	DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Subida. Enlace:$UPDATE_URL1 Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+###############################################################################################################################	
+			  
 
         elif [ $SCRIPTROM = "carbon" ]; then
               echo "Uploading"
@@ -240,19 +301,78 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Carbon/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################	
-              scp  ~/ae/CARBON*.zip youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Carbon/ 
+              scp  ~/ae/CARBON*.zip jim15@frs.sourceforge.net:/home/frs/project/lavender7/Carbon/ 
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/CARBON*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Carbon/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Subida $ROM. Enlace:$UPDATE_URL1 Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Subida $ROM. Enlace:$UPDATE_URL1 Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+###############################################################################################################################
+        elif [ $SCRIPTROM = "colt" ]; then
+              echo "Uploading Colt"			
+##############################################Push telegram message############################################################
+    FILENAME=$(find ~/ae/ColtOS*.zip | cut -d "/" -f 5)
+	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Colt/$FILENAME"
+	DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+###############################################################################################################################				  
+              scp  ~/ae/ColtOS*.zip  jim15@frs.sourceforge.net:/home/frs/project/lavender7/Colt/ 
+##############################################Push telegram message############################################################
+    FILENAME=$(find ~/ae/ColtOS*.zip | cut -d "/" -f 5)
+	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Colt/$FILENAME"
+	DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Subida $ROM. Enlace:$UPDATE_URL1 Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+###############################################################################################################################				  
+
+        elif [ $SCRIPTROM = "cosmic" ]; then
+              echo "Uploading Aokp"
+##############################################Push telegram message############################################################
+    FILENAME=$(find ~/ae/Cosmic-OS-v4.0-Corona*.zip | cut -d "/" -f 5)
+	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Cosmic/$FILENAME"
+	DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+###############################################################################################################################	
+              scp  ~/ae/cosmic*.zip jim15@frs.sourceforge.net:/home/frs/project/lavender7/Cosmic/ 
+##############################################Push telegram message############################################################
+    FILENAME=$(find ~/ae/Cosmic-OS-v4.0-Corona*.zip | cut -d "/" -f 5)
+	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Cosmic/$FILENAME"
+	DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Subida $ROM. Enlace:$UPDATE_URL1 Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################
 			  
+        elif [ $SCRIPTROM = "cosp" ]; then
+              echo "Uploading Aokp"
+##############################################Push telegram message############################################################
+    FILENAME=$(find ~/ae/COSP*.zip | cut -d "/" -f 5)
+	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Cosp/$FILENAME"
+	DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+###############################################################################################################################	
+              scp  ~/ae/COSP*.zip jim15@frs.sourceforge.net:/home/frs/project/lavender7/Cosp/ 
+##############################################Push telegram message############################################################
+    FILENAME=$(find ~/ae/COSP*.zip | cut -d "/" -f 5)
+	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Cosp/$FILENAME"
+	DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Subida $ROM. Enlace:$UPDATE_URL1 Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+###############################################################################################################################
+
         elif [ $SCRIPTROM = "crdroid" ]; then
               echo "Uploading CrDroid"
 ##############################################Push telegram message############################################################
@@ -260,16 +380,16 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/CrDroid/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################	
-              scp  ~/ae/crDroidAndroid-9*.zip youraccount@frs.sourceforge.net:/home/frs/project/lavender7/CrDroid/
+              scp  ~/ae/crDroidAndroid-9*.zip jim15@frs.sourceforge.net:/home/frs/project/lavender7/CrDroid/
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/crDroidAndroid-9*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/CrDroid/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Subida $ROM. Enlace:$UPDATE_URL1 Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Subida $ROM. Enlace:$UPDATE_URL1 Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################
 			  
@@ -277,22 +397,43 @@ function uploadrom() {
               echo "Uploading"
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/AOSiP-9.0-DerpFest*.zip | cut -d "/" -f 5)
-	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Derpfest/$FILENAME"
+	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/DerpFest/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################	
-              scp  ~/ae/AOSiP-9.0-DerpFest*.zip  youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Derpfest/ 
+              scp  ~/ae/AOSiP-9.0-DerpFest*.zip  jim15@frs.sourceforge.net:/home/frs/project/lavender7/DerpFest/ 
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/AOSiP-9.0-DerpFest*.zip | cut -d "/" -f 5)
-	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Derpfest/$FILENAME"
+	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/DerpFest/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Subida $ROM. Enlace:$UPDATE_URL1 Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Subida $ROM. Enlace:$UPDATE_URL1 Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################
-			  
+		
+	    elif [ $SCRIPTROM = "dot" ]; then
+              echo "Uploading Colt"			
+##############################################Push telegram message############################################################
+    FILENAME=$(find ~/ae/dotOS-P*.zip | cut -d "/" -f 5)
+	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Dot/$FILENAME"
+	DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+###############################################################################################################################				  
+              scp  ~/ae/dotOS-P*.zip  jim15@frs.sourceforge.net:/home/frs/project/lavender7/Dot/ 
+##############################################Push telegram message############################################################
+    FILENAME=$(find ~/ae/dotOS-P*.zip | cut -d "/" -f 5)
+	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Dot/$FILENAME"
+	DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Subida $ROM. Enlace:$UPDATE_URL1 Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+###############################################################################################################################				  
+
+
         elif [ $SCRIPTROM = "floko" ]; then
               echo "Uploading Floko"			
 ##############################################Push telegram message############################################################
@@ -300,18 +441,59 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Floko/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################				  
-              scp  ~/ae/Floko*.zip  youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Floko/ 
+              scp  ~/ae/Floko*.zip  jim15@frs.sourceforge.net:/home/frs/project/lavender7/Floko/ 
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/Floko*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Floko/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Subida $ROM. Enlace:$UPDATE_URL1 Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Subida $ROM. Enlace:$UPDATE_URL1 Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################	
+		
+        elif [ $SCRIPTROM = "havoc" ]; then
+              echo "Uploading"
+##############################################Push telegram message############################################################
+    FILENAME=$(find ~/ae/Havoc*.zip | cut -d "/" -f 5)
+	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Havoc/$FILENAME"
+	DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+###############################################################################################################################	
+              scp  ~/ae/Havoc*.zip jim15@frs.sourceforge.net:/home/frs/project/lavender7/Havoc/ 
+##############################################Push telegram message############################################################
+    FILENAME=$(find ~/ae/Havoc*.zip | cut -d "/" -f 5)
+	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Havoc/$FILENAME"
+	DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Subida $ROM. Enlace:$UPDATE_URL1 Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+###############################################################################################################################
+			  
+	  
+        elif [ $SCRIPTROM = "ion" ]; then
+              echo "Uploading"
+##############################################Push telegram message############################################################
+    FILENAME=$(find ~/ae/ion*.zip | cut -d "/" -f 5)
+	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Ion/$FILENAME"
+	DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+###############################################################################################################################	
+              scp  ~/ae/ion*.zip jim15@frs.sourceforge.net:/home/frs/project/lavender7/Ion/ 
+##############################################Push telegram message############################################################
+    FILENAME=$(find ~/ae/ion*.zip | cut -d "/" -f 5)
+	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Ion/$FILENAME"
+	DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Subida $ROM. Enlace:$UPDATE_URL1 Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+###############################################################################################################################
 			  
 
         elif [ $SCRIPTROM = "lineage" ]; then
@@ -321,19 +503,58 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Lineage/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################	
-              scp  ~/ae/lineage-16*.zip youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Lineage/ 
+              scp  ~/ae/lineage-16*.zip jim15@frs.sourceforge.net:/home/frs/project/lavender7/Lineage/ 
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/lineage-16*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Lineage/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Subida $ROM. Enlace:$UPDATE_URL1 Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Subida $ROM. Enlace:$UPDATE_URL1 Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################	
+
+		elif [ $SCRIPTROM = "lotus" ]; then
+              echo "Uploading Lotus"
+##############################################Push telegram message############################################################
+    FILENAME=$(find ~/ae/Lo*.zip | cut -d "/" -f 5)
+	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Lotus/$FILENAME"
+	DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+###############################################################################################################################	
+              scp  ~/ae/Lo*.zip jim15@frs.sourceforge.net:/home/frs/project/lavender7/Lotus/
+##############################################Push telegram message############################################################
+    FILENAME=$(find ~/ae/Lo*.zip | cut -d "/" -f 5)
+	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Lotus/$FILENAME"
+	DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Subida $ROM. Enlace:$UPDATE_URL1 Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+###############################################################################################################################
 			  
+        elif [ $SCRIPTROM = "nitrogen" ]; then
+              echo "Uploading"
+##############################################Push telegram message############################################################
+    FILENAME=$(find ~/ae/Nitrogen*.zip | cut -d "/" -f 5)
+	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Nitrogen/$FILENAME"
+	DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+###############################################################################################################################	
+              scp ~/ae/Nitrogen*.zip  jim15@frs.sourceforge.net:/home/frs/project/lavender7/Nitrogen/ 
+##############################################Push telegram message############################################################
+    FILENAME=$(find ~/ae/Nitrogen*.zip | cut -d "/" -f 5)
+	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Nitrogen/$FILENAME"
+	DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Subida $ROM. Enlace:$UPDATE_URL1 Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+###############################################################################################################################	  
         elif [ $SCRIPTROM = "rr" ]; then
               echo "Uploading RR"
 ##############################################Push telegram message############################################################
@@ -341,16 +562,16 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/ResurrectionRemix/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################	
-              scp  ~/ae/RR-P-v7*.zipyouraccount@frs.sourceforge.net:/home/frs/project/lavender7/ResurrectionRemix/ 
+              scp  ~/ae/RR-P-v7*.zipjim15@frs.sourceforge.net:/home/frs/project/lavender7/ResurrectionRemix/ 
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/RR-P-v7*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/ResurrectionRemix/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Subida $ROM. Enlace:$UPDATE_URL1 Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Subida $ROM. Enlace:$UPDATE_URL1 Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################	
 			  
@@ -361,19 +582,41 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Xenon/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################	
-              scp  ~/ae/XenonHD*.zip youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Xenon/  
+              scp  ~/ae/XenonHD*.zip jim15@frs.sourceforge.net:/home/frs/project/lavender7/Xenon/  
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/XenonHD*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Xenon/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Subida $ROM. Enlace:$UPDATE_URL1 Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Subida $ROM. Enlace:$UPDATE_URL1 Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 ###############################################################################################################################				  
-    elif [ $BUILDROM = "no" ]; then
+    
+      elif [ $SCRIPTROM = "xtended" ]; then
+              echo "Uploading"
+##############################################Push telegram message############################################################
+    FILENAME=$(find ~/ae/Xtended*.zip | cut -d "/" -f 5)
+	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Xtended/$FILENAME"
+	DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Subiendo $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+###############################################################################################################################	
+              scp  ~/ae/Xtended*.zip jim15@frs.sourceforge.net:/home/frs/project/lavender7/Xtended/
+##############################################Push telegram message############################################################
+    FILENAME=$(find ~/ae/Xtended*.zip | cut -d "/" -f 5)
+	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Xtended/$FILENAME"
+	DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Subida. Enlace:$UPDATE_URL1 Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+###############################################################################################################################	
+			  
+
+      elif [ $BUILDROM = "no" ]; then
             echo "Skip Build"       		
 		   else
             echo "You didn't entered a valid option."
@@ -396,13 +639,24 @@ function romselect() {
         echo "[aex] Aex"
         echo "[aokp] AOKP"
 		echo "[aosip] Aosip"
+        echo "[candy] Candy"
         echo "[carbon] Carbon"
+        echo "[colt] Colt"
+        echo "[cosmic] Cosmic"
+        echo "[cosp] COSP"
         echo "[crdroid] CrDroid"
         echo "[derpfest] Derpfest"
+        echo "[dot] Dot"
 		echo "[floko] Floko"
+        echo "[havoc] Havoc"
+        echo "[ion] Ion"
         echo "[lineage] Lineage"
+        echo "[lotus] Lotus"
+        echo "[nitrogen] Nitrogen"
         echo "[rr] RR"
 		echo "[xenon] Xenon HD"
+        echo "[xtended] Xtended"     
+
         read -p "Selection: " SCRIPTROM
     fi
 	
@@ -500,6 +754,28 @@ function romselect() {
                    repo init -u git://github.com/AOSiP/platform_manifest.git -b pie
             fi
 		
+	elif [ $SCRIPTROM = "candy" ]; then
+        echo "Building Candy"
+        ROMDIR="${HOME}/android/candy"
+        ROM="Candy"
+		
+
+            if [ -d ~/android/candy/ ]; then
+                   echo "El directorio existe"
+
+            else
+                   echo "Creando Carpeta"
+                   mkdir ~/android/candy
+            fi
+	
+	        if [ -d ~/android/candy/.repo/ ]; then
+                   echo "El directorio existe"
+
+            else
+                   echo "Añadido sync"
+                   cd $ROMDIR
+                   repo init -u git://github.com/CandyRoms/candy.git -b c9.0
+            fi
 		
     elif [ $SCRIPTROM = "carbon" ]; then
         echo "Building Carbon"
@@ -523,7 +799,74 @@ function romselect() {
                    repo init -u https://github.com/CarbonROM/android.git -b cr-7.0 
             fi
 	
-               
+    elif [ $SCRIPTROM = "colt" ]; then
+        echo "Building Colt"
+        ROMDIR="${HOME}/android/colt"
+		ROM="Colt"
+
+            if [ -d ~/android/colt/ ]; then
+                   echo "El directorio existe"
+
+            else
+                   echo "Creando Carpeta"
+                   mkdir ~/android/colt
+            fi
+	
+	        if [ -d ~/android/colt/.repo/ ]; then
+                   echo "El directorio existe"
+
+            else
+                   
+                   echo "Añadido sync"
+                   cd $ROMDIR
+                   repo init -u git://github.com/Colt-Enigma/platform_manifest.git -b wip
+            fi
+    
+    elif [ $SCRIPTROM = "cosmic" ]; then
+        echo "Building Cosmic"
+        ROMDIR="${HOME}/android/cosmic"
+		ROM="Cosmic"
+
+            if [ -d ~/android/cosmic/ ]; then
+                    echo "El directorio existe"
+
+            else
+                    echo "Creando Carpeta"
+                    mkdir ~/android/cosmic
+            fi
+	
+	        if [ -d ~/android/cosmic/.repo/ ]; then
+                    echo "El directorio existe"
+
+            else
+                    echo "Añadido sync"
+                    cd $ROMDIR
+                    repo init -u https://github.com/Cosmic-OS/platform_manifest.git -b corona-release
+            fi
+
+
+    elif [ $SCRIPTROM = "cosp" ]; then
+        echo "Building COSP"
+        ROMDIR="${HOME}/android/cosp"
+		ROM="Cosp"
+
+            if [ -d ~/android/cosp/ ]; then
+                    echo "El directorio existe"
+
+            else
+                    echo "Creando Carpeta"
+                    mkdir ~/android/cosp
+            fi
+	
+	        if [ -d ~/android/cosp/.repo/ ]; then
+                    echo "El directorio existe"
+
+            else
+                    echo "Añadido sync"
+                    cd $ROMDIR
+                    repo init -u https://github.com/cosp-project/manifest -b pie
+            fi
+   
 	elif [ $SCRIPTROM = "crdroid" ]; then
         echo "Building CrDroid"
         ROMDIR="${HOME}/android/crdroid"
@@ -565,7 +908,32 @@ function romselect() {
                      echo "Añadido sync"
                      cd $ROMDIR
                      repo init -u git://github.com/DerpFest-Pie/platform_manifest.git -b pie
-            fi		
+            fi
+
+    elif [ $SCRIPTROM = "dot" ]; then
+        echo "Building Dot"
+        ROMDIR="${HOME}/android/dot"
+		ROM="Dot"
+
+            if [ -d ~/android/dot/ ]; then
+                   echo "El directorio existe"
+
+            else
+                   echo "Creando Carpeta"
+                   mkdir ~/android/dot
+            fi
+	
+	        if [ -d ~/android/dot/.repo/ ]; then
+                   echo "El directorio existe"
+
+            else
+                   
+                   echo "Añadido sync"
+                   cd $ROMDIR
+                   repo init -u git://github.com/DotOS/manifest.git -b dot-p
+            fi
+		
+		
     elif [ $SCRIPTROM = "floko" ]; then
         echo "Building Floko"
         ROMDIR="${HOME}/android/floko"
@@ -588,7 +956,51 @@ function romselect() {
                    cd $ROMDIR
                    repo init -u https://github.com/FlokoROM/manifesto.git -b 9.0
             fi
-		
+	
+	elif [ $SCRIPTROM = "havoc" ]; then
+        echo "Building Havoc"
+        ROMDIR="${HOME}/android/havoc"
+		ROM="Havoc"
+
+            if [ -d ~/android/havoc/ ]; then
+                   echo "El directorio existe"
+
+            else
+                   echo "Creando Carpeta"
+                   mkdir ~/android/havoc
+            fi
+	
+	        if [ -d ~/android/havoc/.repo/ ]; then
+                   echo "El directorio existe"
+
+            else
+                   echo "Añadido sync"
+                   cd $ROMDIR
+                   repo init -u https://github.com/Havoc-OS/android_manifest.git -b pie
+            fi
+
+
+    elif [ $SCRIPTROM = "ion" ]; then
+        echo "Building Ion"
+        ROMDIR="${HOME}/android/ion"
+		ROM="Ion"
+
+            if [ -d ~/android/ion/ ]; then
+                   echo "El directorio existe"
+
+            else
+                   echo "Creando Carpeta"
+                   mkdir ~/android/ion
+            fi
+	
+	        if [ -d ~/android/ion/.repo/ ]; then
+                   echo "El directorio existe"
+
+            else
+                   echo "Añadido sync"
+                   cd $ROMDIR
+                   repo init -u https://github.com/i-o-n/manifest -b pie
+            fi
 		
     elif [ $SCRIPTROM = "lineage" ]; then
         echo "Building Lineage"
@@ -612,7 +1024,49 @@ function romselect() {
                    repo init -u git://github.com/LineageOS/android.git -b lineage-16.0
             fi
 	
-               
+    elif [ $SCRIPTROM = "lotus" ]; then
+        echo "Building Lotus"
+        ROMDIR="${HOME}/android/lotus"
+		ROM="Lotus"
+
+            if [ -d ~/android/lotus/ ]; then
+                    echo "El directorio existe"
+
+            else
+                    echo "Creando Carpeta"
+                    mkdir ~/android/lotus
+            fi
+	
+	        if [ -d ~/android/lotus/.repo/ ]; then
+                    echo "El directorio existe"
+
+            else
+                    echo "Añadido sync"
+                    cd $ROMDIR
+                    repo init -u https://github.com/LotusOS/android_manifest.git -b pie
+            fi
+
+    elif [ $SCRIPTROM = "nitrogen" ]; then
+        echo "Building Nitrogen"
+		ROMDIR="${HOME}/android/nitrogen"
+		ROM="Nitrogen"
+            if [ -d ~/android/nitrogen/ ]; then
+                     echo "El directorio existe"
+
+            else
+                     echo "Creando Carpeta"
+                     mkdir ~/android/nitrogen
+            fi
+	
+	        if [ -d ~/android/nitrogen/.repo/ ]; then
+                     echo "El directorio existe"
+
+            else
+                     echo "Añadido sync"
+                     cd $ROMDIR
+                     repo init -u https://github.com/nitrogen-project/android_manifest.git -b p
+            fi	
+       
 	elif [ $SCRIPTROM = "rr" ]; then
         echo "Building RR"
         ROMDIR="${HOME}/android/rr"
@@ -654,7 +1108,29 @@ function romselect() {
                      echo "Añadido sync"
                      cd $ROMDIR
                      repo init -u https://github.com/TeamHorizon/platform_manifest.git -b p
-            fi		
+            fi	
+    elif [ $SCRIPTROM = "xtended" ]; then
+        echo "Building Xtended"
+        ROMDIR="${HOME}/android/xtended"
+        ROM="Xtended"
+		
+
+            if [ -d ~/android/xtended/ ]; then
+                   echo "El directorio existe"
+
+            else
+                   echo "Creando Carpeta"
+                   mkdir ~/android/xtended
+            fi
+	
+	        if [ -d ~/android/xtended/.repo/ ]; then
+                   echo "El directorio existe"
+
+            else
+                   echo "Añadido sync"
+                   cd $ROMDIR
+                   repo init -u https://github.com/Project-Xtended/manifest.git -b xp
+            fi	
 	else
         echo "You didn't entered a valid option."
     fi
@@ -678,7 +1154,7 @@ function syncrom() {
 ###########################################################################################################################
 DATE=$(date '+%d/%m/%Y')
 HORAS=$(date '+%H:%M min')
-MESSAGE="Comienza la sincronización del repositorio $ROM a las $HORAS de $DATE con enlace al jenkins: $LINK"
+MESSAGE="Comienza la sincronización del repositorio $ROM a las $HORAS de $DATE con enlace al jenkins: $LINK "
         telegrammsg
 ###########################################################################################################################
 		cd $ROMDIR	
@@ -688,16 +1164,16 @@ MESSAGE="Comienza la sincronización del repositorio $ROM a las $HORAS de $DATE 
 ###########################################################################################################################
 DATE=$(date '+%d/%m/%Y')
 HORAS=$(date '+%H:%M min')
-MESSAGE="Termina la sincronización del repositorio $ROM a las $HORAS de $DATE con enlace al jenkins: $LINK"
+MESSAGE="Termina la sincronización del repositorio $ROM a las $HORAS de $DATE con enlace al jenkins: $LINK "
         telegrammsg
 ###########################################################################################################################
         else
              echo "Sync failed"
-			 exit 1
+             exit 1
 ###########################################################################################################################
 DATE=$(date '+%d/%m/%Y')
 HORAS=$(date '+%H:%M min')
-MESSAGE="Falla la sincronización del repositorio $ROM a las $HORAS de $DATE con enlace al jenkins: $LINK"
+MESSAGE="Falla la sincronización del repositorio $ROM a las $HORAS de $DATE con enlace al jenkins: $LINK "
         telegrammsg
 ###########################################################################################################################
      
@@ -730,14 +1206,17 @@ function buildrom() {
         echo "Building Rom"
         cd $ROMDIR
 		git clone -b lineage-16.0 https://github.com/LineageOS/android_packages_resources_devicesettings packages/resources/devicesettings
-		    if [ $SCRIPTROM = "aicp" ]; then
+################
+################
+################		   
+             if [ $SCRIPTROM = "aicp" ]; then
                 echo "Copying tree"
 		        #Clonado device tree
                 if [ -d ~/android/aicp/device/xiaomi/lavender/ ]; then
                     echo "El directorio existe"
                 else
                     echo "Copiando tree"
-                    cp -r ~/treees/bue/aicp/         ~/android/aicp/
+                    cp -r ~/treees/bue/aicp/         ~/android/
                     cp -r ~/treees/bue/comun/vendor/ ~/android/aicp/
                     cp -r ~/treees/bue/comun/kernel/ ~/android/aicp/
                 fi
@@ -748,7 +1227,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 			
@@ -757,18 +1236,23 @@ function buildrom() {
                 if [ $? -eq 0 ]; then
                      echo "Build completada satisfactoriamente."  
 		             cp  out/target/product/lavender/aicp_lavender_p*.zip ~/ae
-					 
+##############################################Push telegram message####################################################
+    DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+#######################################################################################################################						 
 ##################### Generar OTA ##############       Pegar antes del elif de no?????
                     gen_ota_json
 ##################### Generar OTA ##############
 	
                 else
                      echo "Error al compilar la rom."
-					 exit 1
+                      exit 1
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 	
@@ -783,7 +1267,7 @@ function buildrom() {
                     echo "El directorio existe"
                 else
                     echo "Copiando tree"
-                    cp -r ~/treees/bue/aex/         ~/android/aex/
+                    cp -r ~/treees/bue/aex/         ~/android/
                     cp -r ~/treees/bue/comun/vendor/ ~/android/aex/
                     cp -r ~/treees/bue/comun/kernel/ ~/android/aex/
                 fi
@@ -794,7 +1278,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -803,14 +1287,19 @@ function buildrom() {
                 if [ $? -eq 0 ]; then
                       echo "Build completada satisfactoriamente."  
 		              cp  out/target/product/lavender/AospExtended-v6*.zip ~/ae
-	
-                else
-                      echo "Error al compilar la rom."
-					 exit 1
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+#######################################################################################################################		
+                else
+                      echo "Error al compilar la rom."
+                      exit 1
+##############################################Push telegram message####################################################
+    DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 	
@@ -825,7 +1314,7 @@ function buildrom() {
                 echo "El directorio existe"
             else
                 echo "Copiando tree"
-                cp -r ~/treees/bue/aokp/         ~/android/aokp/
+                cp -r ~/treees/bue/aokp/         ~/android/
                 cp -r ~/treees/bue/comun/vendor/ ~/android/aokp/
                 cp -r ~/treees/bue/comun/kernel/ ~/android/aokp/
             fi
@@ -835,7 +1324,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -844,14 +1333,19 @@ function buildrom() {
               if [ $? -eq 0 ]; then
                   echo "Build completada satisfactoriamente."  
 		          cp  out/target/product/lavender/aokp_lavender_pie*.zip ~/ae
-	
-              else
-                  echo "Error al compilar la rom."
-					 exit 1
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+#######################################################################################################################		
+              else
+                  echo "Error al compilar la rom."
+                      exit 1
+##############################################Push telegram message####################################################
+    DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 	
@@ -865,7 +1359,7 @@ function buildrom() {
                     echo "El directorio existe"
                 else
                     echo "Copiando tree"
-                    cp -r ~/treees/bue/aosip/         ~/android/aosip/
+                    cp -r ~/treees/bue/aosip/         ~/android/
                     cp -r ~/treees/bue/comun/vendor/ ~/android/aosip/
                     cp -r ~/treees/bue/comun/kernel/ ~/android/aosip/
                 fi
@@ -876,7 +1370,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 			
@@ -887,20 +1381,64 @@ function buildrom() {
                      echo "Build completada satisfactoriamente."  
 		             cp  out/target/product/lavender/AOSiP-9.0-Pizza*.zip  ~/ae
 					 
-	
-                else
-                     echo "Error al compilar la rom."
-					 exit 1
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+#######################################################################################################################		
+                else
+                     echo "Error al compilar la rom."
+                      exit 1
+##############################################Push telegram message####################################################
+    DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 	
                 fi
 		 
-
+        elif [ $SCRIPTROM = "candy" ]; then		
+        echo "Copying tree"
+		#Clonado device tree
+                if [ -d ~/android/candy/device/xiaomi/lavender/ ]; then
+                    echo "El directorio existe"
+                else
+                    echo "Copiando tree"
+                    cp -r ~/treees/bue/candy/         ~/android/
+                    cp -r ~/treees/bue/comun/vendor/ ~/android/candy/
+                    cp -r ~/treees/bue/comun/kernel/ ~/android/candy/
+                fi
+				
+		    echo "Iniciando build..."
+			patchrom
+			
+##############################################Push telegram message####################################################
+    DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+#######################################################################################################################	
+		    source build/envsetup.sh
+            brunch lavender
+                if [ $? -eq 0 ]; then
+                      echo "Build completada satisfactoriamente."  
+		              cp  out/target/product/lavender/Candy*.zip ~/ae
+	
+                else
+                      echo "Error al compilar la rom."
+                        exit 1
+##############################################Push telegram message####################################################
+    DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+#######################################################################################################################	
+	
+                fi
+          
+				
 		
         elif [ $SCRIPTROM = "carbon" ]; then		
         echo "Copying tree"
@@ -909,7 +1447,7 @@ function buildrom() {
                     echo "El directorio existe"
                 else
                     echo "Copiando tree"
-                    cp -r ~/treees/bue/carbon/         ~/android/carbon/
+                    cp -r ~/treees/bue/carbon/         ~/android/
                     cp -r ~/treees/bue/comun/vendor/ ~/android/carbon/
                     cp -r ~/treees/bue/comun/kernel/ ~/android/carbon/
                 fi
@@ -920,7 +1458,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -929,21 +1467,146 @@ function buildrom() {
                 if [ $? -eq 0 ]; then
                       echo "Build completada satisfactoriamente."  
 		              cp  out/target/product/lavender/CARBON*.zip ~/ae
-	
-                else
-                      echo "Error al compilar la rom."
-					 exit 1
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+#######################################################################################################################		
+                else
+                      echo "Error al compilar la rom."
+                      exit 1
+##############################################Push telegram message####################################################
+    DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 	
                 fi
           
-				
+       				
+		 elif [ $SCRIPTROM = "colt" ]; then
+        echo "Copying tree"
+		#Clonado device tree
+                if [ -d ~/android/colt/device/xiaomi/lavender/ ]; then
+                    echo "El directorio existe"
+                else
+                    echo "Copiando tree"
+                    cp -r ~/treees/bue/colt/         ~/android/
+                    cp -r ~/treees/bue/comun/vendor/ ~/android/colt/
+                    cp -r ~/treees/bue/comun/kernel/ ~/android/colt/
+                fi
+
+		    echo "Iniciando build..."
+			patchrom
+			
+##############################################Push telegram message####################################################
+    DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+#######################################################################################################################	
+			
+		    source build/envsetup.sh
+            lunch colt_lavender-userdebug
+            make colt
+                if [ $? -eq 0 ]; then
+                     echo "Build completada satisfactoriamente."  
+		             cp  out/target/product/lavender/ColtOS*.zip  ~/ae
+					 
+	
+                else
+                     echo "Error al compilar la rom."
+                      exit 1
+##############################################Push telegram message####################################################
+    DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+#######################################################################################################################	
+	
+                fi
+
+        elif [ $SCRIPTROM = "cosmic" ]; then		
+        echo "Copying tree"
+		#Clonado device tree
+            if [ -d ~/android/cosmic/device/xiaomi/lavender/ ]; then
+                echo "El directorio existe"
+            else
+                echo "Copiando tree"
+                cp -r ~/treees/bue/cosmic/         ~/android/
+                cp -r ~/treees/bue/comun/vendor/ ~/android/cosmic/
+                cp -r ~/treees/bue/comun/kernel/ ~/android/cosmic/
+            fi
+		echo "Iniciando build..."
+        patchrom
 		
+##############################################Push telegram message####################################################
+    DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+#######################################################################################################################	
+		    source build/envsetup.sh
+            lunch cos_lavender-userdebug
+            brunch lavender
+              if [ $? -eq 0 ]; then
+                  echo "Build completada satisfactoriamente."  
+		          cp  out/target/product/lavender/Cosmic-OS-v4.0-Corona*.zip ~/ae
+	
+              else
+                  echo "Error al compilar la rom."
+                   exit 1
+##############################################Push telegram message####################################################
+    DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+#######################################################################################################################	
+	
+              fi
+			
+        
+        elif [ $SCRIPTROM = "cosp" ]; then		
+        echo "Copying tree"
+		#Clonado device tree
+            if [ -d ~/android/cosp/device/xiaomi/lavender/ ]; then
+                echo "El directorio existe"
+            else
+                echo "Copiando tree"
+                cp -r ~/treees/bue/cosp/         ~/android/
+                cp -r ~/treees/bue/comun/vendor/ ~/android/cosp/
+                cp -r ~/treees/bue/comun/kernel/ ~/android/cosp/
+            fi
+		echo "Iniciando build..."
+        patchrom
+		
+##############################################Push telegram message####################################################
+    DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+#######################################################################################################################	
+		    source build/envsetup.sh
+            lunch cosp_lavender-userdebug
+            mka bacon
+              if [ $? -eq 0 ]; then
+                  echo "Build completada satisfactoriamente."  
+		          cp  out/target/product/lavender/COSP*.zip ~/ae
+	
+              else
+                  echo "Error al compilar la rom."
+                      exit 1
+##############################################Push telegram message####################################################
+    DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+#######################################################################################################################	
+	
+              fi
+
         elif [ $SCRIPTROM = "crdroid" ]; then		
         echo "Copying tree"
 		#Clonado device tree
@@ -951,7 +1614,7 @@ function buildrom() {
                 echo "El directorio existe"
             else
                 echo "Copiando tree"
-                cp -r ~/treees/bue/crdroid/         ~/android/crdroid/
+                cp -r ~/treees/bue/crdroid/         ~/android/
                 cp -r ~/treees/bue/comun/vendor/ ~/android/crdroid/
                 cp -r ~/treees/bue/comun/kernel/ ~/android/crdroid/
             fi
@@ -961,7 +1624,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -969,14 +1632,19 @@ function buildrom() {
               if [ $? -eq 0 ]; then
                   echo "Build completada satisfactoriamente."  
 		          cp  out/target/product/lavender/crDroidAndroid-9*.zip ~/ae
-	
-              else
-                  echo "Error al compilar la rom."
-					 exit 1
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+#######################################################################################################################		
+              else
+                  echo "Error al compilar la rom."
+                      exit 1
+##############################################Push telegram message####################################################
+    DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 	
@@ -990,9 +1658,9 @@ function buildrom() {
                 echo "El directorio existe"
             else
                 echo "Copiando tree"
-                cp -r ~/treees/bue/crdroid/         ~/android/crdroid/
-                cp -r ~/treees/bue/comun/vendor/ ~/android/crdroid/
-                cp -r ~/treees/bue/comun/kernel/ ~/android/crdroid/
+                cp -r ~/treees/bue/derpfest/         ~/android/
+                cp -r ~/treees/bue/comun/vendor/ ~/android/derpfest/
+                cp -r ~/treees/bue/comun/kernel/ ~/android/derpfest/
             fi
 		echo "Iniciando build..."
 		patchrom
@@ -1000,7 +1668,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -1009,18 +1677,67 @@ function buildrom() {
               if [ $? -eq 0 ]; then
                   echo "Build completada satisfactoriamente."  
 		          cp  out/target/product/lavender/AOSiP-9.0-DerpFest*.zip  ~/ae
-	
-              else
-                  echo "Error al compilar la rom."
-					 exit 1
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+#######################################################################################################################		
+              else
+                  echo "Error al compilar la rom."
+                      exit 1
+##############################################Push telegram message####################################################
+    DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 	
-fi
+        fi
+
+
+        elif [ $SCRIPTROM = "dot" ]; then
+        echo "Copying tree"
+		#Clonado device tree
+                if [ -d ~/android/dot/device/xiaomi/lavender/ ]; then
+                    echo "El directorio existe"
+                else
+                    echo "Copiando tree"
+                    cp -r ~/treees/bue/dot/         ~/android/
+                    cp -r ~/treees/bue/comun/vendor/ ~/android/dot/
+                    cp -r ~/treees/bue/comun/kernel/ ~/android/dot/
+                fi
+
+		    echo "Iniciando build..."
+			patchrom
+			
+##############################################Push telegram message####################################################
+    DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+#######################################################################################################################	
+			
+		    source build/envsetup.sh
+            lunch dot_lavender-userdebug
+            make bacon
+                if [ $? -eq 0 ]; then
+                     echo "Build completada satisfactoriamente."  
+		             cp  out/target/product/lavender/dotOS-P*.zip  ~/ae
+					 
+	
+                else
+                     echo "Error al compilar la rom."
+                      exit 1
+##############################################Push telegram message####################################################
+    DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+#######################################################################################################################	
+	
+                fi
+		 
 		elif [ $SCRIPTROM = "floko" ]; then
         echo "Copying tree"
 		#Clonado device tree
@@ -1028,7 +1745,7 @@ fi
                     echo "El directorio existe"
                 else
                     echo "Copiando tree"
-                    cp -r ~/treees/bue/floko/         ~/android/floko/
+                    cp -r ~/treees/bue/floko/         ~/android/
                     cp -r ~/treees/bue/comun/vendor/ ~/android/floko/
                     cp -r ~/treees/bue/comun/kernel/ ~/android/floko/
                 fi
@@ -1039,7 +1756,7 @@ fi
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 			
@@ -1049,20 +1766,103 @@ fi
                      echo "Build completada satisfactoriamente."  
 		             cp  out/target/product/lavender/Floko*.zip   ~/ae
 					 
-	
-                else
-                     echo "Error al compilar la rom."
-					 exit 1
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+#######################################################################################################################		
+                else
+                     echo "Error al compilar la rom."
+                      exit 1
+##############################################Push telegram message####################################################
+    DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 	
                 fi
-		 
-
+		
+        elif [ $SCRIPTROM = "havoc" ]; then		
+        echo "Copying tree"
+		#Clonado device tree
+                if [ -d ~/android/havoc/device/xiaomi/lavender/ ]; then
+                    echo "El directorio existe"
+                else
+                    echo "Copiando tree"
+                    cp -r ~/treees/bue/havoc/         ~/android/
+                    cp -r ~/treees/bue/comun/vendor/ ~/android/havoc/
+                    cp -r ~/treees/bue/comun/kernel/ ~/android/havoc/
+                fi
+				
+		    echo "Iniciando build..."
+			patchrom
+			
+##############################################Push telegram message####################################################
+    DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+#######################################################################################################################	
+		    source build/envsetup.sh
+            brunch lavender
+                if [ $? -eq 0 ]; then
+                      echo "Build completada satisfactoriamente."  
+		              cp  out/target/product/lavender/Havoc*.zip ~/ae
+	
+                else
+                      echo "Error al compilar la rom."
+                         exit 1
+##############################################Push telegram message####################################################
+    DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+#######################################################################################################################	
+	
+                fi
+          
+				 
+        elif [ $SCRIPTROM = "ion" ]; then		
+        echo "Copying tree"
+		#Clonado device tree
+                if [ -d ~/android/ion/device/xiaomi/lavender/ ]; then
+                    echo "El directorio existe"
+                else
+                    echo "Copiando tree"
+                    cp -r ~/treees/bue/ion/         ~/android/
+                    cp -r ~/treees/bue/comun/vendor/ ~/android/ion/
+                    cp -r ~/treees/bue/comun/kernel/ ~/android/ion/
+                fi
+				
+		    echo "Iniciando build..."
+			patchrom
+			
+##############################################Push telegram message####################################################
+    DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+#######################################################################################################################	
+		    source build/envsetup.sh
+            lunch ion_lavender-user
+            mka bacon -j4
+                if [ $? -eq 0 ]; then
+                      echo "Build completada satisfactoriamente."  
+		              cp  out/target/product/lavender/ion*.zip ~/ae
+	
+                else
+                      echo "Error al compilar la rom."
+                      exit 1
+##############################################Push telegram message####################################################
+    DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+#######################################################################################################################	
+	
+                fi
 		
         elif [ $SCRIPTROM = "lineage" ]; then		
         echo "Copying tree"
@@ -1071,7 +1871,7 @@ fi
                     echo "El directorio existe"
                 else
                     echo "Copiando tree"
-                    cp -r ~/treees/bue/lineage/         ~/android/lineage/
+                    cp -r ~/treees/bue/lineage/         ~/android/
                     cp -r ~/treees/bue/comun/vendor/ ~/android/lineage/
                     cp -r ~/treees/bue/comun/kernel/ ~/android/lineage/
                 fi
@@ -1082,7 +1882,7 @@ fi
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -1092,20 +1892,102 @@ fi
                 if [ $? -eq 0 ]; then
                       echo "Build completada satisfactoriamente."  
 		              cp  out/target/product/lavender/lineage-16*.zip ~/ae
-	
-                else
-                      echo "Error al compilar la rom."
-					 exit 1
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+#######################################################################################################################		
+                else
+                      echo "Error al compilar la rom."
+                      exit 1
+##############################################Push telegram message####################################################
+    DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 	
                 fi
           
-				
+	   elif [ $SCRIPTROM = "lotus" ]; then		
+        echo "Copying tree"
+		#Clonado device tree
+            if [ -d ~/android/lotus/device/xiaomi/lavender/ ]; then
+                echo "El directorio existe"
+            else
+                echo "Copiando tree"
+                cp -r ~/treees/bue/lotus/         ~/android/
+                cp -r ~/treees/bue/comun/vendor/ ~/android/lotus/
+                cp -r ~/treees/bue/comun/kernel/ ~/android/lotus/
+            fi
+		echo "Iniciando build..."
+        patchrom
+		
+##############################################Push telegram message####################################################
+    DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+#######################################################################################################################	
+		    source build/envsetup.sh
+            lunch lotus_lavender-userdebug
+            make bacon -j4
+              if [ $? -eq 0 ]; then
+                  echo "Build completada satisfactoriamente."  
+		          cp  out/target/product/lavender/Lo*.zip ~/ae
+	
+              else
+                  echo "Error al compilar la rom."
+                      exit 1
+##############################################Push telegram message####################################################
+    DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+#######################################################################################################################	
+	
+              fi
+			  
+
+        elif [ $SCRIPTROM = "nitrogen" ]; then
+        echo "Copying tree"
+		#Clonado device tree
+            if [ -d ~/android/nitrogen/device/xiaomi/lavender/ ]; then
+                echo "El directorio existe"
+            else
+                echo "Copiando tree"
+                cp -r ~/treees/bue/lotus/         ~/android/
+                cp -r ~/treees/bue/comun/vendor/ ~/android/lotus/
+                cp -r ~/treees/bue/comun/kernel/ ~/android/lotus/
+            fi
+		echo "Iniciando build..."
+		patchrom
+		
+##############################################Push telegram message####################################################
+    DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+#######################################################################################################################	
+		    source build/envsetup.sh
+            lunch nitrogen_lavender-userdebug
+            make -j 4 otapackage
+              if [ $? -eq 0 ]; then
+                  echo "Build completada satisfactoriamente."  
+		          cp  out/target/product/lavender/Nitrogen*.zip  ~/ae
+	
+              else
+                  echo "Error al compilar la rom."
+                      exit 1
+##############################################Push telegram message####################################################
+    DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+#######################################################################################################################	
+	
+              fi		
 		
         elif [ $SCRIPTROM = "rr" ]; then		
         echo "Copying tree"
@@ -1114,7 +1996,7 @@ fi
                 echo "El directorio existe"
             else
                 echo "Copiando tree"
-                cp -r ~/treees/bue/rr/         ~/android/rr/
+                cp -r ~/treees/bue/rr/         ~/android/
                 cp -r ~/treees/bue/comun/vendor/ ~/android/rr/
                 cp -r ~/treees/bue/comun/kernel/ ~/android/rr/
             fi
@@ -1124,7 +2006,7 @@ fi
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -1132,14 +2014,19 @@ fi
               if [ $? -eq 0 ]; then
                   echo "Build completada satisfactoriamente."  
 		          cp  out/target/product/lavender/RR-P-v7*.zip ~/ae
-	
-              else
-                  echo "Error al compilar la rom."
-					 exit 1
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+#######################################################################################################################		
+              else
+                  echo "Error al compilar la rom."
+                      exit 1
+##############################################Push telegram message####################################################
+    DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 	
@@ -1152,7 +2039,7 @@ fi
                 echo "El directorio existe"
             else
                 echo "Copiando tree"
-                cp -r ~/treees/bue/aokp/         ~/android/aokp/
+                cp -r ~/treees/bue/aokp/         ~/android/
                 cp -r ~/treees/bue/comun/vendor/ ~/android/aokp/
                 cp -r ~/treees/bue/comun/kernel/ ~/android/aokp/
             fi
@@ -1162,7 +2049,7 @@ fi
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -1170,19 +2057,65 @@ fi
               if [ $? -eq 0 ]; then
                   echo "Build completada satisfactoriamente."  
 		          cp  out/target/product/lavender/XenonHD*.zip ~/ae
-	
-              else
-                  echo "Error al compilar la rom."
-					 exit 1
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK"
+	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+#######################################################################################################################		
+              else
+                  echo "Error al compilar la rom."
+                      exit 1
+##############################################Push telegram message####################################################
+    DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 	
-              fi	  	  
-    elif [ $BUILDROM = "no" ]; then
+              fi
+
+        elif [ $SCRIPTROM = "xtended" ]; then		
+        echo "Copying tree"
+		#Clonado device tree
+                if [ -d ~/android/xtended/device/xiaomi/lavender/ ]; then
+                    echo "El directorio existe"
+                else
+                    echo "Copiando tree"
+                    cp -r ~/treees/bue/xtended/         ~/android/
+                    cp -r ~/treees/bue/comun/vendor/ ~/android/xtended/
+                    cp -r ~/treees/bue/comun/kernel/ ~/android/xtended/
+                fi
+				
+		    echo "Iniciando build..."
+			patchrom
+			
+##############################################Push telegram message####################################################
+    DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+#######################################################################################################################	
+		    source build/envsetup.sh
+            lunch xtended_lavender-userdebug
+            make xtended
+                if [ $? -eq 0 ]; then
+                      echo "Build completada satisfactoriamente."  
+		              cp  out/target/product/lavender/Xtended*.zip ~/ae
+	
+                else
+                      echo "Error al compilar la rom."
+                      exit 1
+##############################################Push telegram message####################################################
+    DATE=$(date '+%d/%m/%Y')
+    HORAS=$(date '+%H:%M min')
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	         telegrammsg
+#######################################################################################################################	
+	
+                fi
+	  	  
+      elif [ $BUILDROM = "no" ]; then
             echo "Skip Build"       		
         
 	
