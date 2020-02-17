@@ -693,6 +693,7 @@ MESSAGE="Termina la sincronización del repositorio $ROM a las $HORAS de $DATE c
 ###########################################################################################################################
         else
              echo "Sync failed"
+			 exit 1
 ###########################################################################################################################
 DATE=$(date '+%d/%m/%Y')
 HORAS=$(date '+%H:%M min')
@@ -763,6 +764,7 @@ function buildrom() {
 	
                 else
                      echo "Error al compilar la rom."
+					 exit 1
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
@@ -804,6 +806,7 @@ function buildrom() {
 	
                 else
                       echo "Error al compilar la rom."
+					 exit 1
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
@@ -844,6 +847,7 @@ function buildrom() {
 	
               else
                   echo "Error al compilar la rom."
+					 exit 1
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
@@ -886,6 +890,7 @@ function buildrom() {
 	
                 else
                      echo "Error al compilar la rom."
+					 exit 1
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
@@ -927,6 +932,7 @@ function buildrom() {
 	
                 else
                       echo "Error al compilar la rom."
+					 exit 1
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
@@ -966,6 +972,7 @@ function buildrom() {
 	
               else
                   echo "Error al compilar la rom."
+					 exit 1
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
@@ -1005,6 +1012,7 @@ function buildrom() {
 	
               else
                   echo "Error al compilar la rom."
+					 exit 1
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
@@ -1044,6 +1052,7 @@ fi
 	
                 else
                      echo "Error al compilar la rom."
+					 exit 1
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
@@ -1086,6 +1095,7 @@ fi
 	
                 else
                       echo "Error al compilar la rom."
+					 exit 1
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
@@ -1125,6 +1135,7 @@ fi
 	
               else
                   echo "Error al compilar la rom."
+					 exit 1
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
@@ -1162,6 +1173,7 @@ fi
 	
               else
                   echo "Error al compilar la rom."
+					 exit 1
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
