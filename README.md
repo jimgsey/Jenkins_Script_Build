@@ -27,13 +27,23 @@ Jenkins Script Build
 **//** [Aex](https://github.com/AospExtended/manifest/tree/9.x) 
 **//** [Aokp](https://github.com/AOKP/platform_manifest) 
 **//** [Aosip](https://github.com/AOSiP/platform_manifest/tree/pie) 
+**//** [Candy](https://github.com/CandyRoms/candy/tree/c9.0) 
 **//** [Carbon](https://github.com/CarbonROM/android/tree/cr-7.0) 
+**//** [Colt](https://github.com/Colt-Enigma/platform_manifest/tree/wip)
+**//** [Cosmic](https://github.com/Cosmic-OS/platform_manifest/tree/corona-release)
+**//** [Cosp](https://github.com/cosp-project/manifest)
 **//** [CrDroid](https://github.com/crdroidandroid/android/tree/9.0) 
-**//** [Derpfest](https://github.com/DerpFest-Pie/platform_manifest) 
+**//** [Derpfest](https://github.com/DerpFest-Pie/platform_manifest)
+**//** [Dot](https://github.com/DotOS/manifest) 
 **//** [Floko](https://github.com/FlokoROM/manifesto) 
+**//** [Havoc](https://github.com/Havoc-OS/android_manifest/tree/pie)
+**//** [Ion](https://github.com/i-o-n/manifest/tree/pie)
 **//** [Lineage](https://github.com/LineageOS/android/tree/lineage-16.0) 
+**//** [Lotus](https://github.com/LotusOS/android_manifest)
+**//** [Nitrogen](https://github.com/nitrogen-project/android_manifest/tree/p)
 **//** [RR](https://github.com/RR-Test/platform_manifest) 
-**//** [Xenon HD](https://github.com/TeamHorizon/platform_manifest) **//**
+**//** [Xenon HD](https://github.com/TeamHorizon/platform_manifest)
+**//** [Xtended](https://github.com/Project-Xtended/manifest/tree/xp)  **//**
 
 ## Parameters
 
