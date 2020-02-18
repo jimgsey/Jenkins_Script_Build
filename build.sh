@@ -189,7 +189,7 @@ function uploadrom() {
 
     if [ $UPLOADROM = "yes" ]; then
         if [ $SCRIPTROM = "aicp" ]; then
-              echo "Uploading Aicp"			
+              echo "Uploading $ROM "			
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/aicp_lavender_p*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Aicp/$FILENAME"
@@ -214,7 +214,7 @@ function uploadrom() {
 
 
         elif [ $SCRIPTROM = "aex" ]; then
-              echo "Uploading"
+              echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/AospExtended-v6*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Aex/$FILENAME"
@@ -234,7 +234,7 @@ function uploadrom() {
 ###############################################################################################################################	
 			  
         elif [ $SCRIPTROM = "aokp" ]; then
-              echo "Uploading Aokp"
+              echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/aokp_lavender_pie*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Aokp/$FILENAME"
@@ -254,7 +254,7 @@ function uploadrom() {
 ###############################################################################################################################
 			  
         elif [ $SCRIPTROM = "aosip" ]; then
-              echo "Uploading Aosip"			
+              echo "Uploading $ROM "			
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/AOSiP-9.0-Pizza*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Aosip/$FILENAME"
@@ -274,7 +274,7 @@ function uploadrom() {
 ###############################################################################################################################				  
 
          elif [ $SCRIPTROM = "candy" ]; then
-              echo "Uploading"
+              echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/Candy*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Candy/$FILENAME"
@@ -295,7 +295,7 @@ function uploadrom() {
 			  
 
         elif [ $SCRIPTROM = "carbon" ]; then
-              echo "Uploading"
+              echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/CARBON*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Carbon/$FILENAME"
@@ -314,7 +314,7 @@ function uploadrom() {
 	         telegrammsg
 ###############################################################################################################################
         elif [ $SCRIPTROM = "colt" ]; then
-              echo "Uploading Colt"			
+              echo "Uploading $ROM "			
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/ColtOS*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Colt/$FILENAME"
@@ -334,7 +334,7 @@ function uploadrom() {
 ###############################################################################################################################				  
 
         elif [ $SCRIPTROM = "cosmic" ]; then
-              echo "Uploading Aokp"
+              echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/Cosmic-OS-v4.0-Corona*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Cosmic/$FILENAME"
@@ -354,7 +354,7 @@ function uploadrom() {
 ###############################################################################################################################
 			  
         elif [ $SCRIPTROM = "cosp" ]; then
-              echo "Uploading Aokp"
+              echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/COSP*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Cosp/$FILENAME"
@@ -374,7 +374,7 @@ function uploadrom() {
 ###############################################################################################################################
 
         elif [ $SCRIPTROM = "crdroid" ]; then
-              echo "Uploading CrDroid"
+              echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/crDroidAndroid-9*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/CrDroid/$FILENAME"
@@ -394,7 +394,7 @@ function uploadrom() {
 ###############################################################################################################################
 			  
         elif [ $SCRIPTROM = "derpfest" ]; then
-              echo "Uploading"
+              echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/AOSiP-9.0-DerpFest*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/DerpFest/$FILENAME"
@@ -414,7 +414,7 @@ function uploadrom() {
 ###############################################################################################################################
 		
 	    elif [ $SCRIPTROM = "dot" ]; then
-              echo "Uploading Colt"			
+              echo "Uploading $ROM "			
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/dotOS-P*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Dot/$FILENAME"
@@ -435,7 +435,7 @@ function uploadrom() {
 
 
         elif [ $SCRIPTROM = "floko" ]; then
-              echo "Uploading Floko"			
+              echo "Uploading $ROM "			
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/Floko*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Floko/$FILENAME"
@@ -455,7 +455,7 @@ function uploadrom() {
 ###############################################################################################################################	
 		
         elif [ $SCRIPTROM = "havoc" ]; then
-              echo "Uploading"
+              echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/Havoc*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Havoc/$FILENAME"
@@ -476,7 +476,7 @@ function uploadrom() {
 			  
 	  
         elif [ $SCRIPTROM = "ion" ]; then
-              echo "Uploading"
+              echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/ion*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Ion/$FILENAME"
@@ -497,7 +497,7 @@ function uploadrom() {
 			  
 
         elif [ $SCRIPTROM = "lineage" ]; then
-              echo "Uploading"
+              echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/lineage-16*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Lineage/$FILENAME"
@@ -517,7 +517,7 @@ function uploadrom() {
 ###############################################################################################################################	
 
 		elif [ $SCRIPTROM = "lotus" ]; then
-              echo "Uploading Lotus"
+              echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/Lo*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Lotus/$FILENAME"
@@ -537,7 +537,7 @@ function uploadrom() {
 ###############################################################################################################################
 			  
         elif [ $SCRIPTROM = "nitrogen" ]; then
-              echo "Uploading"
+              echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/Nitrogen*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Nitrogen/$FILENAME"
@@ -556,7 +556,7 @@ function uploadrom() {
 	         telegrammsg
 ###############################################################################################################################	  
         elif [ $SCRIPTROM = "rr" ]; then
-              echo "Uploading RR"
+              echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/RR-P-v7*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/ResurrectionRemix/$FILENAME"
@@ -576,7 +576,7 @@ function uploadrom() {
 ###############################################################################################################################	
 			  
         elif [ $SCRIPTROM = "xenon" ]; then
-              echo "Uploading"
+              echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/XenonHD*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Xenon/$FILENAME"
@@ -596,7 +596,7 @@ function uploadrom() {
 ###############################################################################################################################				  
     
       elif [ $SCRIPTROM = "xtended" ]; then
-              echo "Uploading"
+              echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/Xtended*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Xtended/$FILENAME"
@@ -617,7 +617,7 @@ function uploadrom() {
 			  
 
       elif [ $BUILDROM = "no" ]; then
-            echo "Skip Build"       		
+            echo "Skip Upload $ROM "       		
 		   else
             echo "You didn't entered a valid option."
         
