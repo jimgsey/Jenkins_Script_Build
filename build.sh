@@ -1,11 +1,10 @@
 # Copyright (C) 2020 daniml3 and Jimgsey All rights reserved
 
 # Declare all functions
-
+LINKJEN="Your jenkins link"
 # Telegram Messages
 function telegrammsg() {
 TOKEN="Use your token"
-LINK="Your jenkins link"
 ID="Your id bot"
 curl -s -X POST https://api.telegram.org/bot$TOKEN/sendMessage -d chat_id=$ID -d text="$MESSAGE"
 }
@@ -34,7 +33,7 @@ function romclean() {
 ##############################################Push telegram message############################################################
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Make Clean $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Make Clean $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	
 				
@@ -45,7 +44,7 @@ function romclean() {
 
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Delete folder $ROM.  Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Delete folder $ROM.  Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	
     elif [ $ROMCLEAN = "no" ]; then
@@ -195,7 +194,7 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Aicp/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################				  
               scp  ~/ae/aicp_lavender_p*.zip youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Aicp/ 
@@ -204,7 +203,7 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Aicp/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Updated $ROM. Link:$UPDATE_URL1 Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Updated $ROM. Link:$UPDATE_URL1 Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	
 
@@ -220,7 +219,7 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Aex/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	
               scp  ~/ae/AospExtended-v6*.zip youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Aex/
@@ -229,7 +228,7 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Aex/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Updated $ROM. Link:$UPDATE_URL1 Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Updated $ROM. Link:$UPDATE_URL1 Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	
 			  
@@ -240,7 +239,7 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Aokp/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	
               scp  ~/ae/aokp_lavender_pie*.zip youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Aokp/ 
@@ -249,7 +248,7 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Aokp/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Updated $ROM. Link:$UPDATE_URL1 Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Updated $ROM. Link:$UPDATE_URL1 Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################
 			  
@@ -260,7 +259,7 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Aosip/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################				  
               scp  ~/ae/AOSiP-9.0-Pizza*.zip  youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Aosip/ 
@@ -269,7 +268,7 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Aosip/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Updated $ROM. Link:$UPDATE_URL1 Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Updated $ROM. Link:$UPDATE_URL1 Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################				  
 
@@ -280,7 +279,7 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Candy/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	
               scp  ~/ae/candy*.zip youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Candy/
@@ -289,7 +288,7 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Candy/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Updated $ROM. Link:$UPDATE_URL1 Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Updated $ROM. Link:$UPDATE_URL1 Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	
 			  
@@ -301,7 +300,7 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Carbon/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	
               scp  ~/ae/CARBON*.zip youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Carbon/ 
@@ -310,7 +309,7 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Carbon/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Updated $ROM. Link:$UPDATE_URL1 Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Updated $ROM. Link:$UPDATE_URL1 Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################
         elif [ $SCRIPTROM = "colt" ]; then
@@ -320,7 +319,7 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Colt/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################				  
               scp  ~/ae/ColtOS*.zip  youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Colt/ 
@@ -329,7 +328,7 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Colt/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Updated $ROM. Link:$UPDATE_URL1 Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Updated $ROM. Link:$UPDATE_URL1 Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################				  
 
@@ -340,7 +339,7 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Cosmic/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	
               scp  ~/ae/cosmic*.zip youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Cosmic/ 
@@ -349,7 +348,7 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Cosmic/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Updated $ROM. Link:$UPDATE_URL1 Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Updated $ROM. Link:$UPDATE_URL1 Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################
 			  
@@ -360,7 +359,7 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Cosp/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	
               scp  ~/ae/COSP*.zip youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Cosp/ 
@@ -369,7 +368,7 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Cosp/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Updated $ROM. Link:$UPDATE_URL1 Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Updated $ROM. Link:$UPDATE_URL1 Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################
 
@@ -380,7 +379,7 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/CrDroid/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	
               scp  ~/ae/crDroidAndroid-9*.zip youraccount@frs.sourceforge.net:/home/frs/project/lavender7/CrDroid/
@@ -389,7 +388,7 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/CrDroid/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Updated $ROM. Link:$UPDATE_URL1 Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Updated $ROM. Link:$UPDATE_URL1 Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################
 			  
@@ -400,7 +399,7 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/DerpFest/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	
               scp  ~/ae/AOSiP-9.0-DerpFest*.zip  youraccount@frs.sourceforge.net:/home/frs/project/lavender7/DerpFest/ 
@@ -409,7 +408,7 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/DerpFest/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Updated $ROM. Link:$UPDATE_URL1 Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Updated $ROM. Link:$UPDATE_URL1 Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################
 		
@@ -420,7 +419,7 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Dot/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################				  
               scp  ~/ae/dotOS-P*.zip  youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Dot/ 
@@ -429,7 +428,7 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Dot/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Updated $ROM. Link:$UPDATE_URL1 Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Updated $ROM. Link:$UPDATE_URL1 Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################				  
 
@@ -441,7 +440,7 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Floko/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################				  
               scp  ~/ae/Floko*.zip  youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Floko/ 
@@ -450,7 +449,7 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Floko/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Updated $ROM. Link:$UPDATE_URL1 Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Updated $ROM. Link:$UPDATE_URL1 Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	
 		
@@ -461,7 +460,7 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Havoc/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	
               scp  ~/ae/Havoc*.zip youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Havoc/ 
@@ -470,7 +469,7 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Havoc/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Updated $ROM. Link:$UPDATE_URL1 Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Updated $ROM. Link:$UPDATE_URL1 Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################
 			  
@@ -482,7 +481,7 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Ion/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	
               scp  ~/ae/ion*.zip youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Ion/ 
@@ -491,7 +490,7 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Ion/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Updated $ROM. Link:$UPDATE_URL1 Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Updated $ROM. Link:$UPDATE_URL1 Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################
 			  
@@ -503,7 +502,7 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Lineage/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	
               scp  ~/ae/lineage-16*.zip youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Lineage/ 
@@ -512,7 +511,7 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Lineage/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Updated $ROM. Link:$UPDATE_URL1 Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Updated $ROM. Link:$UPDATE_URL1 Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	
 
@@ -523,7 +522,7 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Lotus/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	
               scp  ~/ae/Lo*.zip youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Lotus/
@@ -532,7 +531,7 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Lotus/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Updated $ROM. Link:$UPDATE_URL1 Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Updated $ROM. Link:$UPDATE_URL1 Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################
 			  
@@ -543,7 +542,7 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Nitrogen/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	
               scp ~/ae/Nitrogen*.zip  youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Nitrogen/ 
@@ -552,7 +551,7 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Nitrogen/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Updated $ROM. Link:$UPDATE_URL1 Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Updated $ROM. Link:$UPDATE_URL1 Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	  
         elif [ $SCRIPTROM = "rr" ]; then
@@ -562,7 +561,7 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/ResurrectionRemix/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	
               scp  ~/ae/RR-P-v7*.zipyouraccount@frs.sourceforge.net:/home/frs/project/lavender7/ResurrectionRemix/ 
@@ -571,7 +570,7 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/ResurrectionRemix/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Updated $ROM. Link:$UPDATE_URL1 Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Updated $ROM. Link:$UPDATE_URL1 Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	
 			  
@@ -582,7 +581,7 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Xenon/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	
               scp  ~/ae/XenonHD*.zip youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Xenon/  
@@ -591,7 +590,7 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Xenon/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Updated $ROM. Link:$UPDATE_URL1 Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Updated $ROM. Link:$UPDATE_URL1 Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################				  
     
@@ -602,7 +601,7 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Xtended/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	
               scp  ~/ae/Xtended*.zip youraccount@frs.sourceforge.net:/home/frs/project/lavender7/Xtended/
@@ -611,7 +610,7 @@ function uploadrom() {
 	UPDATE_URL1="https://sourceforge.net/projects/lavender7/files/Xtended/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Updated $ROM. Link:$UPDATE_URL1 Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Updated $ROM. Link:$UPDATE_URL1 Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	
 			  
@@ -1156,7 +1155,7 @@ function syncrom() {
 ###########################################################################################################################
 DATE=$(date '+%d/%m/%Y')
 HOURS=$(date '+%H:%M min')
-MESSAGE="Start sync $ROM at $HOURS to $DATE with link Jenkins: $LINK "
+MESSAGE="Start sync $ROM at $HOURS to $DATE with link Jenkins: $LINKJEN "
         telegrammsg
 ###########################################################################################################################
 		cd $ROMDIR	
@@ -1166,7 +1165,7 @@ MESSAGE="Start sync $ROM at $HOURS to $DATE with link Jenkins: $LINK "
 ###########################################################################################################################
 DATE=$(date '+%d/%m/%Y')
 HOURS=$(date '+%H:%M min')
-MESSAGE="Finish sync $ROM at $HOURS to $DATE with link Jenkins: $LINK "
+MESSAGE="Finish sync $ROM at $HOURS to $DATE with link Jenkins: $LINKJEN "
         telegrammsg
 ###########################################################################################################################
         else
@@ -1175,7 +1174,7 @@ MESSAGE="Finish sync $ROM at $HOURS to $DATE with link Jenkins: $LINK "
 ###########################################################################################################################
 DATE=$(date '+%d/%m/%Y')
 HOURS=$(date '+%H:%M min')
-MESSAGE="Failed sync $ROM at $HOURS to $DATE with link Jenkins: $LINK "
+MESSAGE="Failed sync $ROM at $HOURS to $DATE with link Jenkins: $LINKJEN "
         telegrammsg
 ###########################################################################################################################
      
@@ -1229,7 +1228,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Start build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Start build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################	
 			
@@ -1241,7 +1240,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Finished build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Finished build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################						 
 ##################### Generar OTA ##############       Pegar antes del elif de no?????
@@ -1253,7 +1252,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Error compiling $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Error compiling $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################	
 	             exit 1
@@ -1279,7 +1278,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Start build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Start build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -1291,7 +1290,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Finished build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Finished build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################		
                 else
@@ -1299,7 +1298,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Error compiling $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Error compiling $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################	
 	              exit 1
@@ -1324,7 +1323,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Start build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Start build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -1336,7 +1335,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Finished build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Finished build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################		
               else
@@ -1344,7 +1343,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Error compiling $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Error compiling $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################	
 	            exit 1
@@ -1369,7 +1368,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Start build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Start build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################	
 			
@@ -1383,7 +1382,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Finished build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Finished build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################		
                 else
@@ -1391,7 +1390,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Error compiling $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Error compiling $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################	
 	               exit 1
@@ -1416,7 +1415,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Start build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Start build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -1430,7 +1429,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Error compiling $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Error compiling $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################	
 	               exit 1
@@ -1456,7 +1455,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Start build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Start build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -1468,7 +1467,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Finished build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Finished build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################		
                 else
@@ -1476,7 +1475,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Error compiling $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Error compiling $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################	
 	               exit 1
@@ -1501,7 +1500,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Start build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Start build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################	
 			
@@ -1518,7 +1517,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Error compiling $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Error compiling $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################	
 	               exit 1
@@ -1541,7 +1540,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Start build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Start build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -1556,7 +1555,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Error compiling $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Error compiling $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################	
 	             exit 1
@@ -1580,7 +1579,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Start build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Start build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -1595,7 +1594,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Error compiling $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Error compiling $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################	
 	             exit 1
@@ -1619,7 +1618,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Start build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Start build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -1630,7 +1629,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Finished build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Finished build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################		
               else
@@ -1638,7 +1637,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Error compiling $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Error compiling $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################	
 	             exit 1
@@ -1662,7 +1661,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Start build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Start build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -1674,7 +1673,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Finished build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Finished build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################		
               else
@@ -1682,7 +1681,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Error compiling $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Error compiling $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################	
 	       exit 1
@@ -1707,7 +1706,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Start build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Start build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################	
 			
@@ -1724,7 +1723,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Error compiling $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Error compiling $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################	
 	               exit 1
@@ -1749,7 +1748,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Start build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Start build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################	
 			
@@ -1762,7 +1761,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Finished build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Finished build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################		
                 else
@@ -1770,7 +1769,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Error compiling $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Error compiling $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################	
 	               exit 1
@@ -1794,7 +1793,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Start build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Start build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -1808,7 +1807,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Error compiling $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Error compiling $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################	
 	              exit 1
@@ -1833,7 +1832,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Start build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Start build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -1848,7 +1847,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Error compiling $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Error compiling $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################	
 	               exit 1
@@ -1872,7 +1871,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Start build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Start build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -1885,7 +1884,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Finished build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Finished build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################		
                 else
@@ -1893,7 +1892,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Error compiling $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Error compiling $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################	
 	               exit 1
@@ -1916,7 +1915,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Start build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Start build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -1931,7 +1930,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Error compiling $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Error compiling $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################	
 	             exit 1
@@ -1955,7 +1954,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Start build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Start build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -1970,7 +1969,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Error compiling $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Error compiling $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################	
 	             exit 1
@@ -1993,7 +1992,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Start build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Start build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -2004,7 +2003,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Finished build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Finished build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################		
               else
@@ -2012,7 +2011,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Error compiling $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Error compiling $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################	
 	              exit 1
@@ -2035,7 +2034,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Start build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Start build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -2046,7 +2045,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Finished build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Finished build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################		
               else
@@ -2054,7 +2053,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Error compiling $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Error compiling $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################	
 	             exit 1
@@ -2078,7 +2077,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Start build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Start build  $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -2093,7 +2092,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
-	MESSAGE="Error compiling $ROM. Date: $DATE at $HOURS link to Jenkins: $LINK "
+	MESSAGE="Error compiling $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 #######################################################################################################################	
 	               exit 1
