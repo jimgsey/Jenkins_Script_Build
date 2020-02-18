@@ -1227,7 +1227,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################	
 			
@@ -1239,7 +1239,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################						 
 ##################### Generar OTA ##############       Pegar antes del elif de no?????
@@ -1248,14 +1248,13 @@ function buildrom() {
 	
                 else
                      echo "Error al compilar la rom."
-                      exit 1
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################	
-	
+	             exit 1
                 fi
 		 
 
@@ -1278,7 +1277,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -1290,19 +1289,18 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################		
                 else
                       echo "Error al compilar la rom."
-                      exit 1
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################	
-	
+	              exit 1
                 fi
           
 				
@@ -1324,7 +1322,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -1336,19 +1334,18 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################		
               else
                   echo "Error al compilar la rom."
-                      exit 1
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################	
-	
+	            exit 1
               fi
 			
         
@@ -1370,7 +1367,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################	
 			
@@ -1384,20 +1381,20 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################		
                 else
                      echo "Error al compilar la rom."
-                      exit 1
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################	
-	
+	               exit 1
                 fi
+
 		 
         elif [ $SCRIPTROM = "candy" ]; then		
         echo "Copying tree"
@@ -1417,7 +1414,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -1427,15 +1424,14 @@ function buildrom() {
 		              cp  out/target/product/lavender/Candy*.zip ~/ae
 	
                 else
-                      echo "Error al compilar la rom."
-                        exit 1
+                      echo "Error al compilar la rom."                        
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################	
-	
+	               exit 1
                 fi
           
 				
@@ -1458,7 +1454,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -1470,19 +1466,18 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################		
                 else
                       echo "Error al compilar la rom."
-                      exit 1
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################	
-	
+	               exit 1
                 fi
           
        				
@@ -1504,7 +1499,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################	
 			
@@ -1518,14 +1513,13 @@ function buildrom() {
 	
                 else
                      echo "Error al compilar la rom."
-                      exit 1
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################	
-	
+	               exit 1
                 fi
 
         elif [ $SCRIPTROM = "cosmic" ]; then		
@@ -1545,7 +1539,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -1557,14 +1551,13 @@ function buildrom() {
 	
               else
                   echo "Error al compilar la rom."
-                   exit 1
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################	
-	
+	             exit 1
               fi
 			
         
@@ -1585,7 +1578,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -1597,15 +1590,15 @@ function buildrom() {
 	
               else
                   echo "Error al compilar la rom."
-                      exit 1
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################	
-	
+	             exit 1
               fi
+
 
         elif [ $SCRIPTROM = "crdroid" ]; then		
         echo "Copying tree"
@@ -1624,7 +1617,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -1635,19 +1628,18 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################		
               else
                   echo "Error al compilar la rom."
-                      exit 1
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################	
-	
+	             exit 1
               fi
 			  
 
@@ -1668,7 +1660,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -1680,19 +1672,18 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################		
               else
                   echo "Error al compilar la rom."
-                      exit 1
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################	
-	
+	       exit 1
         fi
 
 
@@ -1714,7 +1705,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################	
 			
@@ -1728,15 +1719,15 @@ function buildrom() {
 	
                 else
                      echo "Error al compilar la rom."
-                      exit 1
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################	
-	
+	               exit 1
                 fi
+
 		 
 		elif [ $SCRIPTROM = "floko" ]; then
         echo "Copying tree"
@@ -1756,7 +1747,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################	
 			
@@ -1769,19 +1760,18 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################		
                 else
                      echo "Error al compilar la rom."
-                      exit 1
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################	
-	
+	               exit 1
                 fi
 		
         elif [ $SCRIPTROM = "havoc" ]; then		
@@ -1802,7 +1792,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -1813,14 +1803,13 @@ function buildrom() {
 	
                 else
                       echo "Error al compilar la rom."
-                         exit 1
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################	
-	
+	              exit 1
                 fi
           
 				 
@@ -1842,7 +1831,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -1854,14 +1843,13 @@ function buildrom() {
 	
                 else
                       echo "Error al compilar la rom."
-                      exit 1
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################	
-	
+	               exit 1
                 fi
 		
         elif [ $SCRIPTROM = "lineage" ]; then		
@@ -1882,7 +1870,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -1895,19 +1883,18 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################		
                 else
                       echo "Error al compilar la rom."
-                      exit 1
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################	
-	
+	               exit 1
                 fi
           
 	   elif [ $SCRIPTROM = "lotus" ]; then		
@@ -1927,7 +1914,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -1939,14 +1926,13 @@ function buildrom() {
 	
               else
                   echo "Error al compilar la rom."
-                      exit 1
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################	
-	
+	             exit 1
               fi
 			  
 
@@ -1967,7 +1953,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -1979,14 +1965,13 @@ function buildrom() {
 	
               else
                   echo "Error al compilar la rom."
-                      exit 1
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################	
-	
+	             exit 1
               fi		
 		
         elif [ $SCRIPTROM = "rr" ]; then		
@@ -2006,7 +1991,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -2017,19 +2002,18 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################		
               else
                   echo "Error al compilar la rom."
-                      exit 1
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################	
-	
+	              exit 1
               fi
 		
 		elif [ $SCRIPTROM = "xenon" ]; then
@@ -2049,7 +2033,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -2060,19 +2044,18 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################		
               else
                   echo "Error al compilar la rom."
-                      exit 1
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################	
-	
+	             exit 1
               fi
 
         elif [ $SCRIPTROM = "xtended" ]; then		
@@ -2093,7 +2076,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -2105,16 +2088,15 @@ function buildrom() {
 	
                 else
                       echo "Error al compilar la rom."
-                      exit 1
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
 	         telegrammsg
 #######################################################################################################################	
-	
+	               exit 1
                 fi
-	  	  
+				
       elif [ $BUILDROM = "no" ]; then
             echo "Skip Build"       		
         
