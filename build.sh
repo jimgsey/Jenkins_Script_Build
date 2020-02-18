@@ -1221,13 +1221,13 @@ function buildrom() {
                     cp -r ~/treees/bue/comun/kernel/ ~/android/aicp/
                 fi
 
-		    echo "Iniciando build..."
+		    echo "Iniciando build $ROM "
 			patchrom
 			
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 			
@@ -1239,7 +1239,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################						 
 ##################### Generar OTA ##############       Pegar antes del elif de no?????
@@ -1251,7 +1251,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 	             exit 1
@@ -1271,13 +1271,13 @@ function buildrom() {
                     cp -r ~/treees/bue/comun/kernel/ ~/android/aex/
                 fi
 				
-		    echo "Iniciando build..."
+		    echo "Iniciando build $ROM "
 			patchrom
 			
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -1289,7 +1289,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################		
                 else
@@ -1297,7 +1297,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 	              exit 1
@@ -1316,13 +1316,13 @@ function buildrom() {
                 cp -r ~/treees/bue/comun/vendor/ ~/android/aokp/
                 cp -r ~/treees/bue/comun/kernel/ ~/android/aokp/
             fi
-		echo "Iniciando build..."
+		echo "Iniciando build $ROM "
         patchrom
 		
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -1334,7 +1334,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################		
               else
@@ -1342,7 +1342,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 	            exit 1
@@ -1361,13 +1361,13 @@ function buildrom() {
                     cp -r ~/treees/bue/comun/kernel/ ~/android/aosip/
                 fi
 
-		    echo "Iniciando build..."
+		    echo "Iniciando build $ROM "
 			patchrom
 			
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 			
@@ -1381,7 +1381,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################		
                 else
@@ -1389,7 +1389,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 	               exit 1
@@ -1408,13 +1408,13 @@ function buildrom() {
                     cp -r ~/treees/bue/comun/kernel/ ~/android/candy/
                 fi
 				
-		    echo "Iniciando build..."
+		    echo "Iniciando build $ROM "
 			patchrom
 			
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -1428,7 +1428,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 	               exit 1
@@ -1448,13 +1448,13 @@ function buildrom() {
                     cp -r ~/treees/bue/comun/kernel/ ~/android/carbon/
                 fi
 				
-		    echo "Iniciando build..."
+		    echo "Iniciando build $ROM "
 			patchrom
 			
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -1466,7 +1466,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################		
                 else
@@ -1474,7 +1474,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 	               exit 1
@@ -1493,13 +1493,13 @@ function buildrom() {
                     cp -r ~/treees/bue/comun/kernel/ ~/android/colt/
                 fi
 
-		    echo "Iniciando build..."
+		    echo "Iniciando build $ROM "
 			patchrom
 			
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 			
@@ -1516,7 +1516,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 	               exit 1
@@ -1533,13 +1533,13 @@ function buildrom() {
                 cp -r ~/treees/bue/comun/vendor/ ~/android/cosmic/
                 cp -r ~/treees/bue/comun/kernel/ ~/android/cosmic/
             fi
-		echo "Iniciando build..."
+		echo "Iniciando build $ROM "
         patchrom
 		
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -1554,7 +1554,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 	             exit 1
@@ -1572,13 +1572,13 @@ function buildrom() {
                 cp -r ~/treees/bue/comun/vendor/ ~/android/cosp/
                 cp -r ~/treees/bue/comun/kernel/ ~/android/cosp/
             fi
-		echo "Iniciando build..."
+		echo "Iniciando build $ROM "
         patchrom
 		
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -1593,7 +1593,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 	             exit 1
@@ -1611,13 +1611,13 @@ function buildrom() {
                 cp -r ~/treees/bue/comun/vendor/ ~/android/crdroid/
                 cp -r ~/treees/bue/comun/kernel/ ~/android/crdroid/
             fi
-		echo "Iniciando build..."
+		echo "Iniciando build $ROM "
         patchrom
 		
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -1628,7 +1628,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################		
               else
@@ -1636,7 +1636,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 	             exit 1
@@ -1654,13 +1654,13 @@ function buildrom() {
                 cp -r ~/treees/bue/comun/vendor/ ~/android/derpfest/
                 cp -r ~/treees/bue/comun/kernel/ ~/android/derpfest/
             fi
-		echo "Iniciando build..."
+		echo "Iniciando build $ROM "
 		patchrom
 		
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -1672,7 +1672,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################		
               else
@@ -1680,7 +1680,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 	       exit 1
@@ -1699,13 +1699,13 @@ function buildrom() {
                     cp -r ~/treees/bue/comun/kernel/ ~/android/dot/
                 fi
 
-		    echo "Iniciando build..."
+		    echo "Iniciando build $ROM "
 			patchrom
 			
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 			
@@ -1722,7 +1722,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 	               exit 1
@@ -1741,13 +1741,13 @@ function buildrom() {
                     cp -r ~/treees/bue/comun/kernel/ ~/android/floko/
                 fi
 
-		    echo "Iniciando build..."
+		    echo "Iniciando build $ROM "
 			patchrom
 			
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 			
@@ -1760,7 +1760,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################		
                 else
@@ -1768,7 +1768,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 	               exit 1
@@ -1786,13 +1786,13 @@ function buildrom() {
                     cp -r ~/treees/bue/comun/kernel/ ~/android/havoc/
                 fi
 				
-		    echo "Iniciando build..."
+		    echo "Iniciando build $ROM "
 			patchrom
 			
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -1806,7 +1806,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 	              exit 1
@@ -1825,13 +1825,13 @@ function buildrom() {
                     cp -r ~/treees/bue/comun/kernel/ ~/android/ion/
                 fi
 				
-		    echo "Iniciando build..."
+		    echo "Iniciando build $ROM "
 			patchrom
 			
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -1846,7 +1846,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 	               exit 1
@@ -1864,13 +1864,13 @@ function buildrom() {
                     cp -r ~/treees/bue/comun/kernel/ ~/android/lineage/
                 fi
 				
-		    echo "Iniciando build..."
+		    echo "Iniciando build $ROM "
 			patchrom
 			
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -1883,7 +1883,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################		
                 else
@@ -1891,7 +1891,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 	               exit 1
@@ -1908,13 +1908,13 @@ function buildrom() {
                 cp -r ~/treees/bue/comun/vendor/ ~/android/lotus/
                 cp -r ~/treees/bue/comun/kernel/ ~/android/lotus/
             fi
-		echo "Iniciando build..."
+		echo "Iniciando build $ROM "
         patchrom
 		
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -1929,7 +1929,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 	             exit 1
@@ -1947,13 +1947,13 @@ function buildrom() {
                 cp -r ~/treees/bue/comun/vendor/ ~/android/lotus/
                 cp -r ~/treees/bue/comun/kernel/ ~/android/lotus/
             fi
-		echo "Iniciando build..."
+		echo "Iniciando build $ROM "
 		patchrom
 		
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -1968,7 +1968,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 	             exit 1
@@ -1985,13 +1985,13 @@ function buildrom() {
                 cp -r ~/treees/bue/comun/vendor/ ~/android/rr/
                 cp -r ~/treees/bue/comun/kernel/ ~/android/rr/
             fi
-		echo "Iniciando build..."
+		echo "Iniciando build $ROM "
         patchrom
 		
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -2002,7 +2002,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################		
               else
@@ -2010,7 +2010,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 	              exit 1
@@ -2027,13 +2027,13 @@ function buildrom() {
                 cp -r ~/treees/bue/comun/vendor/ ~/android/aokp/
                 cp -r ~/treees/bue/comun/kernel/ ~/android/aokp/
             fi
-		echo "Iniciando build..."
+		echo "Iniciando build $ROM "
 		patchrom
 		
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -2044,7 +2044,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Termino de compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################		
               else
@@ -2052,7 +2052,7 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 	             exit 1
@@ -2070,13 +2070,13 @@ function buildrom() {
                     cp -r ~/treees/bue/comun/kernel/ ~/android/xtended/
                 fi
 				
-		    echo "Iniciando build..."
+		    echo "Iniciando build $ROM "
 			patchrom
 			
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Comienza a compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 		    source build/envsetup.sh
@@ -2091,14 +2091,14 @@ function buildrom() {
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HORAS=$(date '+%H:%M min')
-	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: http://jimgsei.github.io/  "
+	MESSAGE="Error al compilar $ROM. Fecha: $DATE a las $HORAS enlace al jenkins: $LINK "
 	         telegrammsg
 #######################################################################################################################	
 	               exit 1
                 fi
 				
       elif [ $BUILDROM = "no" ]; then
-            echo "Skip Build"       		
+            echo "Skip Build $ROM"       		
         
 	
 	else
