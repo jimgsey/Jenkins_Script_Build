@@ -26,7 +26,7 @@ curl -s -X POST https://api.telegram.org/bot$TOKEN/sendMessage -d chat_id=$ID -d
 function romclean() {
     # You can export the ROM by running export SCRIPTROM="<text>". Example: export SCRIPTROM="lineage" (for LineageOS 16.0)
     if [[ -v ROMCLEAN ]]; then
-    echo "Using exported ROM: $ROMCLEAN"
+    echo ""
     else
         echo ""
 		echo ""
@@ -43,7 +43,9 @@ function romclean() {
     fi
 	
     if [ $ROMCLEAN = "make" ]; then
-        echo "Make clean $ROM "
+        echo ""
+		echo "................./"
+		echo "Make clean $ROM "
         cd $ROMDIR
         make clean
 ##############################################Push telegram message############################################################
@@ -54,6 +56,8 @@ function romclean() {
 ###############################################################################################################################	
 				
     elif [ $ROMCLEAN = "delete" ]; then
+	    echo ""
+		echo "............................/"
         echo "Deleting all folder to $ROM "
         rm -r $ROMDIR
 ##############################################Push telegram message############################################################
@@ -64,8 +68,12 @@ function romclean() {
 	         telegrammsg
 ###############################################################################################################################	
     elif [ $ROMCLEAN = "no" ]; then
+	    echo ""
+		echo ".................O"
         echo "Nothing"
     else
+	    echo ""
+		echo ".................-"
         echo "You didn't entered a valid option."
     fi
 }
@@ -76,6 +84,8 @@ function romclean() {
 function gen_ota_json() {
      
     if [ $SCRIPTROM = "aicp" ]; then
+	    echo ""
+		echo "........................./"
         echo "Generating $ROM 14.0 json"
             cd $ROMDIR
             DATETIME=$(grep "ro.build.date.utc=" out/target/product/lavender/system/build.prop | cut -d "=" -f 2)
@@ -89,44 +99,84 @@ function gen_ota_json() {
                    JSON_FMT='{\n"response": [\n{\n"filename": "%s",\n"datetime": %s,\n"size":%s, \n"url":"%s", \n"version": "%s",\n"romtype": "%s", \n"id": "%s"\n}\n]\n}'
                    printf "$JSON_FMT" "$FILENAME" "$DATETIME" "$SIZE" "$URL" "$VERSION" "$ROMTYPE" "$ID" > ~/script/ota/lavender-aicp.json
         elif [ $SCRIPTROM = "aex" ]; then
+        echo ""
+		echo "........................./"
         echo "$ROM OTA is not supported by the script, skipping generation"
 		elif [ $SCRIPTROM = "aokp" ]; then
+        echo ""
+		echo "........................./"
         echo "$ROM OTA is not supported by the script, skipping generation"
         elif [ $SCRIPTROM = "aosip" ]; then
+        echo ""
+		echo "........................./"
         echo "$ROM OTA is not supported by the script, skipping generation"
         elif [ $SCRIPTROM = "candy" ]; then
+        echo ""
+		echo "........................./"
         echo "$ROM OTA is not supported by the script, skipping generation"
         elif [ $SCRIPTROM = "carbon" ]; then
+        echo ""
+		echo "........................./"
         echo "$ROM OTA is not supported by the script, skipping generation"
         elif [ $SCRIPTROM = "colt" ]; then
+        echo ""
+		echo "........................./"
         echo "$ROM OTA is not supported by the script, skipping generation"
         elif [ $SCRIPTROM = "cosmic" ]; then
+        echo ""
+		echo "........................./"
         echo "$ROM OTA is not supported by the script, skipping generation"
         elif [ $SCRIPTROM = "cosp" ]; then
+        echo ""
+		echo "........................./"
         echo "$ROM OTA is not supported by the script, skipping generation"
 		elif [ $SCRIPTROM = "crdroid" ]; then
+        echo ""
+		echo "........................./"
         echo "$ROM OTA is not supported by the script, skipping generation"
         elif [ $SCRIPTROM = "derpfest" ]; then
+        echo ""
+		echo "........................./"
         echo "$ROM OTA is not supported by the script, skipping generation"
         elif [ $SCRIPTROM = "dot" ]; then
+        echo ""
+		echo "........................./"
         echo "$ROM OTA is not supported by the script, skipping generation"
 		elif [ $SCRIPTROM = "floko" ]; then
+        echo ""
+		echo "........................./"
         echo "$ROM OTA is not supported by the script, skipping generation"
         elif [ $SCRIPTROM = "havoc" ]; then
+        echo ""
+		echo "........................./"
         echo "$ROM OTA is not supported by the script, skipping generation"
         elif [ $SCRIPTROM = "ion" ]; then
+        echo ""
+		echo "........................./"
         echo "$ROM OTA is not supported by the script, skipping generation"
         elif [ $SCRIPTROM = "lineage" ]; then
+        echo ""
+		echo "........................./"
         echo "$ROM OTA is not supported by the script, skipping generation"
         elif [ $SCRIPTROM = "lotus" ]; then
+        echo ""
+		echo "........................./"
         echo "$ROM OTA is not supported by the script, skipping generation"
         elif [ $SCRIPTROM = "nitrogen" ]; then
+        echo ""
+		echo "........................./"
         echo "$ROM OTA is not supported by the script, skipping generation"
 		elif [ $SCRIPTROM = "rr" ]; then
+        echo ""
+		echo "........................./"
         echo "$ROM OTA is not supported by the script, skipping generation"
 		elif [ $SCRIPTROM = "xenon" ]; then
+        echo ""
+		echo "........................./"
         echo "$ROM OTA is not supported by the script, skipping generation"
         elif [ $SCRIPTROM = "xtended" ]; then
+        echo ""
+		echo "........................./"
         echo "$ROM OTA is not supported by the script, skipping generation"		
         fi
 }
@@ -142,47 +192,89 @@ function push_ota () {
 
 function patchrom () {
     if [ $SCRIPTROM = "aicp" ]; then
+	        echo ""
+		    echo "........................./"
             echo "Updating updater to $ROM"
             cp ~/script/aicp/updater/strings.xml ~/android/aicp/packages/apps/Updater/res/values
         elif [ $SCRIPTROM = "aex" ]; then
+            echo ""
+		    echo "........................./"
             echo "OTA for $ROM not supported by the script, skipping patch"
         elif [ $SCRIPTROM = "aokp" ]; then
+            echo ""
+		    echo "........................./"
             echo "OTA for $ROM not supported by the script, skipping patch"
         elif [ $SCRIPTROM = "aosip" ]; then
+            echo ""
+		    echo "........................./"
             echo "OTA for $ROM not supported by the script, skipping patch"
         elif [ $SCRIPTROM = "candy" ]; then
+            echo ""
+		    echo "........................./"
             echo "OTA for $ROM not supported by the script, skipping patch"
         elif [ $SCRIPTROM = "carbon" ]; then
+            echo ""
+		    echo "........................./"
             echo "OTA for $ROM not supported by the script, skipping patch"
         elif [ $SCRIPTROM = "colt" ]; then
+            echo ""
+		    echo "........................./"
             echo "OTA for $ROM not supported by the script, skipping patch"
         elif [ $SCRIPTROM = "cosmic" ]; then
+            echo ""
+		    echo "........................./"
             echo "OTA for $ROM not supported by the script, skipping patch"
         elif [ $SCRIPTROM = "cosp" ]; then
+            echo ""
+		    echo "........................./"
             echo "OTA for $ROM not supported by the script, skipping patch"
         elif [ $SCRIPTROM = "crdroid" ]; then
+            echo ""
+		    echo "........................./"
             echo "OTA for $ROM not supported by the script, skipping patch"
         elif [ $SCRIPTROM = "derpfest" ]; then
+            echo ""
+		    echo "........................./"
             echo "OTA for $ROM not supported by the script, skipping patch"
         elif [ $SCRIPTROM = "dot" ]; then
+            echo ""
+		    echo "........................./"
             echo "OTA for $ROM not supported by the script, skipping patch"	
         elif [ $SCRIPTROM = "floko" ]; then
+            echo ""
+		    echo "........................./"
             echo "OTA for $ROM not supported by the script, skipping patch"
         elif [ $SCRIPTROM = "havoc" ]; then
+            echo ""
+		    echo "........................./"
             echo "OTA for $ROM not supported by the script, skipping patch"
         elif [ $SCRIPTROM = "ion" ]; then
+            echo ""
+		    echo "........................./"
             echo "OTA for $ROM not supported by the script, skipping patch"
         elif [ $SCRIPTROM = "lineage" ]; then
+            echo ""
+		    echo "........................./"
             echo "OTA for $ROM not supported by the script, skipping patch"
         elif [ $SCRIPTROM = "lotus" ]; then
+            echo ""
+		    echo "........................./"
             echo "OTA for $ROM not supported by the script, skipping patch"
         elif [ $SCRIPTROM = "nitrogen" ]; then
+            echo ""
+		    echo "........................./"
             echo "OTA for $ROM not supported by the script, skipping patch"
         elif [ $SCRIPTROM = "rr" ]; then
+            echo ""
+		    echo "........................./"
             echo "OTA for $ROM not supported by the script, skipping patch"
 		elif [ $SCRIPTROM = "xenon" ]; then
+            echo ""
+		    echo "........................./"
             echo "OTA for $ROM not supported by the script, skipping patch"
         elif [ $SCRIPTROM = "xtended" ]; then
+            echo ""
+		    echo "........................./"
             echo "OTA for $ROM not supported by the script, skipping patch"
 			
     fi
@@ -194,16 +286,25 @@ function patchrom () {
 function uploadrom() {
 
         if [[ -v UPLOADROM ]]; then
-    echo "Uploading ROM: $UPLOADROM"
+    echo ""
     else
-        echo "Do you want upload the rom? "
+	    echo ""
+		echo ""
+		echo "#################################"
+        echo "#  Do you want upload the rom?  #"
+		echo "#################################"
+		echo ""
         echo "[yes] Upload"
         echo "[no] Skip"
-        read -p "Selection: " UPLOADROM
+        echo ""
+		echo ""
+		read -p "Please, write your choise: " UPLOADROM
     fi
 
     if [ $UPLOADROM = "yes" ]; then
         if [ $SCRIPTROM = "aicp" ]; then
+              echo ""
+			  echo ".............../"
               echo "Uploading $ROM "			
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/aicp_lavender_p*.zip | cut -d "/" -f 5)
@@ -214,6 +315,9 @@ function uploadrom() {
 	         telegrammsg
 ###############################################################################################################################				  
               scp  ~/ae/aicp_lavender_p*.zip ${LINKUPL}/${ROM}/
+			  echo ""
+			  echo "...............|"
+              echo "Uploaded $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/aicp_lavender_p*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
@@ -229,6 +333,8 @@ function uploadrom() {
 
 
         elif [ $SCRIPTROM = "aex" ]; then
+              echo ""
+			  echo ".............../"
               echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/AospExtended-v6*.zip | cut -d "/" -f 5)
@@ -239,6 +345,9 @@ function uploadrom() {
 	         telegrammsg
 ###############################################################################################################################	
               scp  ~/ae/AospExtended-v6*.zip ${LINKUPL}/${ROM}/
+			  echo ""
+			  echo "...............|"
+              echo "Uploaded $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/AospExtended-v6*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
@@ -249,6 +358,8 @@ function uploadrom() {
 ###############################################################################################################################	
 			  
         elif [ $SCRIPTROM = "aokp" ]; then
+              echo ""
+			  echo ".............../"
               echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/aokp_lavender_pie*.zip | cut -d "/" -f 5)
@@ -259,6 +370,9 @@ function uploadrom() {
 	         telegrammsg
 ###############################################################################################################################	
               scp  ~/ae/aokp_lavender_pie*.zip ${LINKUPL}/${ROM}/
+			  echo ""
+			  echo "...............|"
+              echo "Uploaded $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/aokp_lavender_pie*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
@@ -269,6 +383,8 @@ function uploadrom() {
 ###############################################################################################################################
 			  
         elif [ $SCRIPTROM = "aosip" ]; then
+              echo ""
+			  echo ".............../"
               echo "Uploading $ROM "			
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/AOSiP-9.0-Pizza*.zip | cut -d "/" -f 5)
@@ -279,6 +395,9 @@ function uploadrom() {
 	         telegrammsg
 ###############################################################################################################################				  
               scp  ~/ae/AOSiP-9.0-Pizza*.zip  ${LINKUPL}/${ROM}/
+			  echo ""
+			  echo "...............|"
+              echo "Uploaded $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/AOSiP-9.0-Pizza*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
@@ -289,6 +408,8 @@ function uploadrom() {
 ###############################################################################################################################				  
 
          elif [ $SCRIPTROM = "candy" ]; then
+              echo ""
+			  echo ".............../"
               echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/Candy*.zip | cut -d "/" -f 5)
@@ -299,6 +420,9 @@ function uploadrom() {
 	         telegrammsg
 ###############################################################################################################################	
               scp  ~/ae/candy*.zip ${LINKUPL}/${ROM}/
+			  echo ""
+			  echo "...............|"
+              echo "Uploaded $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/Candy*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
@@ -310,6 +434,8 @@ function uploadrom() {
 			  
 
         elif [ $SCRIPTROM = "carbon" ]; then
+              echo ""
+			  echo ".............../"
               echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/CARBON*.zip | cut -d "/" -f 5)
@@ -320,6 +446,9 @@ function uploadrom() {
 	         telegrammsg
 ###############################################################################################################################	
               scp  ~/ae/CARBON*.zip ${LINKUPL}/${ROM}/ 
+			  echo ""
+			  echo "...............|"
+              echo "Uploaded $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/CARBON*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
@@ -329,6 +458,8 @@ function uploadrom() {
 	         telegrammsg
 ###############################################################################################################################
         elif [ $SCRIPTROM = "colt" ]; then
+              echo ""
+			  echo ".............../"
               echo "Uploading $ROM "			
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/ColtOS*.zip | cut -d "/" -f 5)
@@ -339,6 +470,9 @@ function uploadrom() {
 	         telegrammsg
 ###############################################################################################################################				  
               scp  ~/ae/ColtOS*.zip  ${LINKUPL}/${ROM}/
+			  echo ""
+			  echo "...............|"
+              echo "Uploaded $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/ColtOS*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
@@ -349,6 +483,8 @@ function uploadrom() {
 ###############################################################################################################################				  
 
         elif [ $SCRIPTROM = "cosmic" ]; then
+              echo ""
+			  echo ".............../"
               echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/Cosmic-OS-v4.0-Corona*.zip | cut -d "/" -f 5)
@@ -359,6 +495,9 @@ function uploadrom() {
 	         telegrammsg
 ###############################################################################################################################	
               scp  ~/ae/cosmic*.zip ${LINKUPL}/${ROM}/
+			  echo ""
+			  echo "...............|"
+              echo "Uploaded $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/Cosmic-OS-v4.0-Corona*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
@@ -369,6 +508,8 @@ function uploadrom() {
 ###############################################################################################################################
 			  
         elif [ $SCRIPTROM = "cosp" ]; then
+              echo ""
+			  echo ".............../"
               echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/COSP*.zip | cut -d "/" -f 5)
@@ -379,6 +520,9 @@ function uploadrom() {
 	         telegrammsg
 ###############################################################################################################################	
               scp  ~/ae/COSP*.zip ${LINKUPL}/${ROM}/
+			  echo ""
+			  echo "...............|"
+              echo "Uploaded $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/COSP*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
@@ -389,6 +533,8 @@ function uploadrom() {
 ###############################################################################################################################
 
         elif [ $SCRIPTROM = "crdroid" ]; then
+              echo ""
+			  echo ".............../"
               echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/crDroidAndroid-9*.zip | cut -d "/" -f 5)
@@ -399,6 +545,9 @@ function uploadrom() {
 	         telegrammsg
 ###############################################################################################################################	
               scp  ~/ae/crDroidAndroid-9*.zip ${LINKUPL}/${ROM}/
+			  echo ""
+			  echo "...............|"
+              echo "Uploaded $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/crDroidAndroid-9*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
@@ -409,6 +558,8 @@ function uploadrom() {
 ###############################################################################################################################
 			  
         elif [ $SCRIPTROM = "derpfest" ]; then
+              echo ""
+			  echo ".............../"
               echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/AOSiP-9.0-DerpFest*.zip | cut -d "/" -f 5)
@@ -419,6 +570,9 @@ function uploadrom() {
 	         telegrammsg
 ###############################################################################################################################	
               scp  ~/ae/AOSiP-9.0-DerpFest*.zip  ${LINKUPL}/${ROM}/
+			  echo ""
+			  echo "...............|"
+              echo "Uploaded $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/AOSiP-9.0-DerpFest*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
@@ -429,6 +583,8 @@ function uploadrom() {
 ###############################################################################################################################
 		
 	    elif [ $SCRIPTROM = "dot" ]; then
+              echo ""
+			  echo ".............../"
               echo "Uploading $ROM "			
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/dotOS-P*.zip | cut -d "/" -f 5)
@@ -439,6 +595,9 @@ function uploadrom() {
 	         telegrammsg
 ###############################################################################################################################				  
               scp  ~/ae/dotOS-P*.zip  ${LINKUPL}/${ROM}/
+			  echo ""
+			  echo "...............|"
+              echo "Uploaded $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/dotOS-P*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
@@ -450,6 +609,8 @@ function uploadrom() {
 
 
         elif [ $SCRIPTROM = "floko" ]; then
+              echo ""
+			  echo ".............../"
               echo "Uploading $ROM "			
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/Floko*.zip | cut -d "/" -f 5)
@@ -460,6 +621,9 @@ function uploadrom() {
 	         telegrammsg
 ###############################################################################################################################				  
               scp  ~/ae/Floko*.zip  ${LINKUPL}/${ROM}/
+			  echo ""
+			  echo "...............|"
+              echo "Uploaded $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/Floko*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
@@ -470,6 +634,8 @@ function uploadrom() {
 ###############################################################################################################################	
 		
         elif [ $SCRIPTROM = "havoc" ]; then
+              echo ""
+			  echo ".............../"
               echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/Havoc*.zip | cut -d "/" -f 5)
@@ -480,6 +646,9 @@ function uploadrom() {
 	         telegrammsg
 ###############################################################################################################################	
               scp  ~/ae/Havoc*.zip ${LINKUPL}/${ROM}/ 
+			  echo ""
+			  echo "...............|"
+              echo "Uploaded $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/Havoc*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
@@ -491,6 +660,8 @@ function uploadrom() {
 			  
 	  
         elif [ $SCRIPTROM = "ion" ]; then
+              echo ""
+			  echo ".............../"
               echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/ion*.zip | cut -d "/" -f 5)
@@ -501,6 +672,9 @@ function uploadrom() {
 	         telegrammsg
 ###############################################################################################################################	
               scp  ~/ae/ion*.zip ${LINKUPL}/${ROM}/ 
+			  echo ""
+			  echo "...............|"
+              echo "Uploaded $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/ion*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
@@ -512,6 +686,8 @@ function uploadrom() {
 			  
 
         elif [ $SCRIPTROM = "lineage" ]; then
+              echo ""
+			  echo ".............../"
               echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/lineage-16*.zip | cut -d "/" -f 5)
@@ -522,6 +698,9 @@ function uploadrom() {
 	         telegrammsg
 ###############################################################################################################################	
               scp  ~/ae/lineage-16*.zip ${LINKUPL}/${ROM}/
+			  echo ""
+			  echo "...............|"
+              echo "Uploaded $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/lineage-16*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
@@ -532,6 +711,8 @@ function uploadrom() {
 ###############################################################################################################################	
 
 		elif [ $SCRIPTROM = "lotus" ]; then
+              echo ""
+			  echo ".............../"
               echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/Lo*.zip | cut -d "/" -f 5)
@@ -542,6 +723,9 @@ function uploadrom() {
 	         telegrammsg
 ###############################################################################################################################	
               scp  ~/ae/Lo*.zip ${LINKUPL}/${ROM}/
+			  echo ""
+			  echo "...............|"
+              echo "Uploaded $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/Lo*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
@@ -552,6 +736,8 @@ function uploadrom() {
 ###############################################################################################################################
 			  
         elif [ $SCRIPTROM = "nitrogen" ]; then
+              echo ""
+			  echo ".............../"
               echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/Nitrogen*.zip | cut -d "/" -f 5)
@@ -562,6 +748,9 @@ function uploadrom() {
 	         telegrammsg
 ###############################################################################################################################	
               scp ~/ae/Nitrogen*.zip  ${LINKUPL}/${ROM}/
+			  echo ""
+			  echo "...............|"
+              echo "Uploaded $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/Nitrogen*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
@@ -571,6 +760,8 @@ function uploadrom() {
 	         telegrammsg
 ###############################################################################################################################	  
         elif [ $SCRIPTROM = "rr" ]; then
+              echo ""
+			  echo ".............../"
               echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/RR-P-v7*.zip | cut -d "/" -f 5)
@@ -581,6 +772,9 @@ function uploadrom() {
 	         telegrammsg
 ###############################################################################################################################	
               scp  ~/ae/RR-P-v7*.zip  ${LINKUPL}/${ROM}/
+			  echo ""
+			  echo "...............|"
+              echo "Uploaded $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/RR-P-v7*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
@@ -591,6 +785,8 @@ function uploadrom() {
 ###############################################################################################################################	
 			  
         elif [ $SCRIPTROM = "xenon" ]; then
+              echo ""
+			  echo ".............../"
               echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/XenonHD*.zip | cut -d "/" -f 5)
@@ -600,7 +796,10 @@ function uploadrom() {
 	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	
-              scp  ~/ae/XenonHD*.zip ${LINKUPL}/${ROM}/  
+              scp  ~/ae/XenonHD*.zip ${LINKUPL}/${ROM}/
+              echo ""
+			  echo "...............|"
+              echo "Uploaded $ROM "			  
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/XenonHD*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
@@ -611,6 +810,8 @@ function uploadrom() {
 ###############################################################################################################################				  
     
       elif [ $SCRIPTROM = "xtended" ]; then
+              echo ""
+			  echo ".............../"
               echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/Xtended*.zip | cut -d "/" -f 5)
@@ -621,6 +822,9 @@ function uploadrom() {
 	         telegrammsg
 ###############################################################################################################################	
               scp  ~/ae/Xtended*.zip ${LINKUPL}/${ROM}/
+			  echo ""
+			  echo "...............|"
+              echo "Uploaded $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ~/ae/Xtended*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
@@ -631,7 +835,7 @@ function uploadrom() {
 ###############################################################################################################################	
 			  
 
-      elif [ $BUILDROM = "no" ]; then
+      elif [ $UPLOADROM = "no" ]; then
             echo "Skip Upload $ROM "       		
 		   else
             echo "You didn't entered a valid option."
@@ -647,7 +851,7 @@ function uploadrom() {
 function romselect() {
     # You can export the ROM by running export SCRIPTROM="<romnumber>". Example: export SCRIPTROM="1" (for LineageOS 16.0)
     if [[ -v SCRIPTROM ]]; then
-    echo "Using exported ROM: $SCRIPTROM"
+    echo ""
     else
         
 		
@@ -1386,7 +1590,7 @@ echo "                                          "
 function syncrom() {
      
 	if [[ -v SCRIPTSYNC ]]; then
-    echo "Using exported ROM: $SCRIPTSYNC"
+    echo ""
     else
 	    echo ""
 		echo ""
@@ -1455,7 +1659,7 @@ MESSAGE="Failed sync $ROM at $HOURS to $DATE with link Jenkins: $LINKJEN "
 function buildrom() {
 
     if [[ -v BUILDROM ]]; then
-    echo "Using exported ROM: $BUILDROM"
+    echo ""
     else
         echo ""
 		echo ""
@@ -1471,6 +1675,9 @@ function buildrom() {
     fi
 
     if [ $BUILDROM = "yes" ]; then
+	    echo ""
+		echo "................"
+		echo ".............../"
         echo "Building Rom"
         cd $ROMDIR
 		git clone -b lineage-16.0 https://github.com/LineageOS/android_packages_resources_devicesettings packages/resources/devicesettings
@@ -1478,20 +1685,22 @@ function buildrom() {
 ################
 ################		   
              if [ $SCRIPTROM = "aicp" ]; then
-                echo "Copying tree"
-		        #Clonado device tree
+                #Clonado device tree
                 if [ -d ~/android/aicp/device/xiaomi/lavender/ ]; then
-                    echo ""
+                   echo ""
 				   echo ".....................!"
                    echo "Folder already exists"
                 else
+                    echo ""
+				    echo "...................../"
                     echo "Copying tree"
                     cp -r ~/treees/bue/aicp/         ~/android/
                     cp -r ~/treees/bue/comun/vendor/ ~/android/aicp/
                     cp -r ~/treees/bue/comun/kernel/ ~/android/aicp/
                 fi
-
-		    echo "Start build  $ROM "
+            echo ""
+	        echo "...................../"
+		    echo "Building  $ROM "
 			patchrom
 			
 ##############################################Push telegram message####################################################
@@ -1504,6 +1713,8 @@ function buildrom() {
 		    source build/envsetup.sh
             brunch lavender
                 if [ $? -eq 0 ]; then
+                     echo ""
+	                 echo ".....................|"
                      echo "Finished build $ROM"  
 		             cp  out/target/product/lavender/aicp_lavender_p*.zip ~/ae
 ##############################################Push telegram message####################################################
@@ -1517,7 +1728,9 @@ function buildrom() {
 ##################### Generar OTA ##############
 	
                 else
-                     echo "Error compiling $ROM "
+                     echo ""
+	                  echo ".....................-"
+                      echo "Error compiling $ROM "
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -1530,20 +1743,26 @@ function buildrom() {
 
 		
         elif [ $SCRIPTROM = "aex" ]; then		
-        echo "Copying tree"
+        echo ""
+				    echo "...................../"
+                    echo "Copying tree"
 		#Clonado device tree
                 if [ -d ~/android/aex/device/xiaomi/lavender/ ]; then
                     echo ""
 				   echo ".....................!"
                    echo "Folder already exists"
                 else
+                    echo ""
+				    echo "...................../"
                     echo "Copying tree"
                     cp -r ~/treees/bue/aex/         ~/android/
                     cp -r ~/treees/bue/comun/vendor/ ~/android/aex/
                     cp -r ~/treees/bue/comun/kernel/ ~/android/aex/
                 fi
 				
-		    echo "Start build  $ROM "
+		    echo ""
+	        echo "...................../"
+		    echo "Building  $ROM "
 			patchrom
 			
 ##############################################Push telegram message####################################################
@@ -1556,7 +1775,9 @@ function buildrom() {
             lunch aosp_lavender-userdebug
             mka aex -j4
                 if [ $? -eq 0 ]; then
-                      echo "Finished build $ROM"  
+                     echo ""
+	                 echo ".....................|"
+                     echo "Finished build $ROM"  
 		              cp  out/target/product/lavender/AospExtended-v6*.zip ~/ae
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
@@ -1565,6 +1786,8 @@ function buildrom() {
 	         telegrammsg
 #######################################################################################################################		
                 else
+				      echo ""
+	                  echo ".....................-"
                       echo "Error compiling $ROM "
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
@@ -1578,19 +1801,25 @@ function buildrom() {
 				
 		
         elif [ $SCRIPTROM = "aokp" ]; then		
-        echo "Copying tree"
+                    echo ""
+				    echo "...................../"
+                    echo "Copying tree"
 		#Clonado device tree
             if [ -d ~/android/aokp/device/xiaomi/lavender/ ]; then
-                echo ""
+                   echo ""
 				   echo ".....................!"
                    echo "Folder already exists"
             else
-                echo "Copying tree"
+                    echo ""
+				    echo "...................../"
+                    echo "Copying tree"
                 cp -r ~/treees/bue/aokp/         ~/android/
                 cp -r ~/treees/bue/comun/vendor/ ~/android/aokp/
                 cp -r ~/treees/bue/comun/kernel/ ~/android/aokp/
             fi
-		echo "Start build  $ROM "
+		          echo ""
+	              echo "...................../"
+		          echo "Building  $ROM "
         patchrom
 		
 ##############################################Push telegram message####################################################
@@ -1603,7 +1832,9 @@ function buildrom() {
             lunch aokp_lavender-userdebug
             mka rainbowfarts
               if [ $? -eq 0 ]; then
-                  echo "Finished build $ROM"  
+                     echo ""
+	                 echo ".....................|"
+                     echo "Finished build $ROM"  
 		          cp  out/target/product/lavender/aokp_lavender_pie*.zip ~/ae
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
@@ -1612,7 +1843,9 @@ function buildrom() {
 	         telegrammsg
 #######################################################################################################################		
               else
-                  echo "Error compiling $ROM "
+                      echo ""
+	                  echo ".....................-"
+                      echo "Error compiling $ROM "
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -1624,20 +1857,26 @@ function buildrom() {
 			
         
         elif [ $SCRIPTROM = "aosip" ]; then
-        echo "Copying tree"
+                    echo ""
+				    echo "...................../"
+                    echo "Copying tree"
 		#Clonado device tree
                 if [ -d ~/android/aosip/device/xiaomi/lavender/ ]; then
-                    echo ""
+                   echo ""
 				   echo ".....................!"
                    echo "Folder already exists"
                 else
+                    echo ""
+				    echo "...................../"
                     echo "Copying tree"
                     cp -r ~/treees/bue/aosip/         ~/android/
                     cp -r ~/treees/bue/comun/vendor/ ~/android/aosip/
                     cp -r ~/treees/bue/comun/kernel/ ~/android/aosip/
                 fi
 
-		    echo "Start build  $ROM "
+		    echo ""
+	        echo "...................../"
+		    echo "Building  $ROM "
 			patchrom
 			
 ##############################################Push telegram message####################################################
@@ -1651,6 +1890,8 @@ function buildrom() {
             lunch aosip_lavender-userdebug
             mka kronic
                 if [ $? -eq 0 ]; then
+                     echo ""
+	                 echo ".....................|"
                      echo "Finished build $ROM"  
 		             cp  out/target/product/lavender/AOSiP-9.0-Pizza*.zip  ~/ae
 					 
@@ -1661,7 +1902,9 @@ function buildrom() {
 	         telegrammsg
 #######################################################################################################################		
                 else
-                     echo "Error compiling $ROM "
+                      echo ""
+	                  echo ".....................-"
+                      echo "Error compiling $ROM "
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -1673,20 +1916,26 @@ function buildrom() {
 
 		 
         elif [ $SCRIPTROM = "candy" ]; then		
-        echo "Copying tree"
+                    echo ""
+				    echo "...................../"
+                    echo "Copying tree"
 		#Clonado device tree
                 if [ -d ~/android/candy/device/xiaomi/lavender/ ]; then
-                    echo ""
+                   echo ""
 				   echo ".....................!"
                    echo "Folder already exists"
                 else
+                    echo ""
+				    echo "...................../"
                     echo "Copying tree"
                     cp -r ~/treees/bue/candy/         ~/android/
                     cp -r ~/treees/bue/comun/vendor/ ~/android/candy/
                     cp -r ~/treees/bue/comun/kernel/ ~/android/candy/
                 fi
 				
-		    echo "Start build  $ROM "
+		    echo ""
+	        echo "...................../"
+		    echo "Building  $ROM "
 			patchrom
 			
 ##############################################Push telegram message####################################################
@@ -1698,7 +1947,9 @@ function buildrom() {
 		    source build/envsetup.sh
             brunch lavender
                 if [ $? -eq 0 ]; then
-                      echo "Finished build $ROM"  
+                     echo ""
+	                 echo ".....................|"
+                     echo "Finished build $ROM"  
 		              cp  out/target/product/lavender/Candy*.zip ~/ae
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
@@ -1707,6 +1958,8 @@ function buildrom() {
 	         telegrammsg
 #######################################################################################################################		
                 else
+                      echo ""
+	                  echo ".....................-"
                       echo "Error compiling $ROM "                        
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
@@ -1720,20 +1973,26 @@ function buildrom() {
 				
 		
         elif [ $SCRIPTROM = "carbon" ]; then		
-        echo "Copying tree"
+                    echo ""
+				    echo "...................../"
+                    echo "Copying tree"
 		#Clonado device tree
                 if [ -d ~/android/carbon/device/xiaomi/lavender/ ]; then
                     echo ""
 				   echo ".....................!"
                    echo "Folder already exists"
                 else
+                    echo ""
+				    echo "...................../"
                     echo "Copying tree"
                     cp -r ~/treees/bue/carbon/         ~/android/
                     cp -r ~/treees/bue/comun/vendor/ ~/android/carbon/
                     cp -r ~/treees/bue/comun/kernel/ ~/android/carbon/
                 fi
 				
-		    echo "Start build  $ROM "
+		    echo ""
+	        echo "...................../"
+		    echo "Building  $ROM "
 			patchrom
 			
 ##############################################Push telegram message####################################################
@@ -1746,7 +2005,9 @@ function buildrom() {
             lunch carbon_lavender-user
             make carbon -j4
                 if [ $? -eq 0 ]; then
-                      echo "Finished build $ROM"  
+                     echo ""
+	                 echo ".....................|"
+                     echo "Finished build $ROM"  
 		              cp  out/target/product/lavender/CARBON*.zip ~/ae
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
@@ -1755,6 +2016,8 @@ function buildrom() {
 	         telegrammsg
 #######################################################################################################################		
                 else
+                      echo ""
+	                  echo ".....................-"
                       echo "Error compiling $ROM "
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
@@ -1767,20 +2030,26 @@ function buildrom() {
           
        				
 		 elif [ $SCRIPTROM = "colt" ]; then
-        echo "Copying tree"
+                    echo ""
+				    echo "...................../"
+                    echo "Copying tree"
 		#Clonado device tree
                 if [ -d ~/android/colt/device/xiaomi/lavender/ ]; then
-                    echo ""
+                   echo ""
 				   echo ".....................!"
                    echo "Folder already exists"
                 else
+                    echo ""
+				    echo "...................../"
                     echo "Copying tree"
                     cp -r ~/treees/bue/colt/         ~/android/
                     cp -r ~/treees/bue/comun/vendor/ ~/android/colt/
                     cp -r ~/treees/bue/comun/kernel/ ~/android/colt/
                 fi
 
-		    echo "Start build  $ROM "
+		    echo ""
+	        echo "...................../"
+		    echo "Building  $ROM "
 			patchrom
 			
 ##############################################Push telegram message####################################################
@@ -1794,6 +2063,8 @@ function buildrom() {
             lunch colt_lavender-userdebug
             make colt
                 if [ $? -eq 0 ]; then
+                     echo ""
+	                 echo ".....................|"
                      echo "Finished build $ROM"  
 		             cp  out/target/product/lavender/ColtOS*.zip  ~/ae
 ##############################################Push telegram message####################################################
@@ -1803,7 +2074,9 @@ function buildrom() {
 	         telegrammsg
 #######################################################################################################################						 	
                 else
-                     echo "Error compiling $ROM "
+                     echo ""
+	                  echo ".....................-"
+                      echo "Error compiling $ROM "
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -1814,19 +2087,25 @@ function buildrom() {
                 fi
 
         elif [ $SCRIPTROM = "cosmic" ]; then		
-        echo "Copying tree"
+                    echo ""
+				    echo "...................../"
+                    echo "Copying tree"
 		#Clonado device tree
             if [ -d ~/android/cosmic/device/xiaomi/lavender/ ]; then
-                echo ""
+                   echo ""
 				   echo ".....................!"
                    echo "Folder already exists"
             else
-                echo "Copying tree"
+                    echo ""
+				    echo "...................../"
+                    echo "Copying tree"
                 cp -r ~/treees/bue/cosmic/         ~/android/
                 cp -r ~/treees/bue/comun/vendor/ ~/android/cosmic/
                 cp -r ~/treees/bue/comun/kernel/ ~/android/cosmic/
             fi
-		echo "Start build  $ROM "
+		echo ""
+	        echo "...................../"
+		    echo "Building  $ROM "
         patchrom
 		
 ##############################################Push telegram message####################################################
@@ -1839,7 +2118,9 @@ function buildrom() {
             lunch cos_lavender-userdebug
             brunch lavender
               if [ $? -eq 0 ]; then
-                  echo "Finished build $ROM"  
+                     echo ""
+	                 echo ".....................|"
+                     echo "Finished build $ROM"  
 		          cp  out/target/product/lavender/Cosmic-OS-v4.0-Corona*.zip ~/ae
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
@@ -1848,7 +2129,9 @@ function buildrom() {
 	         telegrammsg
 #######################################################################################################################		
               else
-                  echo "Error compiling $ROM "
+                      echo ""
+	                  echo ".....................-"
+                      echo "Error compiling $ROM "
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -1860,19 +2143,25 @@ function buildrom() {
 			
         
         elif [ $SCRIPTROM = "cosp" ]; then		
-        echo "Copying tree"
+                    echo ""
+				    echo "...................../"
+                    echo "Copying tree"
 		#Clonado device tree
             if [ -d ~/android/cosp/device/xiaomi/lavender/ ]; then
-                echo ""
+                   echo ""
 				   echo ".....................!"
                    echo "Folder already exists"
             else
-                echo "Copying tree"
+                    echo ""
+				    echo "...................../"
+                    echo "Copying tree"
                 cp -r ~/treees/bue/cosp/         ~/android/
                 cp -r ~/treees/bue/comun/vendor/ ~/android/cosp/
                 cp -r ~/treees/bue/comun/kernel/ ~/android/cosp/
             fi
-		echo "Start build  $ROM "
+		echo ""
+	        echo "...................../"
+		    echo "Building  $ROM "
         patchrom
 		
 ##############################################Push telegram message####################################################
@@ -1885,7 +2174,9 @@ function buildrom() {
             lunch cosp_lavender-userdebug
             mka bacon
               if [ $? -eq 0 ]; then
-                  echo "Finished build $ROM"  
+                     echo ""
+	                 echo ".....................|"
+                     echo "Finished build $ROM"  
 		          cp  out/target/product/lavender/COSP*.zip ~/ae
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
@@ -1894,7 +2185,9 @@ function buildrom() {
 	         telegrammsg
 #######################################################################################################################		
               else
-                  echo "Error compiling $ROM "
+                      echo ""
+	                  echo ".....................-"
+                      echo "Error compiling $ROM "
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -1906,19 +2199,25 @@ function buildrom() {
 
 
         elif [ $SCRIPTROM = "crdroid" ]; then		
-        echo "Copying tree"
+        echo ""
+				    echo "...................../"
+                    echo "Copying tree"
 		#Clonado device tree
             if [ -d ~/android/crdroid/device/xiaomi/lavender/ ]; then
-                echo ""
+                   echo ""
 				   echo ".....................!"
                    echo "Folder already exists"
             else
-                echo "Copying tree"
+                    echo ""
+				    echo "...................../"
+                    echo "Copying tree"
                 cp -r ~/treees/bue/crdroid/         ~/android/
                 cp -r ~/treees/bue/comun/vendor/ ~/android/crdroid/
                 cp -r ~/treees/bue/comun/kernel/ ~/android/crdroid/
             fi
-		echo "Start build  $ROM "
+		echo ""
+	        echo "...................../"
+		    echo "Building  $ROM "
         patchrom
 		
 ##############################################Push telegram message####################################################
@@ -1930,7 +2229,9 @@ function buildrom() {
 		    source build/envsetup.sh
             brunch lavender
               if [ $? -eq 0 ]; then
-                  echo "Finished build $ROM"  
+                     echo ""
+	                 echo ".....................|"
+                     echo "Finished build $ROM"  
 		          cp  out/target/product/lavender/crDroidAndroid-9*.zip ~/ae
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
@@ -1939,7 +2240,9 @@ function buildrom() {
 	         telegrammsg
 #######################################################################################################################		
               else
-                  echo "Error compiling $ROM "
+                      echo ""
+	                  echo ".....................-"
+                      echo "Error compiling $ROM "
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -1951,19 +2254,25 @@ function buildrom() {
 			  
 
         elif [ $SCRIPTROM = "derpfest" ]; then
-        echo "Copying tree"
+                    echo ""
+				    echo "...................../"
+                    echo "Copying tree"
 		#Clonado device tree
             if [ -d ~/android/derpfest/device/xiaomi/lavender/ ]; then
-                echo ""
+                   echo ""
 				   echo ".....................!"
                    echo "Folder already exists"
             else
-                echo "Copying tree"
+                    echo ""
+				    echo "...................../"
+                    echo "Copying tree"
                 cp -r ~/treees/bue/derpfest/         ~/android/
                 cp -r ~/treees/bue/comun/vendor/ ~/android/derpfest/
                 cp -r ~/treees/bue/comun/kernel/ ~/android/derpfest/
             fi
-		echo "Start build  $ROM "
+		    echo ""
+	        echo "...................../"
+		    echo "Building  $ROM "
 		patchrom
 		
 ##############################################Push telegram message####################################################
@@ -1976,7 +2285,9 @@ function buildrom() {
             lunch aosip_lavender-userdebug
             mka kronic
               if [ $? -eq 0 ]; then
-                  echo "Finished build $ROM"  
+                     echo ""
+	                 echo ".....................|"
+                     echo "Finished build $ROM"  
 		          cp  out/target/product/lavender/AOSiP-9.0-DerpFest*.zip  ~/ae
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
@@ -1985,7 +2296,9 @@ function buildrom() {
 	         telegrammsg
 #######################################################################################################################		
               else
-                  echo "Error compiling $ROM "
+                      echo ""
+	                  echo ".....................-"
+                      echo "Error compiling $ROM "
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -1997,20 +2310,26 @@ function buildrom() {
 
 
         elif [ $SCRIPTROM = "dot" ]; then
-        echo "Copying tree"
+        echo ""
+				    echo "...................../"
+                    echo "Copying tree"
 		#Clonado device tree
                 if [ -d ~/android/dot/device/xiaomi/lavender/ ]; then
-                    echo ""
+                   echo ""
 				   echo ".....................!"
                    echo "Folder already exists"
                 else
+                    echo ""
+				    echo "...................../"
                     echo "Copying tree"
                     cp -r ~/treees/bue/dot/         ~/android/
                     cp -r ~/treees/bue/comun/vendor/ ~/android/dot/
                     cp -r ~/treees/bue/comun/kernel/ ~/android/dot/
                 fi
 
-		    echo "Start build  $ROM "
+		    echo ""
+	        echo "...................../"
+		    echo "Building  $ROM "
 			patchrom
 			
 ##############################################Push telegram message####################################################
@@ -2024,6 +2343,8 @@ function buildrom() {
             lunch dot_lavender-userdebug
             make bacon
                 if [ $? -eq 0 ]; then
+                     echo ""
+	                 echo ".....................|"
                      echo "Finished build $ROM"  
 		             cp  out/target/product/lavender/dotOS-P*.zip  ~/ae
 					 
@@ -2034,7 +2355,9 @@ function buildrom() {
 	         telegrammsg
 #######################################################################################################################		
                 else
-                     echo "Error compiling $ROM "
+                      echo ""
+	                  echo ".....................-"
+                      echo "Error compiling $ROM "
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -2046,20 +2369,26 @@ function buildrom() {
 
 		 
 		elif [ $SCRIPTROM = "floko" ]; then
-        echo "Copying tree"
+                    echo ""
+				    echo "...................../"
+                    echo "Copying tree"
 		#Clonado device tree
                 if [ -d ~/android/floko/device/xiaomi/lavender/ ]; then
-                    echo ""
+                   echo ""
 				   echo ".....................!"
                    echo "Folder already exists"
                 else
+                    echo ""
+				    echo "...................../"
                     echo "Copying tree"
                     cp -r ~/treees/bue/floko/         ~/android/
                     cp -r ~/treees/bue/comun/vendor/ ~/android/floko/
                     cp -r ~/treees/bue/comun/kernel/ ~/android/floko/
                 fi
 
-		    echo "Start build  $ROM "
+		    echo ""
+	        echo "...................../"
+		    echo "Building  $ROM "
 			patchrom
 			
 ##############################################Push telegram message####################################################
@@ -2072,6 +2401,8 @@ function buildrom() {
 		    source build/envsetup.sh
             brunch lavender 
                 if [ $? -eq 0 ]; then
+                     echo ""
+	                 echo ".....................|"
                      echo "Finished build $ROM"  
 		             cp  out/target/product/lavender/Floko*.zip   ~/ae
 					 
@@ -2082,7 +2413,9 @@ function buildrom() {
 	         telegrammsg
 #######################################################################################################################		
                 else
-                     echo "Error compiling $ROM "
+                     echo ""
+	                  echo ".....................-"
+                      echo "Error compiling $ROM "
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -2093,20 +2426,26 @@ function buildrom() {
                 fi
 		
         elif [ $SCRIPTROM = "havoc" ]; then		
-        echo "Copying tree"
+        echo ""
+				    echo "...................../"
+                    echo "Copying tree"
 		#Clonado device tree
                 if [ -d ~/android/havoc/device/xiaomi/lavender/ ]; then
                     echo ""
 				   echo ".....................!"
                    echo "Folder already exists"
                 else
+                    echo ""
+				    echo "...................../"
                     echo "Copying tree"
                     cp -r ~/treees/bue/havoc/         ~/android/
                     cp -r ~/treees/bue/comun/vendor/ ~/android/havoc/
                     cp -r ~/treees/bue/comun/kernel/ ~/android/havoc/
                 fi
 				
-		    echo "Start build  $ROM "
+		    echo ""
+	        echo "...................../"
+		    echo "Building  $ROM "
 			patchrom
 			
 ##############################################Push telegram message####################################################
@@ -2118,7 +2457,9 @@ function buildrom() {
 		    source build/envsetup.sh
             brunch lavender
                 if [ $? -eq 0 ]; then
-                      echo "Finished build $ROM"  
+                     echo ""
+	                 echo ".....................|"
+                     echo "Finished build $ROM"  
 		              cp  out/target/product/lavender/Havoc*.zip ~/ae
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
@@ -2127,6 +2468,8 @@ function buildrom() {
 	         telegrammsg
 #######################################################################################################################		
                 else
+                      echo ""
+	                  echo ".....................-"
                       echo "Error compiling $ROM "
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
@@ -2139,20 +2482,26 @@ function buildrom() {
           
 				 
         elif [ $SCRIPTROM = "ion" ]; then		
-        echo "Copying tree"
+                    echo ""
+				    echo "...................../"
+                    echo "Copying tree"
 		#Clonado device tree
                 if [ -d ~/android/ion/device/xiaomi/lavender/ ]; then
                     echo ""
 				   echo ".....................!"
                    echo "Folder already exists"
                 else
+                    echo ""
+				    echo "...................../"
                     echo "Copying tree"
                     cp -r ~/treees/bue/ion/         ~/android/
                     cp -r ~/treees/bue/comun/vendor/ ~/android/ion/
                     cp -r ~/treees/bue/comun/kernel/ ~/android/ion/
                 fi
 				
-		    echo "Start build  $ROM "
+		    echo ""
+	        echo "...................../"
+		    echo "Building  $ROM "
 			patchrom
 			
 ##############################################Push telegram message####################################################
@@ -2165,7 +2514,9 @@ function buildrom() {
             lunch ion_lavender-user
             mka bacon -j4
                 if [ $? -eq 0 ]; then
-                      echo "Finished build $ROM"  
+                      echo ""
+	                 echo ".....................|"
+                     echo "Finished build $ROM"  
 		              cp  out/target/product/lavender/ion*.zip ~/ae
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
@@ -2174,6 +2525,8 @@ function buildrom() {
 	         telegrammsg
 #######################################################################################################################		
                 else
+                      echo ""
+	                  echo ".....................-"
                       echo "Error compiling $ROM "
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
@@ -2185,20 +2538,26 @@ function buildrom() {
                 fi
 		
         elif [ $SCRIPTROM = "lineage" ]; then		
-        echo "Copying tree"
+                    echo ""
+				    echo "...................../"
+                    echo "Copying tree"
 		#Clonado device tree
                 if [ -d ~/android/lineage/device/xiaomi/lavender/ ]; then
-                    echo ""
+                   echo ""
 				   echo ".....................!"
                    echo "Folder already exists"
                 else
+                    echo ""
+				    echo "...................../"
                     echo "Copying tree"
                     cp -r ~/treees/bue/lineage/         ~/android/
                     cp -r ~/treees/bue/comun/vendor/ ~/android/lineage/
                     cp -r ~/treees/bue/comun/kernel/ ~/android/lineage/
                 fi
 				
-		    echo "Start build  $ROM "
+		    echo ""
+	        echo "...................../"
+		    echo "Building  $ROM "
 			patchrom
 			
 ##############################################Push telegram message####################################################
@@ -2212,7 +2571,9 @@ function buildrom() {
             brunch lavender
             make carbon -j4
                 if [ $? -eq 0 ]; then
-                      echo "Finished build $ROM"  
+                      echo ""
+	                 echo ".....................|"
+                     echo "Finished build $ROM"  
 		              cp  out/target/product/lavender/lineage-16*.zip ~/ae
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
@@ -2221,6 +2582,8 @@ function buildrom() {
 	         telegrammsg
 #######################################################################################################################		
                 else
+                      echo ""
+	                  echo ".....................-"
                       echo "Error compiling $ROM "
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
@@ -2232,19 +2595,25 @@ function buildrom() {
                 fi
           
 	   elif [ $SCRIPTROM = "lotus" ]; then		
-        echo "Copying tree"
+                    echo ""
+				    echo "...................../"
+                    echo "Copying tree"
 		#Clonado device tree
             if [ -d ~/android/lotus/device/xiaomi/lavender/ ]; then
                 echo ""
 				   echo ".....................!"
                    echo "Folder already exists"
             else
-                echo "Copying tree"
+                echo ""
+				    echo "...................../"
+                    echo "Copying tree"
                 cp -r ~/treees/bue/lotus/         ~/android/
                 cp -r ~/treees/bue/comun/vendor/ ~/android/lotus/
                 cp -r ~/treees/bue/comun/kernel/ ~/android/lotus/
             fi
-		echo "Start build  $ROM "
+		echo ""
+	        echo "...................../"
+		    echo "Building  $ROM "
         patchrom
 		
 ##############################################Push telegram message####################################################
@@ -2257,7 +2626,9 @@ function buildrom() {
             lunch lotus_lavender-userdebug
             make bacon -j4
               if [ $? -eq 0 ]; then
-                  echo "Finished build $ROM"  
+                  echo ""
+	                 echo ".....................|"
+                     echo "Finished build $ROM"  
 		          cp  out/target/product/lavender/Lo*.zip ~/ae
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
@@ -2266,7 +2637,9 @@ function buildrom() {
 	         telegrammsg
 #######################################################################################################################		
               else
-                  echo "Error compiling $ROM "
+                  echo ""
+	                  echo ".....................-"
+                      echo "Error compiling $ROM "
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -2278,19 +2651,25 @@ function buildrom() {
 			  
 
         elif [ $SCRIPTROM = "nitrogen" ]; then
-        echo "Copying tree"
+        echo ""
+				    echo "...................../"
+                    echo "Copying tree"
 		#Clonado device tree
             if [ -d ~/android/nitrogen/device/xiaomi/lavender/ ]; then
                 echo ""
 				   echo ".....................!"
                    echo "Folder already exists"
             else
-                echo "Copying tree"
+                echo ""
+				    echo "...................../"
+                    echo "Copying tree"
                 cp -r ~/treees/bue/lotus/         ~/android/
                 cp -r ~/treees/bue/comun/vendor/ ~/android/lotus/
                 cp -r ~/treees/bue/comun/kernel/ ~/android/lotus/
             fi
-		echo "Start build  $ROM "
+		echo ""
+	        echo "...................../"
+		    echo "Building  $ROM "
 		patchrom
 		
 ##############################################Push telegram message####################################################
@@ -2303,7 +2682,9 @@ function buildrom() {
             lunch nitrogen_lavender-userdebug
             make -j 4 otapackage
               if [ $? -eq 0 ]; then
-                  echo "Finished build $ROM"  
+                  echo ""
+	                 echo ".....................|"
+                     echo "Finished build $ROM"  
 		          cp  out/target/product/lavender/Nitrogen*.zip  ~/ae
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
@@ -2312,7 +2693,9 @@ function buildrom() {
 	         telegrammsg
 #######################################################################################################################		
               else
-                  echo "Error compiling $ROM "
+                  echo ""
+	                  echo ".....................-"
+                      echo "Error compiling $ROM "
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -2323,19 +2706,25 @@ function buildrom() {
               fi		
 		
         elif [ $SCRIPTROM = "rr" ]; then		
-        echo "Copying tree"
+                    echo ""
+				    echo "...................../"
+                    echo "Copying tree"
 		#Clonado device tree
             if [ -d ~/android/rr/device/xiaomi/lavender/ ]; then
                 echo ""
 				   echo ".....................!"
                    echo "Folder already exists"
             else
-                echo "Copying tree"
+                echo ""
+				    echo "...................../"
+                    echo "Copying tree"
                 cp -r ~/treees/bue/rr/         ~/android/
                 cp -r ~/treees/bue/comun/vendor/ ~/android/rr/
                 cp -r ~/treees/bue/comun/kernel/ ~/android/rr/
             fi
-		echo "Start build  $ROM "
+		    echo ""
+	        echo "...................../"
+		    echo "Building  $ROM "
         patchrom
 		
 ##############################################Push telegram message####################################################
@@ -2347,7 +2736,9 @@ function buildrom() {
 		    source build/envsetup.sh
             brunch lavender
               if [ $? -eq 0 ]; then
-                  echo "Finished build $ROM"  
+                     echo ""
+	                 echo ".....................|"
+                     echo "Finished build $ROM"  
 		          cp  out/target/product/lavender/RR-P-v7*.zip ~/ae
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
@@ -2356,7 +2747,9 @@ function buildrom() {
 	         telegrammsg
 #######################################################################################################################		
               else
-                  echo "Error compiling $ROM "
+                      echo ""
+	                  echo ".....................-"
+                      echo "Error compiling $ROM "
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -2367,19 +2760,25 @@ function buildrom() {
               fi
 		
 		elif [ $SCRIPTROM = "xenon" ]; then
-        echo "Copying tree"
+                    echo ""
+				    echo "...................../"
+                    echo "Copying tree"
 		#Clonado device tree
             if [ -d ~/android/xenon/device/xiaomi/lavender/ ]; then
                 echo ""
 				   echo ".....................!"
                    echo "Folder already exists"
             else
-                echo "Copying tree"
+                    echo ""
+				    echo "...................../"
+                    echo "Copying tree"
                 cp -r ~/treees/bue/aokp/         ~/android/
                 cp -r ~/treees/bue/comun/vendor/ ~/android/aokp/
                 cp -r ~/treees/bue/comun/kernel/ ~/android/aokp/
             fi
-		echo "Start build  $ROM "
+		echo ""
+	        echo "...................../"
+		    echo "Building  $ROM "
 		patchrom
 		
 ##############################################Push telegram message####################################################
@@ -2391,7 +2790,9 @@ function buildrom() {
 		    source build/envsetup.sh
             brunch lavender
               if [ $? -eq 0 ]; then
-                  echo "Finished build $ROM"  
+                     echo ""
+	                 echo ".....................|"
+                     echo "Finished build $ROM"  
 		          cp  out/target/product/lavender/XenonHD*.zip ~/ae
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
@@ -2400,7 +2801,9 @@ function buildrom() {
 	         telegrammsg
 #######################################################################################################################		
               else
-                  echo "Error compiling $ROM "
+                      echo ""
+	                  echo ".....................-"
+                      echo "Error compiling $ROM "
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -2411,20 +2814,26 @@ function buildrom() {
               fi
 
         elif [ $SCRIPTROM = "xtended" ]; then		
-        echo "Copying tree"
+                    echo ""
+				    echo "...................../"
+                    echo "Copying tree"
 		#Clonado device tree
                 if [ -d ~/android/xtended/device/xiaomi/lavender/ ]; then
                     echo ""
 				   echo ".....................!"
                    echo "Folder already exists"
                 else
+                    echo ""
+				    echo "...................../"
                     echo "Copying tree"
                     cp -r ~/treees/bue/xtended/         ~/android/
                     cp -r ~/treees/bue/comun/vendor/ ~/android/xtended/
                     cp -r ~/treees/bue/comun/kernel/ ~/android/xtended/
                 fi
 				
-		    echo "Start build  $ROM "
+		    echo ""
+	        echo "...................../"
+		    echo "Building  $ROM "
 			patchrom
 			
 ##############################################Push telegram message####################################################
@@ -2437,7 +2846,9 @@ function buildrom() {
             lunch xtended_lavender-userdebug
             make xtended
                 if [ $? -eq 0 ]; then
-                      echo "Finished build $ROM"  
+                     echo ""
+	                 echo ".....................|"
+                     echo "Finished build $ROM"  
 		              cp  out/target/product/lavender/Xtended*.zip ~/ae
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
@@ -2446,6 +2857,8 @@ function buildrom() {
 	         telegrammsg
 #######################################################################################################################		
                 else
+                      echo ""
+	                  echo ".....................-"
                       echo "Error compiling $ROM "
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
@@ -2457,7 +2870,10 @@ function buildrom() {
                 fi
 				
       elif [ $BUILDROM = "no" ]; then
-            echo "Skip Build $ROM"       		
+            echo ""
+		    echo "................"
+		    echo "...............-"
+			echo "Skip Build $ROM"       		
         
 	
 	else
