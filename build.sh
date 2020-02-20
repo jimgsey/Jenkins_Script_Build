@@ -75,6 +75,7 @@ function romclean() {
 	    echo ""
 		echo "..................................-"
         echo "You didn't entered a valid option."
+		romclean
     fi
 }
 
@@ -842,7 +843,8 @@ function uploadrom() {
      else
 		    echo ""
 			echo ".................................-"
-            echo "You didn't entered a valid option."  
+            echo "You didn't entered a valid option."
+            uploadrom			
 
 fi	
 }
@@ -1582,7 +1584,10 @@ echo "                                          "
                    repo init -u https://github.com/Project-Xtended/manifest.git -b xp
             fi	
 	else
+	    echo ""
+		echo "..................................O"
         echo "You didn't entered a valid option."
+		romselect
     fi
 }
 
@@ -1648,6 +1653,7 @@ MESSAGE="Failed sync $ROM at $HOURS to $DATE with link Jenkins: $LINKJEN "
 		echo ""
 		echo ".................................."
         echo "You didn't entered a valid option."
+		syncrom
     fi
 }
 
@@ -2877,6 +2883,7 @@ function buildrom() {
 	    echo ""
 	    echo "................................../"
         echo "You didn't entered a valid option."
+		buildrom
 
     
 fi
