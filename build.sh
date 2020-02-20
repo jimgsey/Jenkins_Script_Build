@@ -833,17 +833,18 @@ function uploadrom() {
 	MESSAGE="Updated $ROM. Link:$UPDATE_URL1 Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	
-			  
+		fi	  
 
       elif [ $UPLOADROM = "no" ]; then
+	        echo ""
+			echo "................O"
             echo "Skip Upload $ROM "       		
-		   else
-            echo "You didn't entered a valid option."
-        
-		
-   
-        fi
-	fi	
+     else
+		    echo ""
+			echo ".................................-"
+            echo "You didn't entered a valid option."  
+
+fi	
 }
 
 # Select ROM
@@ -1638,7 +1639,7 @@ MESSAGE="Failed sync $ROM at $HOURS to $DATE with link Jenkins: $LINKJEN "
         telegrammsg
 ###########################################################################################################################
            exit 1
-        fi
+         fi
     elif [ $SCRIPTSYNC = "no" ]; then
 	    echo ""
 		echo ".............................O"
@@ -1649,8 +1650,6 @@ MESSAGE="Failed sync $ROM at $HOURS to $DATE with link Jenkins: $LINKJEN "
         echo "You didn't entered a valid option."
     fi
 }
-
-
 
 
 
@@ -2868,17 +2867,17 @@ function buildrom() {
 #######################################################################################################################	
 	               exit 1
                 fi
-				
-      elif [ $BUILDROM = "no" ]; then
+	 fi			
+    elif [ $BUILDROM = "no" ]; then
             echo ""
-		    echo "................"
-		    echo "...............-"
+		    echo "...............O"
 			echo "Skip Build $ROM"       		
         
 	
 	else
         echo "You didn't entered a valid option."
-        fi
+
+    
 fi
 }      
 
