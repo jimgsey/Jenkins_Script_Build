@@ -707,6 +707,8 @@ echo "                                          "
                    echo "Folder already exists"
 
             else
+                   echo ""
+				   echo "..............|"
                    echo "Create folder"
                    mkdir ~/android/aicp
             fi
@@ -718,7 +720,9 @@ echo "                                          "
 
             else
                    
-                   echo "Add sync"
+                   echo ""
+				   echo "..............|"
+				   echo "Add link repo"
                    cd $ROMDIR
                    repo init -u https://github.com/AICP/platform_manifest.git -b p9.0
             fi
@@ -738,6 +742,8 @@ echo "                                          "
                    echo "Folder already exists"
 
             else
+                   echo ""
+				   echo "..............|"
                    echo "Create folder"
                    mkdir ~/android/aex
             fi
@@ -748,7 +754,9 @@ echo "                                          "
                    echo "Repo already exists"
 
             else
-                   echo "Add sync"
+                   echo ""
+				   echo "..............|"
+				   echo "Add link repo"
                    cd $ROMDIR
                    repo init -u git://github.com/AospExtended/manifest.git -b 9.x
             fi
@@ -767,7 +775,9 @@ echo "                                          "
                    echo "Folder already exists"
 
             else
-                    echo "Create folder"
+                   echo ""
+				   echo "..............|"
+                   echo "Create folder"
                     mkdir ~/android/aokp
             fi
 	
@@ -777,7 +787,9 @@ echo "                                          "
                    echo "Repo already exists"
 
             else
-                    echo "Add sync"
+                   echo ""
+				   echo "..............|"
+				   echo "Add link repo"
                     cd $ROMDIR
                     repo init -u https://github.com/AOKP/platform_manifest.git -b pie
             fi
@@ -795,6 +807,8 @@ echo "                                          "
                    echo "Folder already exists"
 
             else
+                   echo ""
+				   echo "..............|"
                    echo "Create folder"
                    mkdir ~/android/aosip
             fi
@@ -806,7 +820,9 @@ echo "                                          "
 
             else
                    
-                   echo "Add sync"
+                   echo ""
+				   echo "..............|"
+				   echo "Add link repo"
                    cd $ROMDIR
                    repo init -u git://github.com/AOSiP/platform_manifest.git -b pie
             fi
@@ -825,6 +841,8 @@ echo "                                          "
                    echo "Folder already exists"
 
             else
+                   echo ""
+				   echo "..............|"
                    echo "Create folder"
                    mkdir ~/android/candy
             fi
@@ -835,7 +853,9 @@ echo "                                          "
                    echo "Repo already exists"
 
             else
-                   echo "Add sync"
+                   echo ""
+				   echo "..............|"
+				   echo "Add link repo"
                    cd $ROMDIR
                    repo init -u git://github.com/CandyRoms/candy.git -b c9.0
             fi
@@ -853,6 +873,8 @@ echo "                                          "
                    echo "Folder already exists"
 
             else
+                   echo ""
+				   echo "..............|"
                    echo "Create folder"
                    mkdir ~/android/carbon
             fi
@@ -863,7 +885,9 @@ echo "                                          "
                    echo "Repo already exists"
 
             else
-                   echo "Add sync"
+                   echo ""
+				   echo "..............|"
+				   echo "Add link repo"
                    cd $ROMDIR
                    repo init -u https://github.com/CarbonROM/android.git -b cr-7.0 
             fi
@@ -881,6 +905,8 @@ echo "                                          "
                    echo "Folder already exists"
 
             else
+                   echo ""
+				   echo "..............|"
                    echo "Create folder"
                    mkdir ~/android/colt
             fi
@@ -892,7 +918,9 @@ echo "                                          "
 
             else
                    
-                   echo "Add sync"
+                   echo ""
+				   echo "..............|"
+				   echo "Add link repo"
                    cd $ROMDIR
                    repo init -u git://github.com/Colt-Enigma/platform_manifest.git -b wip
             fi
@@ -910,7 +938,9 @@ echo "                                          "
                    echo "Folder already exists"
 
             else
-                    echo "Create folder"
+                    echo ""
+				   echo "..............|"
+                   echo "Create folder"
                     mkdir ~/android/cosmic
             fi
 	
@@ -920,7 +950,9 @@ echo "                                          "
                    echo "Repo already exists"
 
             else
-                    echo "Add sync"
+                   echo ""
+				   echo "..............|"
+				   echo "Add link repo"
                     cd $ROMDIR
                     repo init -u https://github.com/Cosmic-OS/platform_manifest.git -b corona-release
             fi
@@ -939,7 +971,9 @@ echo "                                          "
                    echo "Folder already exists"
 
             else
-                    echo "Create folder"
+                    echo ""
+				   echo "..............|"
+                   echo "Create folder"
                     mkdir ~/android/cosp
             fi
 	
@@ -949,7 +983,9 @@ echo "                                          "
                    echo "Repo already exists"
 
             else
-                    echo "Add sync"
+                   echo ""
+				   echo "..............|"
+				   echo "Add link repo"
                     cd $ROMDIR
                     repo init -u https://github.com/cosp-project/manifest -b pie
             fi
@@ -967,7 +1003,9 @@ echo "                                          "
                    echo "Folder already exists"
 
             else
-                    echo "Create folder"
+                   echo ""
+				   echo "..............|"
+                   echo "Create folder"
                     mkdir ~/android/crdroid
             fi
 	
@@ -977,7 +1015,9 @@ echo "                                          "
                    echo "Repo already exists"
 
             else
-                    echo "Add sync"
+                   echo ""
+				   echo "..............|"
+				   echo "Add link repo"
                     cd $ROMDIR
                     repo init -u git://github.com/crdroidandroid/android.git -b 9.0
             fi
@@ -995,7 +1035,9 @@ echo "                                          "
                    echo "Folder already exists"
 
             else
-                     echo "Create folder"
+                   echo ""
+				   echo "..............|"
+                   echo "Create folder"
                      mkdir ~/android/derpfest
             fi
 	
@@ -1005,7 +1047,9 @@ echo "                                          "
                    echo "Repo already exists"
 
             else
-                     echo "Add sync"
+                   echo ""
+				   echo "..............|"
+				   echo "Add link repo"
                      cd $ROMDIR
                      repo init -u git://github.com/DerpFest-Pie/platform_manifest.git -b pie
             fi
@@ -1023,6 +1067,8 @@ echo "                                          "
                    echo "Folder already exists"
 
             else
+                   echo ""
+				   echo "..............|"
                    echo "Create folder"
                    mkdir ~/android/dot
             fi
@@ -1034,7 +1080,9 @@ echo "                                          "
 
             else
                    
-                   echo "Add sync"
+                   echo ""
+				   echo "..............|"
+				   echo "Add link repo"
                    cd $ROMDIR
                    repo init -u git://github.com/DotOS/manifest.git -b dot-p
             fi
@@ -1053,6 +1101,8 @@ echo "                                          "
                    echo "Folder already exists"
 
             else
+                   echo ""
+				   echo "..............|"
                    echo "Create folder"
                    mkdir ~/android/floko
             fi
@@ -1064,7 +1114,9 @@ echo "                                          "
 
             else
                    
-                   echo "Add sync"
+                   echo ""
+				   echo "..............|"
+				   echo "Add link repo"
                    cd $ROMDIR
                    repo init -u https://github.com/FlokoROM/manifesto.git -b 9.0
             fi
@@ -1082,6 +1134,8 @@ echo "                                          "
                    echo "Folder already exists"
 
             else
+                   echo ""
+				   echo "..............|"
                    echo "Create folder"
                    mkdir ~/android/havoc
             fi
@@ -1092,7 +1146,9 @@ echo "                                          "
                    echo "Repo already exists"
 
             else
-                   echo "Add sync"
+                   echo ""
+				   echo "..............|"
+				   echo "Add link repo"
                    cd $ROMDIR
                    repo init -u https://github.com/Havoc-OS/android_manifest.git -b pie
             fi
@@ -1111,6 +1167,8 @@ echo "                                          "
                    echo "Folder already exists"
 
             else
+                   echo ""
+				   echo "..............|"
                    echo "Create folder"
                    mkdir ~/android/ion
             fi
@@ -1121,7 +1179,9 @@ echo "                                          "
                    echo "Repo already exists"
 
             else
-                   echo "Add sync"
+                   echo ""
+				   echo "..............|"
+				   echo "Add link repo"
                    cd $ROMDIR
                    repo init -u https://github.com/i-o-n/manifest -b pie
             fi
@@ -1139,6 +1199,8 @@ echo "                                          "
                    echo "Folder already exists"
 
             else
+                   echo ""
+				   echo "..............|"
                    echo "Create folder"
                    mkdir ~/android/lineage
             fi
@@ -1149,7 +1211,9 @@ echo "                                          "
                    echo "Repo already exists"
 
             else
-                   echo "Add sync"
+                   echo ""
+				   echo "..............|"
+				   echo "Add link repo"
                    cd $ROMDIR
                    repo init -u git://github.com/LineageOS/android.git -b lineage-16.0
             fi
@@ -1167,7 +1231,9 @@ echo "                                          "
                    echo "Folder already exists"
 
             else
-                    echo "Create folder"
+                    echo ""
+				   echo "..............|"
+                   echo "Create folder"
                     mkdir ~/android/lotus
             fi
 	
@@ -1177,7 +1243,9 @@ echo "                                          "
                    echo "Repo already exists"
 
             else
-                    echo "Add sync"
+                    echo ""
+				   echo "..............|"
+				   echo "Add link repo"
                     cd $ROMDIR
                     repo init -u https://github.com/LotusOS/android_manifest.git -b pie
             fi
@@ -1195,7 +1263,9 @@ echo "                                          "
                    echo "Folder already exists"
 
             else
-                     echo "Create folder"
+                     echo ""
+				   echo "..............|"
+                   echo "Create folder"
                      mkdir ~/android/nitrogen
             fi
 	
@@ -1205,7 +1275,9 @@ echo "                                          "
                    echo "Repo already exists"
 
             else
-                     echo "Add sync"
+                   echo ""
+				   echo "..............|"
+				   echo "Add link repo"
                      cd $ROMDIR
                      repo init -u https://github.com/nitrogen-project/android_manifest.git -b p
             fi	
@@ -1223,7 +1295,9 @@ echo "                                          "
                    echo "Folder already exists"
 
             else
-                    echo "Create folder"
+                   echo ""
+				   echo "..............|"
+                   echo "Create folder"
                     mkdir ~/android/rr
             fi
 	
@@ -1233,7 +1307,9 @@ echo "                                          "
                    echo "Repo already exists"
 
             else
-                    echo "Add sync"
+                   echo ""
+				   echo "..............|"
+				   echo "Add link repo"
                     cd $ROMDIR
                     repo init -u https://github.com/RR-Test/platform_manifest.git -b test_pie
             fi
@@ -1251,7 +1327,9 @@ echo "                                          "
                    echo "Folder already exists"
 
             else
-                     echo "Create folder"
+                   echo ""
+				   echo "..............|"
+                   echo "Create folder"
                      mkdir ~/android/xenon
             fi
 	
@@ -1261,7 +1339,9 @@ echo "                                          "
                    echo "Repo already exists"
 
             else
-                     echo "Add sync"
+                   echo ""
+				   echo "..............|"
+				   echo "Add link repo"
                      cd $ROMDIR
                      repo init -u https://github.com/TeamHorizon/platform_manifest.git -b p
             fi	
@@ -1278,6 +1358,8 @@ echo "                                          "
                    echo "Folder already exists"
 
             else
+                   echo ""
+				   echo "..............|"
                    echo "Create folder"
                    mkdir ~/android/xtended
             fi
@@ -1288,7 +1370,9 @@ echo "                                          "
                    echo "Repo already exists"
 
             else
-                   echo "Add sync"
+                   echo ""
+				   echo "..............|"
+				   echo "Add link repo"
                    cd $ROMDIR
                    repo init -u https://github.com/Project-Xtended/manifest.git -b xp
             fi	
@@ -1317,6 +1401,8 @@ function syncrom() {
 		read -p "Please, write your choise: " SCRIPTSYNC
     fi
     if [ $SCRIPTSYNC = "yes" ]; then
+	    echo ""
+		echo "............................."
         echo "Synchronizing repository $ROM"
 		
 ###########################################################################################################################
@@ -1328,6 +1414,8 @@ MESSAGE="Start sync $ROM at $HOURS to $DATE with link Jenkins: $LINKJEN "
 		cd $ROMDIR	
 		repo sync --force-sync --no-clone-bundle --no-tags -j4 
 	    if [ $? -eq 0 ]; then
+		     echo ""
+			 echo ".............................|"
              echo "Sync done $ROM"
 ###########################################################################################################################
 DATE=$(date '+%d/%m/%Y')
@@ -1336,6 +1424,8 @@ MESSAGE="Finish sync $ROM at $HOURS to $DATE with link Jenkins: $LINKJEN "
         telegrammsg
 ###########################################################################################################################
         else
+		     echo ""
+		     echo ".............................-"
              echo "Sync failed $ROM"
 ###########################################################################################################################
 DATE=$(date '+%d/%m/%Y')
@@ -1346,8 +1436,12 @@ MESSAGE="Failed sync $ROM at $HOURS to $DATE with link Jenkins: $LINKJEN "
            exit 1
         fi
     elif [ $SCRIPTSYNC = "no" ]; then
+	    echo ""
+		echo ".............................O"
         echo "Skipping sync $ROM "
-        else
+    else
+		echo ""
+		echo ".................................."
         echo "You didn't entered a valid option."
     fi
 }
