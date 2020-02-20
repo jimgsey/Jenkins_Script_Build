@@ -1180,14 +1180,13 @@ MESSAGE="Finish sync $ROM at $HOURS to $DATE with link Jenkins: $LINKJEN "
 ###########################################################################################################################
         else
              echo "Sync failed $ROM"
-             exit 1
 ###########################################################################################################################
 DATE=$(date '+%d/%m/%Y')
 HOURS=$(date '+%H:%M min')
 MESSAGE="Failed sync $ROM at $HOURS to $DATE with link Jenkins: $LINKJEN "
         telegrammsg
 ###########################################################################################################################
-     
+           exit 1
         fi
     elif [ $SCRIPTSYNC = "no" ]; then
         echo "Skipping sync $ROM "
