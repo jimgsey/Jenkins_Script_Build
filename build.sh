@@ -2599,11 +2599,11 @@ function buildrom() {
                     echo "Copying tree"
 		#Clonado device tree
             if [ -d ~/android/lotus/device/xiaomi/lavender/ ]; then
-                echo ""
+                   echo ""
 				   echo ".....................!"
                    echo "Folder already exists"
             else
-                echo ""
+                    echo ""
 				    echo "...................../"
                     echo "Copying tree"
                 cp -r ~/treees/bue/lotus/         ~/android/
@@ -2650,7 +2650,7 @@ function buildrom() {
 			  
 
         elif [ $SCRIPTROM = "nitrogen" ]; then
-        echo ""
+                    echo ""
 				    echo "...................../"
                     echo "Copying tree"
 		#Clonado device tree
@@ -2659,12 +2659,12 @@ function buildrom() {
 				   echo ".....................!"
                    echo "Folder already exists"
             else
-                echo ""
+                    echo ""
 				    echo "...................../"
                     echo "Copying tree"
-                cp -r ~/treees/bue/lotus/         ~/android/
-                cp -r ~/treees/bue/comun/vendor/ ~/android/lotus/
-                cp -r ~/treees/bue/comun/kernel/ ~/android/lotus/
+                cp -r ~/treees/bue/nitrogen/         ~/android/
+                cp -r ~/treees/bue/comun/vendor/ ~/android/nitrogen/
+                cp -r ~/treees/bue/comun/kernel/ ~/android/nitrogen/
             fi
 		echo ""
 	        echo "...................../"
@@ -2771,9 +2771,9 @@ function buildrom() {
                     echo ""
 				    echo "...................../"
                     echo "Copying tree"
-                cp -r ~/treees/bue/aokp/         ~/android/
-                cp -r ~/treees/bue/comun/vendor/ ~/android/aokp/
-                cp -r ~/treees/bue/comun/kernel/ ~/android/aokp/
+                cp -r ~/treees/bue/xenon/         ~/android/
+                cp -r ~/treees/bue/comun/vendor/ ~/android/xenon/
+                cp -r ~/treees/bue/comun/kernel/ ~/android/xenon/
             fi
 		echo ""
 	        echo "...................../"
