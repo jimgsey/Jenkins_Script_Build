@@ -28,12 +28,18 @@ function romclean() {
     if [[ -v ROMCLEAN ]]; then
     echo "Using exported ROM: $ROMCLEAN"
     else
-
-        echo "Select the option"
+        echo ""
+		echo ""
+		echo "##################"
+        echo "#  Final option  #"
+		echo "##################"
+		echo ""
         echo "[make]   Make Clean"
         echo "[delete] Delete"
         echo "[no]     Nothing"
-        read -p "Selection: " ROMCLEAN
+		echo ""
+		echo ""
+        read -p "Please, enter your choise: " ROMCLEAN
     fi
 	
     if [ $ROMCLEAN = "make" ]; then
@@ -643,7 +649,24 @@ function romselect() {
     if [[ -v SCRIPTROM ]]; then
     echo "Using exported ROM: $SCRIPTROM"
     else
-        echo "Select the rom to build: "
+        
+		
+echo "                                          "		
+echo "                                          "		
+echo "                 𝕾𝖈𝖗𝖎𝖕𝖙 𝕭𝖚𝖎𝖑𝖉                 "		
+echo "                                          "		
+echo "                     𝖇𝖞                    "
+echo "                                          "		
+echo "                   𝕵𝖎𝖒𝖌𝖘𝖊𝖞                  "		
+echo "                                          "		
+echo "                                          "				
+echo "                                          "		
+echo "                                          "		
+		
+		echo "#############################"	
+		echo "#   What rom do you want?   #"
+		echo "#############################"
+		echo ""
         echo "[aicp] Aicp"
         echo "[aex] Aex"
         echo "[aokp] AOKP"
@@ -662,20 +685,25 @@ function romselect() {
         echo "[lineage] Lineage"
         echo "[lotus] Lotus"
         echo "[nitrogen] Nitrogen"
-        echo "[rr] RR"
+        echo "[rr] Resurrection Remix"
 		echo "[xenon] Xenon HD"
         echo "[xtended] Xtended"     
-
-        read -p "Selection: " SCRIPTROM
+        echo ""
+        echo ""
+        read -p "Please, enter your choice: " SCRIPTROM
     fi
 	
     if [ $SCRIPTROM = "aicp" ]; then
         ROMDIR="${HOME}/android/aicp"
         ROM="Aicp"
+		echo ""
+		echo "........................."
 		echo "Building $ROM"
 		
 
             if [ -d ~/android/aicp/ ]; then
+                   echo ""
+				   echo ".....................!"
                    echo "Folder already exists"
 
             else
@@ -684,7 +712,9 @@ function romselect() {
             fi
 	
 	        if [ -d ~/android/aicp/.repo/ ]; then
-                   echo "Folder already exists"
+                   echo ""
+				   echo "...................!"
+                   echo "Repo already exists"
 
             else
                    
@@ -697,10 +727,14 @@ function romselect() {
     elif [ $SCRIPTROM = "aex" ]; then
         ROMDIR="${HOME}/android/aex"
         ROM="Aex"
+		echo ""
+		echo "........................."
 		echo "Building $ROM"
 		
 
             if [ -d ~/android/aex/ ]; then
+                   echo ""
+				   echo ".....................!"
                    echo "Folder already exists"
 
             else
@@ -709,7 +743,9 @@ function romselect() {
             fi
 	
 	        if [ -d ~/android/aex/.repo/ ]; then
-                   echo "Folder already exists"
+                   echo ""
+				   echo "...................!"
+                   echo "Repo already exists"
 
             else
                    echo "Add sync"
@@ -721,10 +757,14 @@ function romselect() {
 	elif [ $SCRIPTROM = "aokp" ]; then
         ROMDIR="${HOME}/android/aokp"
 		ROM="Aokp"
+		echo ""
+		echo "........................."
 		echo "Building $ROM"
 
             if [ -d ~/android/aokp/ ]; then
-                    echo "Folder already exists"
+                   echo ""
+				   echo ".....................!"
+                   echo "Folder already exists"
 
             else
                     echo "Create folder"
@@ -732,7 +772,9 @@ function romselect() {
             fi
 	
 	        if [ -d ~/android/aokp/.repo/ ]; then
-                    echo "Folder already exists"
+                   echo ""
+				   echo "...................!"
+                   echo "Repo already exists"
 
             else
                     echo "Add sync"
@@ -743,9 +785,13 @@ function romselect() {
 	elif [ $SCRIPTROM = "aosip" ]; then
         ROMDIR="${HOME}/android/aosip"
 		ROM="Aosip"
+		echo ""
+		echo "........................."
 		echo "Building $ROM"
 
             if [ -d ~/android/aosip/ ]; then
+                   echo ""
+				   echo ".....................!"
                    echo "Folder already exists"
 
             else
@@ -754,7 +800,9 @@ function romselect() {
             fi
 	
 	        if [ -d ~/android/aosip/.repo/ ]; then
-                   echo "Folder already exists"
+                   echo ""
+				   echo "...................!"
+                   echo "Repo already exists"
 
             else
                    
@@ -766,10 +814,14 @@ function romselect() {
 	elif [ $SCRIPTROM = "candy" ]; then
         ROMDIR="${HOME}/android/candy"
         ROM="Candy"
+		echo ""
+		echo "........................."
 		echo "Building $ROM"
 		
 
             if [ -d ~/android/candy/ ]; then
+                   echo ""
+				   echo ".....................!"
                    echo "Folder already exists"
 
             else
@@ -778,7 +830,9 @@ function romselect() {
             fi
 	
 	        if [ -d ~/android/candy/.repo/ ]; then
-                   echo "Folder already exists"
+                   echo ""
+				   echo "...................!"
+                   echo "Repo already exists"
 
             else
                    echo "Add sync"
@@ -789,9 +843,13 @@ function romselect() {
     elif [ $SCRIPTROM = "carbon" ]; then
         ROMDIR="${HOME}/android/carbon"
 		ROM="Carbon"
+		echo ""
+		echo "........................."
 		echo "Building $ROM"
 
             if [ -d ~/android/carbon/ ]; then
+                   echo ""
+				   echo ".....................!"
                    echo "Folder already exists"
 
             else
@@ -800,7 +858,9 @@ function romselect() {
             fi
 	
 	        if [ -d ~/android/carbon/.repo/ ]; then
-                   echo "Folder already exists"
+                   echo ""
+				   echo "...................!"
+                   echo "Repo already exists"
 
             else
                    echo "Add sync"
@@ -811,9 +871,13 @@ function romselect() {
     elif [ $SCRIPTROM = "colt" ]; then
         ROMDIR="${HOME}/android/colt"
 		ROM="Colt"
+		echo ""
+		echo "........................."
 		echo "Building $ROM"
 
             if [ -d ~/android/colt/ ]; then
+                   echo ""
+				   echo ".....................!"
                    echo "Folder already exists"
 
             else
@@ -822,7 +886,9 @@ function romselect() {
             fi
 	
 	        if [ -d ~/android/colt/.repo/ ]; then
-                   echo "Folder already exists"
+                   echo ""
+				   echo "...................!"
+                   echo "Repo already exists"
 
             else
                    
@@ -834,10 +900,14 @@ function romselect() {
     elif [ $SCRIPTROM = "cosmic" ]; then
         ROMDIR="${HOME}/android/cosmic"
 		ROM="Cosmic"
+		echo ""
+		echo "........................."
 		echo "Building $ROM"
 
             if [ -d ~/android/cosmic/ ]; then
-                    echo "Folder already exists"
+                   echo ""
+				   echo ".....................!"
+                   echo "Folder already exists"
 
             else
                     echo "Create folder"
@@ -845,7 +915,9 @@ function romselect() {
             fi
 	
 	        if [ -d ~/android/cosmic/.repo/ ]; then
-                    echo "Folder already exists"
+                   echo ""
+				   echo "...................!"
+                   echo "Repo already exists"
 
             else
                     echo "Add sync"
@@ -857,10 +929,14 @@ function romselect() {
     elif [ $SCRIPTROM = "cosp" ]; then
         ROMDIR="${HOME}/android/cosp"
 		ROM="Cosp"
+		echo ""
+		echo "........................."
 		echo "Building $ROM"
 
             if [ -d ~/android/cosp/ ]; then
-                    echo "Folder already exists"
+                   echo ""
+				   echo ".....................!"
+                   echo "Folder already exists"
 
             else
                     echo "Create folder"
@@ -868,7 +944,9 @@ function romselect() {
             fi
 	
 	        if [ -d ~/android/cosp/.repo/ ]; then
-                    echo "Folder already exists"
+                   echo ""
+				   echo "...................!"
+                   echo "Repo already exists"
 
             else
                     echo "Add sync"
@@ -879,10 +957,14 @@ function romselect() {
 	elif [ $SCRIPTROM = "crdroid" ]; then
         ROMDIR="${HOME}/android/crdroid"
 		ROM="CrDroid"
+		echo ""
+		echo "........................."
 		echo "Building $ROM"
 
             if [ -d ~/android/crdroid/ ]; then
-                    echo "Folder already exists"
+                   echo ""
+				   echo ".....................!"
+                   echo "Folder already exists"
 
             else
                     echo "Create folder"
@@ -890,7 +972,9 @@ function romselect() {
             fi
 	
 	        if [ -d ~/android/crdroid/.repo/ ]; then
-                    echo "Folder already exists"
+                   echo ""
+				   echo "...................!"
+                   echo "Repo already exists"
 
             else
                     echo "Add sync"
@@ -901,10 +985,14 @@ function romselect() {
     elif [ $SCRIPTROM = "derpfest" ]; then
 		ROMDIR="${HOME}/android/derpfest"
 		ROM="Derpfest"
+		echo ""
+		echo "........................."
 		echo "Building $ROM"
 			
             if [ -d ~/android/derpfest/ ]; then
-                     echo "Folder already exists"
+                   echo ""
+				   echo ".....................!"
+                   echo "Folder already exists"
 
             else
                      echo "Create folder"
@@ -912,7 +1000,9 @@ function romselect() {
             fi
 	
 	        if [ -d ~/android/derpfest/.repo/ ]; then
-                     echo "Folder already exists"
+                   echo ""
+				   echo "...................!"
+                   echo "Repo already exists"
 
             else
                      echo "Add sync"
@@ -923,9 +1013,13 @@ function romselect() {
     elif [ $SCRIPTROM = "dot" ]; then
         ROMDIR="${HOME}/android/dot"
 		ROM="Dot"
+		echo ""
+		echo "........................."
 		echo "Building $ROM"
 
             if [ -d ~/android/dot/ ]; then
+                   echo ""
+				   echo ".....................!"
                    echo "Folder already exists"
 
             else
@@ -934,7 +1028,9 @@ function romselect() {
             fi
 	
 	        if [ -d ~/android/dot/.repo/ ]; then
-                   echo "Folder already exists"
+                   echo ""
+				   echo "...................!"
+                   echo "Repo already exists"
 
             else
                    
@@ -947,9 +1043,13 @@ function romselect() {
     elif [ $SCRIPTROM = "floko" ]; then
         ROMDIR="${HOME}/android/floko"
 		ROM="Floko"
+		echo ""
+		echo "........................."
 		echo "Building $ROM"
 
             if [ -d ~/android/floko/ ]; then
+                   echo ""
+				   echo ".....................!"
                    echo "Folder already exists"
 
             else
@@ -958,7 +1058,9 @@ function romselect() {
             fi
 	
 	        if [ -d ~/android/floko/.repo/ ]; then
-                   echo "Folder already exists"
+                   echo ""
+				   echo "...................!"
+                   echo "Repo already exists"
 
             else
                    
@@ -970,9 +1072,13 @@ function romselect() {
 	elif [ $SCRIPTROM = "havoc" ]; then
         ROMDIR="${HOME}/android/havoc"
 		ROM="Havoc"
+		echo ""
+		echo "........................."
 		echo "Building $ROM"
 
             if [ -d ~/android/havoc/ ]; then
+                   echo ""
+				   echo ".....................!"
                    echo "Folder already exists"
 
             else
@@ -981,7 +1087,9 @@ function romselect() {
             fi
 	
 	        if [ -d ~/android/havoc/.repo/ ]; then
-                   echo "Folder already exists"
+                   echo ""
+				   echo "...................!"
+                   echo "Repo already exists"
 
             else
                    echo "Add sync"
@@ -993,9 +1101,13 @@ function romselect() {
     elif [ $SCRIPTROM = "ion" ]; then
         ROMDIR="${HOME}/android/ion"
 		ROM="Ion"
+		echo ""
+		echo "........................."
 		echo "Building $ROM"
 
             if [ -d ~/android/ion/ ]; then
+                   echo ""
+				   echo ".....................!"
                    echo "Folder already exists"
 
             else
@@ -1004,7 +1116,9 @@ function romselect() {
             fi
 	
 	        if [ -d ~/android/ion/.repo/ ]; then
-                   echo "Folder already exists"
+                   echo ""
+				   echo "...................!"
+                   echo "Repo already exists"
 
             else
                    echo "Add sync"
@@ -1015,9 +1129,13 @@ function romselect() {
     elif [ $SCRIPTROM = "lineage" ]; then
         ROMDIR="${HOME}/android/lineage"
 		ROM="Lineage"
+		echo ""
+		echo "........................."
 		echo "Building $ROM"
 
             if [ -d ~/android/lineage/ ]; then
+                   echo ""
+				   echo ".....................!"
                    echo "Folder already exists"
 
             else
@@ -1026,7 +1144,9 @@ function romselect() {
             fi
 	
 	        if [ -d ~/android/lineage/.repo/ ]; then
-                   echo "Folder already exists"
+                   echo ""
+				   echo "...................!"
+                   echo "Repo already exists"
 
             else
                    echo "Add sync"
@@ -1037,10 +1157,14 @@ function romselect() {
     elif [ $SCRIPTROM = "lotus" ]; then
         ROMDIR="${HOME}/android/lotus"
 		ROM="Lotus"
+		echo ""
+		echo "........................."
 		echo "Building $ROM"
 
             if [ -d ~/android/lotus/ ]; then
-                    echo "Folder already exists"
+                   echo ""
+				   echo ".....................!"
+                   echo "Folder already exists"
 
             else
                     echo "Create folder"
@@ -1048,7 +1172,9 @@ function romselect() {
             fi
 	
 	        if [ -d ~/android/lotus/.repo/ ]; then
-                    echo "Folder already exists"
+                   echo ""
+				   echo "...................!"
+                   echo "Repo already exists"
 
             else
                     echo "Add sync"
@@ -1059,10 +1185,14 @@ function romselect() {
     elif [ $SCRIPTROM = "nitrogen" ]; then
 		ROMDIR="${HOME}/android/nitrogen"
 		ROM="Nitrogen"
+		echo ""
+		echo "........................."
 		echo "Building $ROM"
 		
             if [ -d ~/android/nitrogen/ ]; then
-                     echo "Folder already exists"
+                   echo ""
+				   echo ".....................!"
+                   echo "Folder already exists"
 
             else
                      echo "Create folder"
@@ -1070,7 +1200,9 @@ function romselect() {
             fi
 	
 	        if [ -d ~/android/nitrogen/.repo/ ]; then
-                     echo "Folder already exists"
+                   echo ""
+				   echo "...................!"
+                   echo "Repo already exists"
 
             else
                      echo "Add sync"
@@ -1081,10 +1213,14 @@ function romselect() {
 	elif [ $SCRIPTROM = "rr" ]; then
         ROMDIR="${HOME}/android/rr"
 		ROM="ResurrectionRemix"
+		echo ""
+		echo "........................."
 		echo "Building $ROM"
 
             if [ -d ~/android/rr/ ]; then
-                    echo "Folder already exists"
+                   echo ""
+				   echo ".....................!"
+                   echo "Folder already exists"
 
             else
                     echo "Create folder"
@@ -1092,7 +1228,9 @@ function romselect() {
             fi
 	
 	        if [ -d ~/android/rr/.repo/ ]; then
-                    echo "Folder already exists"
+                   echo ""
+				   echo "...................!"
+                   echo "Repo already exists"
 
             else
                     echo "Add sync"
@@ -1102,11 +1240,15 @@ function romselect() {
 	elif [ $SCRIPTROM = "xenon" ]; then
 		ROMDIR="${HOME}/android/xenon"
 		ROM="Xenon"
-        echo "Building $ROM"
+        echo ""
+		echo "........................."
+		echo "Building $ROM"
 		
 		
             if [ -d ~/android/xenon/ ]; then
-                     echo "Folder already exists"
+                   echo ""
+				   echo ".....................!"
+                   echo "Folder already exists"
 
             else
                      echo "Create folder"
@@ -1114,7 +1256,9 @@ function romselect() {
             fi
 	
 	        if [ -d ~/android/xenon/.repo/ ]; then
-                     echo "Folder already exists"
+                   echo ""
+				   echo "...................!"
+                   echo "Repo already exists"
 
             else
                      echo "Add sync"
@@ -1124,9 +1268,13 @@ function romselect() {
     elif [ $SCRIPTROM = "xtended" ]; then
         ROMDIR="${HOME}/android/xtended"
         ROM="Xtended"
+		echo ""
+		echo "........................."
 		echo "Building $ROM"
 
             if [ -d ~/android/xtended/ ]; then
+                   echo ""
+				   echo ".....................!"
                    echo "Folder already exists"
 
             else
@@ -1135,7 +1283,9 @@ function romselect() {
             fi
 	
 	        if [ -d ~/android/xtended/.repo/ ]; then
-                   echo "Folder already exists"
+                   echo ""
+				   echo "...................!"
+                   echo "Repo already exists"
 
             else
                    echo "Add sync"
@@ -1154,10 +1304,17 @@ function syncrom() {
 	if [[ -v SCRIPTSYNC ]]; then
     echo "Using exported ROM: $SCRIPTSYNC"
     else
-        echo "Sync or skip:"
+	    echo ""
+		echo ""
+		echo "#################"
+        echo "# Sync or skip: #"
+		echo "#################"
+		echo ""
         echo "[yes] Sync Repository"
         echo "[no] Skip Sync"
-        read -p "Selection: " SCRIPTSYNC
+        echo ""
+		echo ""
+		read -p "Please, write your choise: " SCRIPTSYNC
     fi
     if [ $SCRIPTSYNC = "yes" ]; then
         echo "Synchronizing repository $ROM"
@@ -1206,10 +1363,17 @@ function buildrom() {
     if [[ -v BUILDROM ]]; then
     echo "Using exported ROM: $BUILDROM"
     else
-        echo "Select the rom to build: "
+        echo ""
+		echo ""
+		echo "#######################"
+        echo "#   Build or Skip :   #"
+        echo "#######################"
+		echo ""
         echo "[yes] Build"
         echo "[no] No"
-        read -p "Selection: " BUILDROM
+        echo ""
+		echo ""
+        read -p "Please, write your choise: " BUILDROM
     fi
 
     if [ $BUILDROM = "yes" ]; then
@@ -1223,7 +1387,9 @@ function buildrom() {
                 echo "Copying tree"
 		        #Clonado device tree
                 if [ -d ~/android/aicp/device/xiaomi/lavender/ ]; then
-                    echo "Folder already exists"
+                    echo ""
+				   echo ".....................!"
+                   echo "Folder already exists"
                 else
                     echo "Copying tree"
                     cp -r ~/treees/bue/aicp/         ~/android/
@@ -1273,7 +1439,9 @@ function buildrom() {
         echo "Copying tree"
 		#Clonado device tree
                 if [ -d ~/android/aex/device/xiaomi/lavender/ ]; then
-                    echo "Folder already exists"
+                    echo ""
+				   echo ".....................!"
+                   echo "Folder already exists"
                 else
                     echo "Copying tree"
                     cp -r ~/treees/bue/aex/         ~/android/
@@ -1319,7 +1487,9 @@ function buildrom() {
         echo "Copying tree"
 		#Clonado device tree
             if [ -d ~/android/aokp/device/xiaomi/lavender/ ]; then
-                echo "Folder already exists"
+                echo ""
+				   echo ".....................!"
+                   echo "Folder already exists"
             else
                 echo "Copying tree"
                 cp -r ~/treees/bue/aokp/         ~/android/
@@ -1363,7 +1533,9 @@ function buildrom() {
         echo "Copying tree"
 		#Clonado device tree
                 if [ -d ~/android/aosip/device/xiaomi/lavender/ ]; then
-                    echo "Folder already exists"
+                    echo ""
+				   echo ".....................!"
+                   echo "Folder already exists"
                 else
                     echo "Copying tree"
                     cp -r ~/treees/bue/aosip/         ~/android/
@@ -1410,7 +1582,9 @@ function buildrom() {
         echo "Copying tree"
 		#Clonado device tree
                 if [ -d ~/android/candy/device/xiaomi/lavender/ ]; then
-                    echo "Folder already exists"
+                    echo ""
+				   echo ".....................!"
+                   echo "Folder already exists"
                 else
                     echo "Copying tree"
                     cp -r ~/treees/bue/candy/         ~/android/
@@ -1455,7 +1629,9 @@ function buildrom() {
         echo "Copying tree"
 		#Clonado device tree
                 if [ -d ~/android/carbon/device/xiaomi/lavender/ ]; then
-                    echo "Folder already exists"
+                    echo ""
+				   echo ".....................!"
+                   echo "Folder already exists"
                 else
                     echo "Copying tree"
                     cp -r ~/treees/bue/carbon/         ~/android/
@@ -1500,7 +1676,9 @@ function buildrom() {
         echo "Copying tree"
 		#Clonado device tree
                 if [ -d ~/android/colt/device/xiaomi/lavender/ ]; then
-                    echo "Folder already exists"
+                    echo ""
+				   echo ".....................!"
+                   echo "Folder already exists"
                 else
                     echo "Copying tree"
                     cp -r ~/treees/bue/colt/         ~/android/
@@ -1545,7 +1723,9 @@ function buildrom() {
         echo "Copying tree"
 		#Clonado device tree
             if [ -d ~/android/cosmic/device/xiaomi/lavender/ ]; then
-                echo "Folder already exists"
+                echo ""
+				   echo ".....................!"
+                   echo "Folder already exists"
             else
                 echo "Copying tree"
                 cp -r ~/treees/bue/cosmic/         ~/android/
@@ -1589,7 +1769,9 @@ function buildrom() {
         echo "Copying tree"
 		#Clonado device tree
             if [ -d ~/android/cosp/device/xiaomi/lavender/ ]; then
-                echo "Folder already exists"
+                echo ""
+				   echo ".....................!"
+                   echo "Folder already exists"
             else
                 echo "Copying tree"
                 cp -r ~/treees/bue/cosp/         ~/android/
@@ -1633,7 +1815,9 @@ function buildrom() {
         echo "Copying tree"
 		#Clonado device tree
             if [ -d ~/android/crdroid/device/xiaomi/lavender/ ]; then
-                echo "Folder already exists"
+                echo ""
+				   echo ".....................!"
+                   echo "Folder already exists"
             else
                 echo "Copying tree"
                 cp -r ~/treees/bue/crdroid/         ~/android/
@@ -1676,7 +1860,9 @@ function buildrom() {
         echo "Copying tree"
 		#Clonado device tree
             if [ -d ~/android/derpfest/device/xiaomi/lavender/ ]; then
-                echo "Folder already exists"
+                echo ""
+				   echo ".....................!"
+                   echo "Folder already exists"
             else
                 echo "Copying tree"
                 cp -r ~/treees/bue/derpfest/         ~/android/
@@ -1720,7 +1906,9 @@ function buildrom() {
         echo "Copying tree"
 		#Clonado device tree
                 if [ -d ~/android/dot/device/xiaomi/lavender/ ]; then
-                    echo "Folder already exists"
+                    echo ""
+				   echo ".....................!"
+                   echo "Folder already exists"
                 else
                     echo "Copying tree"
                     cp -r ~/treees/bue/dot/         ~/android/
@@ -1767,7 +1955,9 @@ function buildrom() {
         echo "Copying tree"
 		#Clonado device tree
                 if [ -d ~/android/floko/device/xiaomi/lavender/ ]; then
-                    echo "Folder already exists"
+                    echo ""
+				   echo ".....................!"
+                   echo "Folder already exists"
                 else
                     echo "Copying tree"
                     cp -r ~/treees/bue/floko/         ~/android/
@@ -1812,7 +2002,9 @@ function buildrom() {
         echo "Copying tree"
 		#Clonado device tree
                 if [ -d ~/android/havoc/device/xiaomi/lavender/ ]; then
-                    echo "Folder already exists"
+                    echo ""
+				   echo ".....................!"
+                   echo "Folder already exists"
                 else
                     echo "Copying tree"
                     cp -r ~/treees/bue/havoc/         ~/android/
@@ -1856,7 +2048,9 @@ function buildrom() {
         echo "Copying tree"
 		#Clonado device tree
                 if [ -d ~/android/ion/device/xiaomi/lavender/ ]; then
-                    echo "Folder already exists"
+                    echo ""
+				   echo ".....................!"
+                   echo "Folder already exists"
                 else
                     echo "Copying tree"
                     cp -r ~/treees/bue/ion/         ~/android/
@@ -1900,7 +2094,9 @@ function buildrom() {
         echo "Copying tree"
 		#Clonado device tree
                 if [ -d ~/android/lineage/device/xiaomi/lavender/ ]; then
-                    echo "Folder already exists"
+                    echo ""
+				   echo ".....................!"
+                   echo "Folder already exists"
                 else
                     echo "Copying tree"
                     cp -r ~/treees/bue/lineage/         ~/android/
@@ -1945,7 +2141,9 @@ function buildrom() {
         echo "Copying tree"
 		#Clonado device tree
             if [ -d ~/android/lotus/device/xiaomi/lavender/ ]; then
-                echo "Folder already exists"
+                echo ""
+				   echo ".....................!"
+                   echo "Folder already exists"
             else
                 echo "Copying tree"
                 cp -r ~/treees/bue/lotus/         ~/android/
@@ -1989,7 +2187,9 @@ function buildrom() {
         echo "Copying tree"
 		#Clonado device tree
             if [ -d ~/android/nitrogen/device/xiaomi/lavender/ ]; then
-                echo "Folder already exists"
+                echo ""
+				   echo ".....................!"
+                   echo "Folder already exists"
             else
                 echo "Copying tree"
                 cp -r ~/treees/bue/lotus/         ~/android/
@@ -2032,7 +2232,9 @@ function buildrom() {
         echo "Copying tree"
 		#Clonado device tree
             if [ -d ~/android/rr/device/xiaomi/lavender/ ]; then
-                echo "Folder already exists"
+                echo ""
+				   echo ".....................!"
+                   echo "Folder already exists"
             else
                 echo "Copying tree"
                 cp -r ~/treees/bue/rr/         ~/android/
@@ -2074,7 +2276,9 @@ function buildrom() {
         echo "Copying tree"
 		#Clonado device tree
             if [ -d ~/android/xenon/device/xiaomi/lavender/ ]; then
-                echo "Folder already exists"
+                echo ""
+				   echo ".....................!"
+                   echo "Folder already exists"
             else
                 echo "Copying tree"
                 cp -r ~/treees/bue/aokp/         ~/android/
@@ -2116,7 +2320,9 @@ function buildrom() {
         echo "Copying tree"
 		#Clonado device tree
                 if [ -d ~/android/xtended/device/xiaomi/lavender/ ]; then
-                    echo "Folder already exists"
+                    echo ""
+				   echo ".....................!"
+                   echo "Folder already exists"
                 else
                     echo "Copying tree"
                     cp -r ~/treees/bue/xtended/         ~/android/
