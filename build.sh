@@ -11,8 +11,30 @@ LINKSOU="Your server link"
 ## Your link account to upload. For example: xXxx@frs.sourceforge.net:/home/frs/project/
 LINKUPL="Your account link"
 
-## Folder Rom
-FOLDER="${HOME}/android/Roms"
+## Device Default structure
+DEVICES="/xiaomi/lavender"
+
+## Folder Script (where everything is compiled) 
+SCRIPTFOLDER="${HOME}/Android"
+
+## Tools (It is inside the android folder) and inside is the Roms and Tree folder
+### Tools/Roms (A copy of the rom is made when the build is finished and then maintained. So you can delete the source folder to have more space.)
+### Tools/Tree (Copy the vendor and kernel folder into the "Common" folder) (copy your device folder into another with the name of the rom)
+### Example
+#          __________________________________________________________________
+#         |                                                                  |
+#         |  /home/Android/Tools/Tree/                                       |
+#         |                       l___ Aicp/device/xiaomi/lavender           |
+#         |                       l___ Common/vendor/xiaomi/lavender         |
+#         |                       l___ Common/kernel/xiaomi/lavender         |
+#         |__________________________________________________________________|
+#
+TOOL="${SCRIPTFOLDER}/Tools"
+TOOLTREE="${SCRIPTFOLDER}/Tools/Tree"
+TOOLROM="${SCRIPTFOLDER}/Tools/Roms"
+
+## Out folder where the rom is compiled. Example to lavender: "out/target/product/lavender" 
+OUTF="out/target/product/lavender"
 
 ####################################################
 
@@ -48,38 +70,53 @@ ID="Your id bot"
 curl -s -X POST https://api.telegram.org/bot$TOKEN/sendMessage -d chat_id=$ID -d text="$MESSAGE"
 }
 
+## Start script
+
+function start() {
+             if [ -d ${SCRIPTFOLDER}/ ]; then
+                   echo ""
+				   
+             else
+                   mkdir ${SCRIPTFOLDER}
+                   mkdir ${TOOL}
+             fi
+}
+
+
+
+
 #Clonado device tree
 function copytrees() {
-                if [ -d ${ROMDIR}/device/xiaomi/lavender/ ]; then
+                if [ -d ${ROMDIR}/device/${DEVICES}/ ]; then
                    echo ""
 				   echo "..................................!"
                    echo "Folder already exists"
 ## Default
-             elif [ -d ~/android/tree/${ROM}/ ]; then	
+             elif [ -d ${TOOLTREE}/${ROM}/ ]; then	
                     echo ""
 				    echo "................................../"
                     echo "Copying tree"
-                    cp -r ~/android/tree/${ROM}/*         ${ROMDIR}
-                    cp -r ~/android/tree/comun/*          ${ROMDIR}
+                    cp -r ${TOOLTREE}/${ROM}/*         ${ROMDIR}
+                    cp -r ${TOOLTREE}/Common/*         ${ROMDIR}
 ## Internet
 			elif ping -c1 google.com &>/dev/null; then
                 echo ""
                 echo ""
                 read -p "Please, write the device tree link:  " DT
 
-                git clone $DT ${ROMDIR}/device/xiaomi/lavender
+                git clone $DT ${ROMDIR}/device/${DEVICES}
                 echo ""
                 echo ""
                 read -p "Please, write the vendor tree link:  " VT
 
-                git clone $VT ${ROMDIR}/vendor/xiaomi/lavender
+                git clone $VT ${ROMDIR}/vendor/${DEVICES}
                 echo ""
                 echo ""
                 read -p "Please, write the device tree link:  " KT
 
-                git clone $KT ${ROMDIR}/kernel/xiaomi/lavendeer
+                git clone $KT ${ROMDIR}/kernel/${DEVICES}
 ## Local
-            else [ -d ${ROMDIR} ]
+            else 
 	 echo "      _________________________________________________________________________ "
      echo "     |                                                                         |"
      echo "     |                                                                         |"   
@@ -180,7 +217,7 @@ function romclean() {
 	    echo ""
 		echo "............................/"
         echo "Deleting all folder to $ROM "
-        rm -r $ROMDIR
+        rm -rf $ROMDIR
 ##############################################Push telegram message############################################################
 
 	DATE=$(date '+%d/%m/%Y')
@@ -211,10 +248,10 @@ function gen_ota_json() {
 		echo "................................../"
         echo "Generating $ROM 14.0 json"
             cd $ROMDIR
-            DATETIME=$(grep "ro.build.date.utc=" out/target/product/lavender/system/build.prop | cut -d "=" -f 2)
-            FILENAME=$(find out/target/product/lavender/aicp_lavender_p*.zip | cut -d "/" -f 5)
-            ID=$(md5sum out/target/product/lavender/aicp_lavender_p*.zip | cut -d " " -f 1)
-            SIZE=$(wc -c out/target/product/lavender/aicp_lavender_p*.zip | awk '{print $1}')
+            DATETIME=$(grep "ro.build.date.utc=" ${OUTF}/system/build.prop | cut -d "=" -f 2)
+            FILENAME=$(find ${OUTF}/aicp_lavender_p*.zip | cut -d "/" -f 5)
+            ID=$(md5sum ${OUTF}/aicp_lavender_p*.zip | cut -d " " -f 1)
+            SIZE=$(wc -c ${OUTF}/aicp_lavender_p*.zip | awk '{print $1}')
             URL1="${LINKSOU}/${ROM}/$FILENAME"
             URL=$URL1
             VERSION="14.0"
@@ -430,19 +467,19 @@ function uploadrom() {
 			  echo "................................../"
               echo "Uploading $ROM "			
 ##############################################Push telegram message############################################################
-    FILENAME=$(find ${FOLDER}/aicp_lavender_p*.zip | cut -d "/" -f 5)
+    FILENAME=$(find ${TOOLROM}/aicp_lavender_p*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
 	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################				  
-              scp  ${FOLDER}/aicp_lavender_p*.zip ${LINKUPL}/${ROM}/
+              scp  ${TOOLROM}/aicp_lavender_p*.zip ${LINKUPL}/${ROM}/
 			  echo ""
 			  echo "..................................|"
               echo "Uploaded $ROM "
 ##############################################Push telegram message############################################################
-    FILENAME=$(find ${FOLDER}/aicp_lavender_p*.zip | cut -d "/" -f 5)
+    FILENAME=$(find ${TOOLROM}/aicp_lavender_p*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -460,19 +497,19 @@ function uploadrom() {
 			  echo "................................../"
               echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
-    FILENAME=$(find ${FOLDER}/AospExtended-v6*.zip | cut -d "/" -f 5)
+    FILENAME=$(find ${TOOLROM}/AospExtended-v6*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
 	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	
-              scp  ${FOLDER}/AospExtended-v6*.zip ${LINKUPL}/${ROM}/
+              scp  ${TOOLROM}/AospExtended-v6*.zip ${LINKUPL}/${ROM}/
 			  echo ""
 			  echo "..................................|"
               echo "Uploaded $ROM "
 ##############################################Push telegram message############################################################
-    FILENAME=$(find ${FOLDER}/AospExtended-v6*.zip | cut -d "/" -f 5)
+    FILENAME=$(find ${TOOLROM}/AospExtended-v6*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -485,19 +522,19 @@ function uploadrom() {
 			  echo "................................../"
               echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
-    FILENAME=$(find ${FOLDER}/aokp_lavender_pie*.zip | cut -d "/" -f 5)
+    FILENAME=$(find ${TOOLROM}/aokp_lavender_pie*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
 	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	
-              scp  ${FOLDER}/aokp_lavender_pie*.zip ${LINKUPL}/${ROM}/
+              scp  ${TOOLROM}/aokp_lavender_pie*.zip ${LINKUPL}/${ROM}/
 			  echo ""
 			  echo "..................................|"
               echo "Uploaded $ROM "
 ##############################################Push telegram message############################################################
-    FILENAME=$(find ${FOLDER}/aokp_lavender_pie*.zip | cut -d "/" -f 5)
+    FILENAME=$(find ${TOOLROM}/aokp_lavender_pie*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -510,19 +547,19 @@ function uploadrom() {
 			  echo "................................../"
               echo "Uploading $ROM "			
 ##############################################Push telegram message############################################################
-    FILENAME=$(find ${FOLDER}/AOSiP-9.0-Pizza*.zip | cut -d "/" -f 5)
+    FILENAME=$(find ${TOOLROM}/AOSiP-9.0-Pizza*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
 	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################				  
-              scp  ${FOLDER}/AOSiP-9.0-Pizza*.zip  ${LINKUPL}/${ROM}/
+              scp  ${TOOLROM}/AOSiP-9.0-Pizza*.zip  ${LINKUPL}/${ROM}/
 			  echo ""
 			  echo "..................................|"
               echo "Uploaded $ROM "
 ##############################################Push telegram message############################################################
-    FILENAME=$(find ${FOLDER}/AOSiP-9.0-Pizza*.zip | cut -d "/" -f 5)
+    FILENAME=$(find ${TOOLROM}/AOSiP-9.0-Pizza*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -535,19 +572,19 @@ function uploadrom() {
 			  echo "................................../"
               echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
-    FILENAME=$(find ${FOLDER}/Candy*.zip | cut -d "/" -f 5)
+    FILENAME=$(find ${TOOLROM}/Candy*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/${FILENAME}"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
 	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	
-              scp  ${FOLDER}/Candy*.zip ${LINKUPL}/${ROM}/
+              scp  ${TOOLROM}/Candy*.zip ${LINKUPL}/${ROM}/
 			  echo ""
 			  echo "..................................|"
               echo "Uploaded $ROM "
 ##############################################Push telegram message############################################################
-    FILENAME=$(find ${FOLDER}/Candy*.zip | cut -d "/" -f 5)
+    FILENAME=$(find ${TOOLROM}/Candy*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/${FILENAME}"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -561,19 +598,19 @@ function uploadrom() {
 			  echo "................................../"
               echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
-    FILENAME=$(find ${FOLDER}/CARBON*.zip | cut -d "/" -f 5)
+    FILENAME=$(find ${TOOLROM}/CARBON*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
 	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	
-              scp  ${FOLDER}/CARBON*.zip ${LINKUPL}/${ROM}/ 
+              scp  ${TOOLROM}/CARBON*.zip ${LINKUPL}/${ROM}/ 
 			  echo ""
 			  echo "..................................|"
               echo "Uploaded $ROM "
 ##############################################Push telegram message############################################################
-    FILENAME=$(find ${FOLDER}/CARBON*.zip | cut -d "/" -f 5)
+    FILENAME=$(find ${TOOLROM}/CARBON*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -585,19 +622,19 @@ function uploadrom() {
 			  echo "................................../"
               echo "Uploading $ROM "			
 ##############################################Push telegram message############################################################
-    FILENAME=$(find ${FOLDER}/ColtOS*.zip | cut -d "/" -f 5)
+    FILENAME=$(find ${TOOLROM}/ColtOS*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
 	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################				  
-              scp  ${FOLDER}/ColtOS*.zip  ${LINKUPL}/${ROM}/
+              scp  ${TOOLROM}/ColtOS*.zip  ${LINKUPL}/${ROM}/
 			  echo ""
 			  echo "..................................|"
               echo "Uploaded $ROM "
 ##############################################Push telegram message############################################################
-    FILENAME=$(find ${FOLDER}/ColtOS*.zip | cut -d "/" -f 5)
+    FILENAME=$(find ${TOOLROM}/ColtOS*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -610,19 +647,19 @@ function uploadrom() {
 			  echo "................................../"
               echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
-    FILENAME=$(find ${FOLDER}/Cosmic-OS-v4.0-Corona*.zip | cut -d "/" -f 5)
+    FILENAME=$(find ${TOOLROM}/Cosmic-OS-v4.0-Corona*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
 	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	
-              scp  ${FOLDER}/cosmic*.zip ${LINKUPL}/${ROM}/
+              scp  ${TOOLROM}/cosmic*.zip ${LINKUPL}/${ROM}/
 			  echo ""
 			  echo "..................................|"
               echo "Uploaded $ROM "
 ##############################################Push telegram message############################################################
-    FILENAME=$(find ${FOLDER}/Cosmic-OS-v4.0-Corona*.zip | cut -d "/" -f 5)
+    FILENAME=$(find ${TOOLROM}/Cosmic-OS-v4.0-Corona*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -635,19 +672,19 @@ function uploadrom() {
 			  echo "................................../"
               echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
-    FILENAME=$(find ${FOLDER}/COSP*.zip | cut -d "/" -f 5)
+    FILENAME=$(find ${TOOLROM}/COSP*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
 	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	
-              scp  ${FOLDER}/COSP*.zip ${LINKUPL}/${ROM}/
+              scp  ${TOOLROM}/COSP*.zip ${LINKUPL}/${ROM}/
 			  echo ""
 			  echo "..................................|"
               echo "Uploaded $ROM "
 ##############################################Push telegram message############################################################
-    FILENAME=$(find ${FOLDER}/COSP*.zip | cut -d "/" -f 5)
+    FILENAME=$(find ${TOOLROM}/COSP*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -660,19 +697,19 @@ function uploadrom() {
 			  echo "................................../"
               echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
-    FILENAME=$(find ${FOLDER}/crDroidAndroid-9*.zip | cut -d "/" -f 5)
+    FILENAME=$(find ${TOOLROM}/crDroidAndroid-9*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
 	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	
-              scp  ${FOLDER}/crDroidAndroid-9*.zip ${LINKUPL}/${ROM}/
+              scp  ${TOOLROM}/crDroidAndroid-9*.zip ${LINKUPL}/${ROM}/
 			  echo ""
 			  echo "..................................|"
               echo "Uploaded $ROM "
 ##############################################Push telegram message############################################################
-    FILENAME=$(find ${FOLDER}/crDroidAndroid-9*.zip | cut -d "/" -f 5)
+    FILENAME=$(find ${TOOLROM}/crDroidAndroid-9*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -685,19 +722,19 @@ function uploadrom() {
 			  echo "................................../"
               echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
-    FILENAME=$(find ${FOLDER}/AOSiP-9.0-DerpFest*.zip | cut -d "/" -f 5)
+    FILENAME=$(find ${TOOLROM}/AOSiP-9.0-DerpFest*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
 	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	
-              scp  ${FOLDER}/AOSiP-9.0-DerpFest*.zip  ${LINKUPL}/${ROM}/
+              scp  ${TOOLROM}/AOSiP-9.0-DerpFest*.zip  ${LINKUPL}/${ROM}/
 			  echo ""
 			  echo "..................................|"
               echo "Uploaded $ROM "
 ##############################################Push telegram message############################################################
-    FILENAME=$(find ${FOLDER}/AOSiP-9.0-DerpFest*.zip | cut -d "/" -f 5)
+    FILENAME=$(find ${TOOLROM}/AOSiP-9.0-DerpFest*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -710,19 +747,19 @@ function uploadrom() {
 			  echo "................................../"
               echo "Uploading $ROM "			
 ##############################################Push telegram message############################################################
-    FILENAME=$(find ${FOLDER}/dotOS-P*.zip | cut -d "/" -f 5)
+    FILENAME=$(find ${TOOLROM}/dotOS-P*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
 	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################				  
-              scp  ${FOLDER}/dotOS-P*.zip  ${LINKUPL}/${ROM}/
+              scp  ${TOOLROM}/dotOS-P*.zip  ${LINKUPL}/${ROM}/
 			  echo ""
 			  echo "..................................|"
               echo "Uploaded $ROM "
 ##############################################Push telegram message############################################################
-    FILENAME=$(find ${FOLDER}/dotOS-P*.zip | cut -d "/" -f 5)
+    FILENAME=$(find ${TOOLROM}/dotOS-P*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -736,19 +773,19 @@ function uploadrom() {
 			  echo "................................../"
               echo "Uploading $ROM "			
 ##############################################Push telegram message############################################################
-    FILENAME=$(find ${FOLDER}/Floko*.zip | cut -d "/" -f 5)
+    FILENAME=$(find ${TOOLROM}/Floko*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
 	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################				  
-              scp  ${FOLDER}/Floko*.zip  ${LINKUPL}/${ROM}/
+              scp  ${TOOLROM}/Floko*.zip  ${LINKUPL}/${ROM}/
 			  echo ""
 			  echo "..................................|"
               echo "Uploaded $ROM "
 ##############################################Push telegram message############################################################
-    FILENAME=$(find ${FOLDER}/Floko*.zip | cut -d "/" -f 5)
+    FILENAME=$(find ${TOOLROM}/Floko*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -761,19 +798,19 @@ function uploadrom() {
 			  echo "................................../"
               echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
-    FILENAME=$(find ${FOLDER}/Havoc*.zip | cut -d "/" -f 5)
+    FILENAME=$(find ${TOOLROM}/Havoc*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
 	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	
-              scp  ${FOLDER}/Havoc*.zip ${LINKUPL}/${ROM}/ 
+              scp  ${TOOLROM}/Havoc*.zip ${LINKUPL}/${ROM}/ 
 			  echo ""
 			  echo "..................................|"
               echo "Uploaded $ROM "
 ##############################################Push telegram message############################################################
-    FILENAME=$(find ${FOLDER}/Havoc*.zip | cut -d "/" -f 5)
+    FILENAME=$(find ${TOOLROM}/Havoc*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -787,19 +824,19 @@ function uploadrom() {
 			  echo "................................../"
               echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
-    FILENAME=$(find ${FOLDER}/ion*.zip | cut -d "/" -f 5)
+    FILENAME=$(find ${TOOLROM}/ion*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
 	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	
-              scp  ${FOLDER}/ion*.zip ${LINKUPL}/${ROM}/ 
+              scp  ${TOOLROM}/ion*.zip ${LINKUPL}/${ROM}/ 
 			  echo ""
 			  echo "..................................|"
               echo "Uploaded $ROM "
 ##############################################Push telegram message############################################################
-    FILENAME=$(find ${FOLDER}/ion*.zip | cut -d "/" -f 5)
+    FILENAME=$(find ${TOOLROM}/ion*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -813,19 +850,19 @@ function uploadrom() {
 			  echo "................................../"
               echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
-    FILENAME=$(find ${FOLDER}/lineage-16*.zip | cut -d "/" -f 5)
+    FILENAME=$(find ${TOOLROM}/lineage-16*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
 	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	
-              scp  ${FOLDER}/lineage-16*.zip ${LINKUPL}/${ROM}/
+              scp  ${TOOLROM}/lineage-16*.zip ${LINKUPL}/${ROM}/
 			  echo ""
 			  echo "..................................|"
               echo "Uploaded $ROM "
 ##############################################Push telegram message############################################################
-    FILENAME=$(find ${FOLDER}/lineage-16*.zip | cut -d "/" -f 5)
+    FILENAME=$(find ${TOOLROM}/lineage-16*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -838,19 +875,19 @@ function uploadrom() {
 			  echo "................................../"
               echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
-    FILENAME=$(find ${FOLDER}/Lo*.zip | cut -d "/" -f 5)
+    FILENAME=$(find ${TOOLROM}/Lo*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
 	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	
-              scp  ${FOLDER}/Lo*.zip ${LINKUPL}/${ROM}/
+              scp  ${TOOLROM}/Lo*.zip ${LINKUPL}/${ROM}/
 			  echo ""
 			  echo "..................................|"
               echo "Uploaded $ROM "
 ##############################################Push telegram message############################################################
-    FILENAME=$(find ${FOLDER}/Lo*.zip | cut -d "/" -f 5)
+    FILENAME=$(find ${TOOLROM}/Lo*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -863,19 +900,19 @@ function uploadrom() {
 			  echo "................................../"
               echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
-    FILENAME=$(find ${FOLDER}/Nitrogen*.zip | cut -d "/" -f 5)
+    FILENAME=$(find ${TOOLROM}/Nitrogen*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
 	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	
-              scp ${FOLDER}/Nitrogen*.zip  ${LINKUPL}/${ROM}/
+              scp ${TOOLROM}/Nitrogen*.zip  ${LINKUPL}/${ROM}/
 			  echo ""
 			  echo "..................................|"
               echo "Uploaded $ROM "
 ##############################################Push telegram message############################################################
-    FILENAME=$(find ${FOLDER}/Nitrogen*.zip | cut -d "/" -f 5)
+    FILENAME=$(find ${TOOLROM}/Nitrogen*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -887,20 +924,20 @@ function uploadrom() {
 			  echo "................................../"
               echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
-    FILENAME=$(find ${FOLDER}/RR-P-v7*.zip | cut -d "/" -f 5)
-	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
+    FILENAME=$(find ${TOOLROM}/RR-P-v7*.zip | cut -d "/" -f 5)
+	UPDATE_URL1="${LINKSOU}/ResuccrectionRemix/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
 	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	
-              scp  ${FOLDER}/RR-P-v7*.zip  ${LINKUPL}/${ROM}/
+              scp  ${TOOLROM}/RR-P-v7*.zip  ${LINKUPL}/${ROM}/
 			  echo ""
 			  echo "..................................|"
               echo "Uploaded $ROM "
 ##############################################Push telegram message############################################################
-    FILENAME=$(find ${FOLDER}/RR-P-v7*.zip | cut -d "/" -f 5)
-	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
+    FILENAME=$(find ${TOOLROM}/RR-P-v7*.zip | cut -d "/" -f 5)
+	UPDATE_URL1="${LINKSOU}/ResurrectionRemix/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
 	MESSAGE="Updated $ROM. Link:$UPDATE_URL1 Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
@@ -912,19 +949,19 @@ function uploadrom() {
 			  echo "................................../"
               echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
-    FILENAME=$(find ${FOLDER}/XenonHD*.zip | cut -d "/" -f 5)
+    FILENAME=$(find ${TOOLROM}/XenonHD*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
 	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	
-              scp  ${FOLDER}/XenonHD*.zip ${LINKUPL}/${ROM}/
+              scp  ${TOOLROM}/XenonHD*.zip ${LINKUPL}/${ROM}/
               echo ""
 			  echo "..................................|"
               echo "Uploaded $ROM "			  
 ##############################################Push telegram message############################################################
-    FILENAME=$(find ${FOLDER}/XenonHD*.zip | cut -d "/" -f 5)
+    FILENAME=$(find ${TOOLROM}/XenonHD*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -937,19 +974,19 @@ function uploadrom() {
 			  echo "................................../"
               echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
-    FILENAME=$(find ${FOLDER}/Xtended*.zip | cut -d "/" -f 5)
+    FILENAME=$(find ${TOOLROM}/Xtended*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
 	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	
-              scp  ${FOLDER}/Xtended*.zip ${LINKUPL}/${ROM}/
+              scp  ${TOOLROM}/Xtended*.zip ${LINKUPL}/${ROM}/
 			  echo ""
 			  echo "..................................|"
               echo "Uploaded $ROM "
 ##############################################Push telegram message############################################################
-    FILENAME=$(find ${FOLDER}/Xtended*.zip | cut -d "/" -f 5)
+    FILENAME=$(find ${TOOLROM}/Xtended*.zip | cut -d "/" -f 5)
 	UPDATE_URL1="${LINKSOU}/${ROM}/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -1015,7 +1052,7 @@ function romselect() {
 	
     if [ $SCRIPTROM = "aicp" ]; then
         ROM="Aicp"
-        ROMDIR="${HOME}/android/${ROM}"
+        ROMDIR="${SCRIPTFOLDER}/${ROM}"
         REPOLINK=$AICPLINK
 		echo ""
 		echo ".................................."
@@ -1026,7 +1063,7 @@ function romselect() {
 		
     elif [ $SCRIPTROM = "aex" ]; then
         ROM="Aex"
-        ROMDIR="${HOME}/android/${ROM}"
+        ROMDIR="${SCRIPTFOLDER}/${ROM}"
 		REPOLINK=$AEXLINK
 		echo ""
 		echo ".................................."
@@ -1036,7 +1073,7 @@ function romselect() {
                
 	elif [ $SCRIPTROM = "aokp" ]; then
 		ROM="Aokp"
-        ROMDIR="${HOME}/android/${ROM}"
+        ROMDIR="${SCRIPTFOLDER}/${ROM}"
 		REPOLINK=$AOKPLINK
 		echo ""
 		echo ".................................."
@@ -1045,7 +1082,7 @@ function romselect() {
 
 	elif [ $SCRIPTROM = "aosip" ]; then
 		ROM="Aosip"
-        ROMDIR="${HOME}/android/${ROM}"
+        ROMDIR="${SCRIPTFOLDER}/${ROM}"
 		REPOLINK=$AOSIPLINK
 		echo ""
 		echo ".................................."
@@ -1054,7 +1091,7 @@ function romselect() {
 		
 	elif [ $SCRIPTROM = "candy" ]; then
         ROM="Candy"
-        ROMDIR="${HOME}/android/${ROM}"
+        ROMDIR="${SCRIPTFOLDER}/${ROM}"
 		REPOLINK=$CANDYLINK
 		echo ""
 		echo ".................................."
@@ -1063,7 +1100,7 @@ function romselect() {
 
     elif [ $SCRIPTROM = "carbon" ]; then
         ROM="Carbon"
-        ROMDIR="${HOME}/android/${ROM}"
+        ROMDIR="${SCRIPTFOLDER}/${ROM}"
         REPOLINK=$CARBONLINK
 		echo ""
 		echo ".................................."
@@ -1072,7 +1109,7 @@ function romselect() {
 	
     elif [ $SCRIPTROM = "colt" ]; then
 		ROM="Colt"
-        ROMDIR="${HOME}/android/${ROM}"
+        ROMDIR="${SCRIPTFOLDER}/${ROM}"
 		REPOLINK=$COLTLINK
 		echo ""
 		echo ".................................."
@@ -1081,7 +1118,7 @@ function romselect() {
     
     elif [ $SCRIPTROM = "cosmic" ]; then
 		ROM="Cosmic"
-        ROMDIR="${HOME}/android/${ROM}"
+        ROMDIR="${SCRIPTFOLDER}/${ROM}"
         REPOLINK=$COSMICLINK
 		echo ""
 		echo ".................................."
@@ -1090,7 +1127,7 @@ function romselect() {
 
     elif [ $SCRIPTROM = "cosp" ]; then
 		ROM="Cosp"
-        ROMDIR="${HOME}/android/${ROM}"
+        ROMDIR="${SCRIPTFOLDER}/${ROM}"
 		REPOLINK=$CSPTLINK
 		echo ""
 		echo ".................................."
@@ -1099,7 +1136,7 @@ function romselect() {
    
 	elif [ $SCRIPTROM = "crdroid" ]; then
 		ROM="CrDroid"
-        ROMDIR="${HOME}/android/${ROM}"
+        ROMDIR="${SCRIPTFOLDER}/${ROM}"
 		REPOLINK=$CRDROIDLINK
 		echo ""
 		echo ".................................."
@@ -1108,7 +1145,7 @@ function romselect() {
 			
     elif [ $SCRIPTROM = "derpfest" ]; then
 		ROM="Derpfest"
-        ROMDIR="${HOME}/android/${ROM}"
+        ROMDIR="${SCRIPTFOLDER}/${ROM}"
 		REPOLINK=$DERPFESTLINK
 		echo ""
 		echo ".................................."
@@ -1117,7 +1154,7 @@ function romselect() {
 
     elif [ $SCRIPTROM = "dot" ]; then
 		ROM="Dot"
-        ROMDIR="${HOME}/android/${ROM}"
+        ROMDIR="${SCRIPTFOLDER}/${ROM}"
 		REPOLINK=$DOTLINK
 		echo ""
 		echo ".................................."
@@ -1127,7 +1164,7 @@ function romselect() {
 		
     elif [ $SCRIPTROM = "floko" ]; then
 		ROM="Floko"
-        ROMDIR="${HOME}/android/${ROM}"
+        ROMDIR="${SCRIPTFOLDER}/${ROM}"
 		REPOLINK=$FLOKOLINK
 		echo ""
 		echo ".................................."
@@ -1136,7 +1173,7 @@ function romselect() {
 	
 	elif [ $SCRIPTROM = "havoc" ]; then
 		ROM="Havoc"
-        ROMDIR="${HOME}/android/${ROM}"
+        ROMDIR="${SCRIPTFOLDER}/${ROM}"
 		REPOLINK=$HAVOCLINK
 		echo ""
 		echo ".................................."
@@ -1146,7 +1183,7 @@ function romselect() {
 
     elif [ $SCRIPTROM = "ion" ]; then
 		ROM="Ion"
-        ROMDIR="${HOME}/android/${ROM}"
+        ROMDIR="${SCRIPTFOLDER}/${ROM}"
 		REPOLINK=$IONINK
 		echo ""
 		echo ".................................."
@@ -1155,7 +1192,7 @@ function romselect() {
 		
     elif [ $SCRIPTROM = "lineage" ]; then
 		ROM="Lineage"
-        ROMDIR="${HOME}/android/${ROM}"
+        ROMDIR="${SCRIPTFOLDER}/${ROM}"
 		REPOLINK=$LINEAGELINK
 		echo ""
 		echo ".................................."
@@ -1164,7 +1201,7 @@ function romselect() {
 	
     elif [ $SCRIPTROM = "lotus" ]; then
 		ROM="Lotus"
-        ROMDIR="${HOME}/android/${ROM}"
+        ROMDIR="${SCRIPTFOLDER}/${ROM}"
 		REPOLINK=$LOTUSLINK
 		echo ""
 		echo ".................................."
@@ -1173,7 +1210,7 @@ function romselect() {
 
     elif [ $SCRIPTROM = "nitrogen" ]; then
 		ROM="Nitrogen"
-        ROMDIR="${HOME}/android/${ROM}"
+        ROMDIR="${SCRIPTFOLDER}/${ROM}"
 		REPOLINK=$NITROGENLINK
 		echo ""
 		echo ".................................."
@@ -1182,7 +1219,7 @@ function romselect() {
        
 	elif [ $SCRIPTROM = "rr" ]; then
 		ROM="RR"
-        ROMDIR="${HOME}/android/${ROM}"
+        ROMDIR="${SCRIPTFOLDER}/${ROM}"
 		REPOLINK=$RRLINK
 		echo ""
 		echo ".................................."
@@ -1191,7 +1228,7 @@ function romselect() {
 
 	elif [ $SCRIPTROM = "xenon" ]; then
 		ROM="Xenon"
-        ROMDIR="${HOME}/android/${ROM}"
+        ROMDIR="${SCRIPTFOLDER}/${ROM}"
 		REPOLINK=$XENONLINK
 		echo ""
 		echo ".................................."
@@ -1200,7 +1237,7 @@ function romselect() {
 
     elif [ $SCRIPTROM = "xtended" ]; then
         ROM="Xtended"
-        ROMDIR="${HOME}/android/${ROM}"
+        ROMDIR="${SCRIPTFOLDER}/${ROM}"
 		REPOLINK=$XTENDEDLINK
 		echo ""
 		echo ".................................."
@@ -1247,7 +1284,7 @@ MESSAGE="Start sync $ROM at $HOURS to $DATE with link Jenkins: $LINKJEN "
         telegrammsg
 ###########################################################################################################################
 		cd $ROMDIR	
-	    if [ $? -eq 0 ]; then
+	    if ping -c1 google.com &>/dev/null; then
        repo sync --force-sync --no-clone-bundle --no-tags -j4 
 		     echo ""
 			 echo ".............................|"
@@ -1334,7 +1371,7 @@ function buildrom() {
                      echo ""
 	                 echo "..................................|"
                      echo "Finished build $ROM"  
-		             cp  out/target/product/lavender/aicp_lavender_p*.zip ${FOLDER}
+		             cp  ${OUTF}/aicp_lavender_p*.zip ${TOOLROM}
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -1380,7 +1417,7 @@ function buildrom() {
                      echo ""
 	                 echo "..................................|"
                      echo "Finished build $ROM"  
-		              cp  out/target/product/lavender/AospExtended-v6*.zip ${FOLDER}
+		              cp  ${OUTF}/AospExtended-v6*.zip ${TOOLROM}
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -1422,7 +1459,7 @@ function buildrom() {
                      echo ""
 	                 echo "..................................|"
                      echo "Finished build $ROM"  
-		          cp  out/target/product/lavender/aokp_lavender_pie*.zip ${FOLDER}
+		          cp  ${OUTF}/aokp_lavender_pie*.zip ${TOOLROM}
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -1464,7 +1501,7 @@ function buildrom() {
                      echo ""
 	                 echo "..................................|"
                      echo "Finished build $ROM"  
-		             cp  out/target/product/lavender/AOSiP-9.0-Pizza*.zip  ${FOLDER}
+		             cp  ${OUTF}/AOSiP-9.0-Pizza*.zip  ${TOOLROM}
 					 
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
@@ -1505,7 +1542,7 @@ function buildrom() {
                      echo ""
 	                 echo "..................................|"
                      echo "Finished build $ROM"  
-		              cp  out/target/product/lavender/Candy*.zip ${FOLDER}
+		              cp  ${OUTF}/Candy*.zip ${TOOLROM}
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -1547,7 +1584,7 @@ function buildrom() {
                      echo ""
 	                 echo "..................................|"
                      echo "Finished build $ROM"  
-		              cp  out/target/product/lavender/CARBON*.zip ${FOLDER}
+		              cp  ${OUTF}/CARBON*.zip ${TOOLROM}
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -1589,7 +1626,7 @@ function buildrom() {
                      echo ""
 	                 echo "..................................|"
                      echo "Finished build $ROM"  
-		             cp  out/target/product/lavender/ColtOS*.zip  ${FOLDER}
+		             cp  ${OUTF}/ColtOS*.zip  ${TOOLROM}
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -1629,7 +1666,7 @@ function buildrom() {
                      echo ""
 	                 echo "..................................|"
                      echo "Finished build $ROM"  
-		          cp  out/target/product/lavender/Cosmic-OS-v4.0-Corona*.zip ${FOLDER}
+		          cp  ${OUTF}/Cosmic-OS-v4.0-Corona*.zip ${TOOLROM}
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -1670,7 +1707,7 @@ function buildrom() {
                      echo ""
 	                 echo "..................................|"
                      echo "Finished build $ROM"  
-		          cp  out/target/product/lavender/COSP*.zip ${FOLDER}
+		          cp  ${OUTF}/COSP*.zip ${TOOLROM}
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -1710,7 +1747,7 @@ function buildrom() {
                      echo ""
 	                 echo "..................................|"
                      echo "Finished build $ROM"  
-		          cp  out/target/product/lavender/crDroidAndroid-9*.zip ${FOLDER}
+		          cp  ${OUTF}/crDroidAndroid-9*.zip ${TOOLROM}
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -1751,7 +1788,7 @@ function buildrom() {
                      echo ""
 	                 echo "..................................|"
                      echo "Finished build $ROM"  
-		          cp  out/target/product/lavender/AOSiP-9.0-DerpFest*.zip  ${FOLDER}
+		          cp  ${OUTF}/AOSiP-9.0-DerpFest*.zip  ${TOOLROM}
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -1793,7 +1830,7 @@ function buildrom() {
                      echo ""
 	                 echo "..................................|"
                      echo "Finished build $ROM"  
-		             cp  out/target/product/lavender/dotOS-P*.zip  ${FOLDER}
+		             cp  ${OUTF}/dotOS-P*.zip  ${TOOLROM}
 					 
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
@@ -1835,7 +1872,7 @@ function buildrom() {
                      echo ""
 	                 echo "..................................|"
                      echo "Finished build $ROM"  
-		             cp  out/target/product/lavender/Floko*.zip   ${FOLDER}
+		             cp  ${OUTF}/Floko*.zip   ${TOOLROM}
 					 
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
@@ -1875,7 +1912,7 @@ function buildrom() {
                      echo ""
 	                 echo "..................................|"
                      echo "Finished build $ROM"  
-		              cp  out/target/product/lavender/Havoc*.zip ${FOLDER}
+		              cp  ${OUTF}/Havoc*.zip ${TOOLROM}
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -1916,7 +1953,7 @@ function buildrom() {
                       echo ""
 	                 echo "..................................|"
                      echo "Finished build $ROM"  
-		              cp  out/target/product/lavender/ion*.zip ${FOLDER}
+		              cp  ${OUTF}/ion*.zip ${TOOLROM}
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -1957,7 +1994,7 @@ function buildrom() {
                       echo ""
 	                 echo "..................................|"
                      echo "Finished build $ROM"  
-		              cp  out/target/product/lavender/lineage-16*.zip ${FOLDER}
+		              cp  ${OUTF}/lineage-16*.zip ${TOOLROM}
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -1997,7 +2034,7 @@ function buildrom() {
                   echo ""
 	                 echo "..................................|"
                      echo "Finished build $ROM"  
-		          cp  out/target/product/lavender/Lo*.zip ${FOLDER}
+		          cp  ${OUTF}/Lo*.zip ${TOOLROM}
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -2038,7 +2075,7 @@ function buildrom() {
                   echo ""
 	                 echo "..................................|"
                      echo "Finished build $ROM"  
-		          cp  out/target/product/lavender/Nitrogen*.zip  ${FOLDER}
+		          cp  ${OUTF}/Nitrogen*.zip  ${TOOLROM}
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -2077,7 +2114,7 @@ function buildrom() {
                      echo ""
 	                 echo "..................................|"
                      echo "Finished build $ROM"  
-		          cp  out/target/product/lavender/RR-P-v7*.zip ${FOLDER}
+		          cp  ${OUTF}/RR-P-v7*.zip ${TOOLROM}
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -2116,7 +2153,7 @@ function buildrom() {
                      echo ""
 	                 echo "..................................|"
                      echo "Finished build $ROM"  
-		          cp  out/target/product/lavender/XenonHD*.zip ${FOLDER}
+		          cp  ${OUTF}/XenonHD*.zip ${TOOLROM}
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -2156,7 +2193,7 @@ function buildrom() {
                      echo ""
 	                 echo "..................................|"
                      echo "Finished build $ROM"  
-		              cp  out/target/product/lavender/Xtended*.zip ${FOLDER}
+		              cp  ${OUTF}/Xtended*.zip ${TOOLROM}
 ##############################################Push telegram message####################################################
     DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
@@ -2213,7 +2250,7 @@ echo " *********************************"
 echo ""		
 echo ""
 
-
+    start
     romselect
     syncrom
 	buildrom
