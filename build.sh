@@ -926,13 +926,13 @@ function uploadrom() {
               echo "Uploading $ROM "
 ##############################################Push telegram message############################################################
     FILENAME=$(find ${TOOLROM}/RR-P-v7*.zip | cut -d "/" -f 5)
-	UPDATE_URL1="${LINKSOU}/ResuccrectionRemix/$FILENAME"
+	UPDATE_URL1="${LINKSOU}/ResurrectionRemix/$FILENAME"
 	DATE=$(date '+%d/%m/%Y')
     HOURS=$(date '+%H:%M min')
 	MESSAGE="Updating $ROM. Date: $DATE at $HOURS link to Jenkins: $LINKJEN "
 	         telegrammsg
 ###############################################################################################################################	
-              scp  ${TOOLROM}/RR-P-v7*.zip  ${LINKUPL}/${ROM}/
+              scp  ${TOOLROM}/RR-P-v7*.zip  ${LINKUPL}/ResurrectionRemix/
 			  echo ""
 			  echo "..................................|"
               echo "Uploaded $ROM "
