@@ -1,4 +1,4 @@
-Script Build
+Jenkins Script Build
 ======
  
 
@@ -27,6 +27,7 @@ Script Build
 **//** [Aex](https://github.com/AospExtended/manifest/tree/9.x) 
 **//** [Aokp](https://github.com/AOKP/platform_manifest) 
 **//** [Aosip](https://github.com/AOSiP/platform_manifest/tree/pie) 
+**//** [Arrow](https://github.com/ArrowOS/android_manifest/tree/arrow-9.x) 
 **//** [Candy](https://github.com/CandyRoms/candy/tree/c9.0) 
 **//** [Carbon](https://github.com/CarbonROM/android/tree/cr-7.0) 
 **//** [Colt](https://github.com/Colt-Enigma/platform_manifest/tree/wip)
@@ -67,7 +68,7 @@ Script Build
 [lineage] Lineage
 [lotus] Lotus
 [nitrogen] Nitrogen
-[rr] RR
+[rr] Resurrection Remix
 [xenon] Xenon HD
 [xtended] Xtended
 
