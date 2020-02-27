@@ -55,9 +55,11 @@ Script Build
 [aex] Aex
 [aokp] AOKP
 [aosip] Aosip
+[arrow] Arrow
 [candy] Candy
 [carbon] Carbon
 [colt] Colt
+[corvus] Corvus
 [cosmic] Cosmic
 [cosp] COSP
 [crdroid] CrDroid
